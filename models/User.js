@@ -1,10 +1,10 @@
-const { Playlist, Song } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class User extends Playlist {
-  checkPassword(loginPW) {
-    return bcrypy.compareSync(loginPW, this.password);
-  }
+class User extends Model {
+  // checkPassword(loginPW) {
+  //   return bcrypy.compareSync(loginPW, this.password);
+  // }
 }
 
 User.init(
@@ -29,16 +29,19 @@ User.init(
     },
   },
   {
-    hooks: {
-      beforeCreate: async (newUserData) => {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
-      },
-      beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-      },
-    },
-    sequelize, 
+    // hooks: {
+    //   beforeCreate: async (newUserData) => {
+    //     newUserData.password = await bcrypt.hash(newUserData.password, 10);
+    //     return newUserData;
+    //   },
+    //   beforeUpdate: async (updatedUserData) => {
+    //     updatedUserData.password = await bcrypt.hash(
+    //       updatedUserData.password,
+    //       10
+    //     );
+    //   },
+    // },
+    sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
