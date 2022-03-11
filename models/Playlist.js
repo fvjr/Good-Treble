@@ -1,10 +1,7 @@
-const { Model, Song } = require('sequelize');
-const bcrypt = require('bcrypt');
+const { Model, Datatypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Playlist extends Model {
-
-}
+class Playlist extends Model {}
 
 Playlist.init(
   {
