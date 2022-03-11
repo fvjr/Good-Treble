@@ -1,4 +1,4 @@
-const { Playlist, Song } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class User extends Playlist {
