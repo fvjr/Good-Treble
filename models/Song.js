@@ -1,10 +1,8 @@
-const { Playlist, Song } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class Song {
-
-}
+class Song extends Model {}
 
 Song.init(
   {
@@ -31,10 +29,13 @@ Song.init(
         return newSongData;
       },
       beforeUpdate: async (updatedSongData) => {
-        updatedSongData.password = await bcrypt.hash(updatedSongData.password, 10);
+        updatedSongData.password = await bcrypt.hash(
+          updatedSongData.password,
+          10
+        );
       },
     },
-    sequelize, 
+    sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
