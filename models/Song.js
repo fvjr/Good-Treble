@@ -21,20 +21,15 @@ Song.init(
       allowNull: false,
       unique: false,
     },
-  },
-  {
-    hooks: {
-      beforeCreate: async (newSongData) => {
-        newSongData.password = await bcrypt.hash(newSongData.password, 10);
-        return newSongData;
-      },
-      beforeUpdate: async (updatedSongData) => {
-        updatedSongData.password = await bcrypt.hash(
-          updatedSongData.password,
-          10
-        );
+    playlist_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'playlist',
+        key: 'id',
       },
     },
+  },
+  {
     sequelize,
     timestamps: false,
     freezeTableName: true,
