@@ -9,12 +9,12 @@
       {{/if}}
 </nav>
 
-{{#each playlists as |playlist|}}
+{{#each events as |event|}}
   <div class='row mb-4 project'>
     <div class='col-md-5'>
       <h2>
         <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-        <h1>{{playlist.id}}:{{playlist.title}}</h1>
+        <h1>{{event.id}}:{{event.name}}:{{event.description}}{{event.artist_id}}</h1>
       <p>Created by </p>
     </div>
     <div>

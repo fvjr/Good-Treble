@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { Playlist, User } = require('../models');
+const { Playlist, User, Event } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
-    const playlistsData = await Playlist.findAll({
+    const eventsData = await Event.findAll({
       include: [
         {
           model: User,
@@ -16,16 +16,14 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    const playlists = playlistsData.map((playlists) =>
-      playlists.get({ plain: true })
-    );
+    const events = eventsData.map((events) => events.get({ plain: true }));
 
     res.render('homepage', {
-      playlists,
+      events,
       //keeps track of user being logged in
       // logged_in: req.session.logged_in,
     });
-    // res.status(200).json(playlistsData);
+    // res.status(200).json(eventsData);
   } catch (err) {
     res.status(500).json(err);
   }
