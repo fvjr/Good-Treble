@@ -22,6 +22,13 @@ Playlist.init(
         key: 'id',
       },
     },
+    // song_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'song',
+    //     key: 'id',
+    //   },
+    // },
   },
   {
     sequelize,
