@@ -56,7 +56,3 @@ app.get('/authorize', async (req, res) => {
 app.get('/authorize', (req, res) => {
   res.sendStatus(200);
 });
-
-app.listen(PORT, () =>
-  console.log(`App listening at http://localhost:${PORT} 🚀`)
-);
