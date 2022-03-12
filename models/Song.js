@@ -16,13 +16,13 @@ Song.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    artist: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'artist',
-        key: 'id',
-      },
-    },
+    // artist: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'artist',
+    //     key: 'id',
+    //   },
+    // },
     playlist_id: {
       type: DataTypes.INTEGER,
       references: {
