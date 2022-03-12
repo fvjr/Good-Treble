@@ -7,22 +7,22 @@ class Song extends Model {}
 Song.init(
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(512),
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: false,
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // artist: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: 'artist',
-    //     key: 'id',
-    //   },
-    // },
+    artist: {
+      type: DataTypes.STRING(512),
+      references: {
+        model: 'artist',
+        key: 'id',
+      },
+    },
     playlist_id: {
       type: DataTypes.INTEGER,
       references: {

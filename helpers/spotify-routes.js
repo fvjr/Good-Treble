@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const spotify = require('./helpers/spotify');
+const spotify = require('./spotify');
 const querystring = require('querystring');
 const url = require('url');
 const fetch = require('node-fetch');
@@ -11,7 +11,7 @@ const PORT = 3001;
 app.use('/login', (req, res, next) => {
   console.log('Attempting to log in');
   var client_id = '0939bba83f154b66900eaa7a37431b3c';
-  var redirect_uri = 'http://localhost:3001/authorize';
+  var redirect_uri = 'http://localhost:3001/spotify/authorize';
 
   var state = '123456';
   var scope = 'user-library-read';
@@ -35,7 +35,7 @@ app.get('/authorize', async (req, res) => {
 
   const params = new URLSearchParams();
   params.append('code', code);
-  params.append('redirect_uri', 'http://localhost:3001/authorize');
+  params.append('redirect_uri', 'http://localhost:3001/spotify/authorize');
   params.append('grant_type', 'authorization_code');
 
   const newToken = await fetch('https://accounts.spotify.com/api/token', {
@@ -49,10 +49,12 @@ app.get('/authorize', async (req, res) => {
   const parsedTokenJSON = await newToken.json();
   const parsedToken = parsedTokenJSON.access_token;
   spotify.setToken(parsedToken);
-  console.log(await spotify.retrieveFavorites(100));
+  spotify.retrieveFavorites(100);
   console.log("logged in: " + parsedToken);
 });
 
 app.get('/authorize', (req, res) => {
   res.sendStatus(200);
 });
+
+module.exports = app;
