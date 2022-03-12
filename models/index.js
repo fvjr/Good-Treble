@@ -3,6 +3,7 @@ const Playlist = require('./Playlist');
 const Song = require('./Song');
 const Event = require('./Event');
 const Artist = require('./Artist');
+const PlaylistSongs = require('./PlaylistSongs');
 
 //user can have multiple playlists
 User.hasMany(Playlist, {
