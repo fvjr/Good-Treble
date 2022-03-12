@@ -1,0 +1,29 @@
+<nav class="nav">
+  <a class="nav-link" href="/">Homepage</a>
+  <a class="nav-link" href="/dashboard">Dashboard</a>
+      {{#if logged_in}}
+      <a class="nav-link" href="#">Logout</a>"
+        <button class='no-button' id='logout'>logout</button>
+      {{else}}
+        <a class="nav-link" href='/login'>Login</a>
+      {{/if}}
+</nav>
+
+{{#each events as |event|}}
+  <div class='row mb-4 project'>
+    <div class='col-md-5'>
+      <h2>
+        <!-- Call helper function with triple brackets to render the emoji span as HTML -->
+        <h1>{{event.id}}:{{event.name}}:{{event.description}}{{event.artist_id}}</h1>
+      <p>Created by </p>
+    </div>
+    <div>
+    </div>
+    <div class='col-md-7'>
+      <p>
+
+      </p>
+    </div>
+  </div>
+
+{{/each}}
