@@ -18,7 +18,7 @@ app.get('/', (req, res) => res.sendStatus(200));
 app.use('/login', (req, res, next) => {
   console.log('Attempting to log in');
   var client_id = '0939bba83f154b66900eaa7a37431b3c';
-  var redirect_uri = 'https://spotify-upenn-test.herokuapp.com/authorize';
+  var redirect_uri = 'http://localhost:3001/authorize';
 
   var state = '123456';
   var scope = 'user-library-read';
@@ -39,34 +39,25 @@ app.use('/login', (req, res, next) => {
 app.get('/authorize', async (req, res) => {
   var code = req.query.code || null;
   var state = req.query.state || null;
-  console.log(code);
 
-  let credentials = {
-    'code': code,
-    'redirect_uri': 'https://spotify-upenn-test.herokuapp.com/',
-    'grant_type': 'authorization_code'
-  }
-
-  let formBody = [];
-  for (var entry in credentials){
-    let encodedKey = encodeURIComponent(entry);
-    let encodedValue = encodeURIComponent(credentials[entry]);
-    formBody.push(encodedKey + '=' + encodedValue);
-  }
-  formBody = formBody.join("&");
-
-  console.log(formBody);
+  const params = new URLSearchParams();
+  params.append('code', code);
+  params.append('redirect_uri', 'http://localhost:3001/authorize');
+  params.append('grant_type', 'authorization_code');
 
   const newToken = await fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
     headers: {
-      Authorization: 'Basic ' + (new Buffer(process.env.CLIENT_ID + ':' + process.env.CLIENT_SECRET).toString('base64')),
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Authorization': 'Basic ' + (new Buffer(process.env.CLIENT_ID + ':' + process.env.CLIENT_SECRET).toString('base64'))
     },
-    body: formBody,
+    body: params,
     json: true
   });
-  console.log(newToken);
+  const parsedTokenJSON = await newToken.json();
+  const parsedToken = parsedTokenJSON.access_token;
+  spotify.setToken(parsedToken);
+  console.log(await spotify.retrieveFavorites(100));
+  console.log("logged in: " + parsedToken);
 });
 
 app.get('/authorize', (req, res) => {

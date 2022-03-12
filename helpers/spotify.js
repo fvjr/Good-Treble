@@ -3,7 +3,7 @@ const express = require('express');
 //let input = require('./input.json');
 //const maxVal = 800;
 let oauthToken =
-  'BQB2USEXeEyPhK96w_4LIPrEPM7r79y1HnAXO8rB763V3cmGJ1b7tdjs2fFmHjPQVv71F0NZthfjzueXH7DpktZpOqxsiBuU0P_C2-dl22wGRZRRaN1CtoNk1KhtbyFlZknajWqNPkKjyFZK4ArLUouigVa_RLUnNDJ5yhRVKopj0mT3-b6DWSlInbHRohyq-qQ';
+  '';
 const trackArray = new Array();
 
 //Sets the oauth Token
