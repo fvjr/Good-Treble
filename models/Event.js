@@ -28,10 +28,22 @@ Event.init(
       allowNull: false,
       defaultValue: 1,
     },
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
+        key: 'id',
+      },
+    },
+    artist_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'artist',
         key: 'id',
       },
     },
@@ -41,7 +53,7 @@ Event.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Event',
+    modelName: 'event',
   }
 );
 
