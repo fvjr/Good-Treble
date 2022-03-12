@@ -1,11 +1,13 @@
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
+const express = require('express');
 //let input = require('./input.json');
 //const maxVal = 800;
-let oauthToken = "BQB2USEXeEyPhK96w_4LIPrEPM7r79y1HnAXO8rB763V3cmGJ1b7tdjs2fFmHjPQVv71F0NZthfjzueXH7DpktZpOqxsiBuU0P_C2-dl22wGRZRRaN1CtoNk1KhtbyFlZknajWqNPkKjyFZK4ArLUouigVa_RLUnNDJ5yhRVKopj0mT3-b6DWSlInbHRohyq-qQ"
+let oauthToken =
+  'BQB2USEXeEyPhK96w_4LIPrEPM7r79y1HnAXO8rB763V3cmGJ1b7tdjs2fFmHjPQVv71F0NZthfjzueXH7DpktZpOqxsiBuU0P_C2-dl22wGRZRRaN1CtoNk1KhtbyFlZknajWqNPkKjyFZK4ArLUouigVa_RLUnNDJ5yhRVKopj0mT3-b6DWSlInbHRohyq-qQ';
 const trackArray = new Array();
 
 //Sets the oauth Token
-function setToken(token){
+function setToken(token) {
   oauthToken = token;
 }
 
@@ -24,10 +26,9 @@ async function getData(index) {
   const res = await fetch(
     `https://api.spotify.com/v1/me/tracks?offset=${index}&limit=50`,
     {
-      method: "GET",
+      method: 'GET',
       headers: {
-        Authorization:
-          `Bearer ${oauthToken}`,
+        Authorization: `Bearer ${oauthToken}`,
       },
     }
   );
@@ -39,8 +40,13 @@ async function getData(index) {
 async function parseData(tracks) {
   const resTracks = await tracks;
   resTracks.items.forEach((listing) =>
-    trackArray.push(listing.track.name + " by " + listing.track.artists[0].name)
+    trackArray.push(listing.track.name + ' by ' + listing.track.artists[0].name)
   );
 }
 
+function login() {
+}
+
 exports.retrieveFavorites = retrieveFavorites;
+exports.setToken = setToken;
+exports.login = login;
