@@ -1,6 +1,1 @@
-[
-  {
-    "name": "artist1",
-    "description": "show"
-  }
-]
+[{ "id": 1, "name": "artist1" }]

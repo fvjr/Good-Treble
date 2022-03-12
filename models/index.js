@@ -33,6 +33,11 @@ Event.belongsTo(User, {
 
 Artist.hasMany(Event, {
   foreignKey: 'artist_id',
+  onDelete: 'CASCADE',
+});
+
+Event.belongsTo(Artist, {
+  foreignKey: 'artist_id',
 });
 
 module.exports = { User, Playlist, Song, Event, Artist };

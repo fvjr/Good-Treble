@@ -1,8 +1,10 @@
 const sequelize = require('../config/connection');
-const { User, Event } = require('../models');
+const { User, Event, Song, Artist } = require('../models');
 
 const eventData = require('./eventData.json');
 const userData = require('./userData.json');
+const artistData = require('./artistData.json');
+const songData = require('./songData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -12,12 +14,14 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const event of eventData) {
-    await Event.create({
-      ...event,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
+  const artists = await Artist.bulkCreate(artistData, {
+    individualHooks: true,
+    returning: true,
+  });
+  const events = await Event.bulkCreate(eventData, {
+    individualHooks: true,
+    returning: true,
+  });
 
   process.exit(0);
 };
