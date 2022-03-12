@@ -41,16 +41,20 @@ app.get('/authorize', async (req, res) => {
   const newToken = await fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
     headers: {
-      'Authorization': 'Basic ' + (new Buffer(process.env.CLIENT_ID + ':' + process.env.CLIENT_SECRET).toString('base64'))
+      Authorization:
+        'Basic ' +
+        new Buffer(
+          process.env.CLIENT_ID + ':' + process.env.CLIENT_SECRET
+        ).toString('base64'),
     },
     body: params,
-    json: true
+    json: true,
   });
   const parsedTokenJSON = await newToken.json();
   const parsedToken = parsedTokenJSON.access_token;
   spotify.setToken(parsedToken);
   console.log(await spotify.retrieveFavorites(100));
-  console.log("logged in: " + parsedToken);
+  console.log('logged in: ' + parsedToken);
 });
 
 app.get('/authorize', (req, res) => {
