@@ -19,13 +19,14 @@
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
-    "node-fetch": "^3.2.2",
+    "node-fetch": "2.0",
     "nodemon": "^2.0.15",
+    "querystring": "^0.2.1",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
-    "prettier": "^2.1.2"
+    "prettier": "^2.5.1"
   }
 }
