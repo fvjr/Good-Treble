@@ -41,7 +41,7 @@ Event.init(
       },
     },
     artist_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(512),
       references: {
         model: 'artist',
         key: 'id',
