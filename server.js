@@ -18,7 +18,7 @@ app.get('/', (req, res) => res.sendStatus(200));
 app.use('/login', (req, res, next) => {
   console.log('Attempting to log in');
   var client_id = '0939bba83f154b66900eaa7a37431b3c';
-  var redirect_uri = 'http://localhost:3001/authorize';
+  var redirect_uri = 'https://spotify-upenn-test.herokuapp.com/authorize';
 
   var state = '123456';
   var scope = 'user-library-read';
@@ -43,7 +43,7 @@ app.get('/authorize', async (req, res) => {
 
   let credentials = {
     'code': code,
-    'redirect_uri': 'https://localhost:3001/',
+    'redirect_uri': 'https://spotify-upenn-test.herokuapp.com/',
     'grant_type': 'authorization_code'
   }
 
