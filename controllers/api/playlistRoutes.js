@@ -17,6 +17,7 @@ const { Playlist } = require('../../models');
 //     res.status(200).json(playlistData);
 //   } catch (err) {
 //     res.status(500).json(err);
+//     res.status(500).json(err);
 //   }
 // });
 
