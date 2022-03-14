@@ -16,7 +16,7 @@ Song.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    artist: {
+    artist_id: {
       type: DataTypes.STRING(512),
       references: {
         model: 'artist',
