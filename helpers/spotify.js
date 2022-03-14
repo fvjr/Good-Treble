@@ -57,7 +57,7 @@ async function writeSongToDatabase(ArtistID, ArtistName, SongID, SongName){
   const findArtist = await Artist.findOrCreate({
     where: { id: ArtistID, name: ArtistName }});
   const findSong = await Song.findOrCreate({
-    where: { id: SongID, name: SongName, artist: ArtistID }});
+    where: { id: SongID, name: SongName, artist_ID: ArtistID }});
 }
 
 exports.retrieveFavorites = retrieveFavorites;
