@@ -4,8 +4,7 @@ const Song = require('../models/Song');
 const Artist = require('../models/Artist');
 //let input = require('./input.json');
 //const maxVal = 800;
-let oauthToken =
-  '';
+let oauthToken = '';
 const trackArray = new Array();
 
 //Sets the oauth Token
@@ -15,7 +14,7 @@ function setToken(token) {
 
 /**
  * Handles retrieving favorite songs from spotify. Requires setToken to be invoked first.
- * @param {int} maxVal how many songs to return 
+ * @param {int} maxVal how many songs to return
  * @returns Array:String of favorite songs in format "{nameOfSong} by {nameOfFirstArtist}""
  */
 async function retrieveFavorites(maxVal) {
@@ -47,17 +46,24 @@ async function parseData(tracks) {
   const resTracks = await tracks;
   resTracks.items.forEach((listing) =>
     //trackArray.push(listing.track.name + ' by ' + listing.track.artists[0].name)
-    writeSongToDatabase(listing.track.artists[0].id, listing.track.artists[0].name, listing.track.id, listing.track.name)
+    writeSongToDatabase(
+      listing.track.artists[0].id,
+      listing.track.artists[0].name,
+      listing.track.id,
+      listing.track.name
+    )
   );
 }
 
 //Function actually writes songs/artists to database
 //TODO: Include playlist/song lookup table in queries
-async function writeSongToDatabase(ArtistID, ArtistName, SongID, SongName){
+async function writeSongToDatabase(ArtistID, ArtistName, SongID, SongName) {
   const findArtist = await Artist.findOrCreate({
-    where: { id: ArtistID, name: ArtistName }});
+    where: { id: ArtistID, name: ArtistName },
+  });
   const findSong = await Song.findOrCreate({
-    where: { id: SongID, name: SongName, artist: ArtistID }});
+    where: { id: SongID, name: SongName, artist_id: ArtistID },
+  });
 }
 
 exports.retrieveFavorites = retrieveFavorites;
