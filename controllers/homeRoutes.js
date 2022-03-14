@@ -22,7 +22,7 @@ router.get('/', withAuth, async (req, res) => {
     res.render('homepage', {
       events,
       //keeps track of user being logged in
-      // logged_in: req.session.logged_in,
+      logged_in: req.session.logged_in,
     });
     // res.status(200).json(eventsData);
   } catch (err) {

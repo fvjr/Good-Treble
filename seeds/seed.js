@@ -19,12 +19,23 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
-  const events = await Event.bulkCreate(eventData, {
+  // const events = await Event.bulkCreate(eventData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
+
+  for (const event of eventData) {
+    await Event.create({
+      ...event,
+    });
+  }
+
+  const playlists = await Playlist.bulkCreate(playlistData, {
     individualHooks: true,
     returning: true,
   });
 
-  const playlists = await Playlist.bulkCreate(playlistData, {
+  const songs = await Playlist.bulkCreate(songData, {
     individualHooks: true,
     returning: true,
   });
