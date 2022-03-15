@@ -1,3 +1,5 @@
+//import email
+
 const signupFormHandler = async (event) => {
   event.preventDefault();
 

@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Playlist, User, Event } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/events', withAuth, async (req, res) => {
   try {
     const eventsData = await Event.findAll({
       include: [
@@ -19,7 +19,7 @@ router.get('/', withAuth, async (req, res) => {
 
     const events = eventsData.map((events) => events.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render('events', {
       events,
       //keeps track of user being logged in
       logged_in: req.session.logged_in,
