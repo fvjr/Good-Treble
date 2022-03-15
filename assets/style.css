@@ -161,16 +161,19 @@ input {
   box-shadow: 0 0 7px var(--retro-yellow), 0 0 9px var(--headlight-white);
 }
 
+.nav-link {
+  visibility: visible;
+}
 
 .navbar-nav {
-    visibility: hidden;
-    justify-content: center;
-    align-content: center;       
+  visibility: hidden;
+  justify-content: center;
+  align-content: center;       
 }
 
 .navbar-logo {
-    justify-content: center;
-    align-content: center;   
+  justify-content: center;
+  align-content: center;   
 }
 
 .container {
@@ -320,6 +323,11 @@ input {
   width: 40px;
 }
 
+.log-out {
+  justify-content: center;
+  align-content: center;
+}
+
 footer {
   background: var(--sunset-orange);
   color: var(--neon-violet);
@@ -333,7 +341,7 @@ footer {
 }
 
 footer p {
-  margin: 10px 0;
+  margin: 10px 0 ;
 }
 
 footer i {

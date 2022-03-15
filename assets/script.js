@@ -1,7 +1,7 @@
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
-const navBarElements = document.querySelectorAll('.navbar-nav');
+const navBarElements = document.querySelectorAll('.nav-link');
 let userSignedIn = false;
 
 // if the user is signed in they navbar one 
@@ -14,14 +14,19 @@ function signInNavBar (bool) {
       if (bool) {
         currentNavBar.setAttribute("style", "visibility: visible"); 
         console.log("User logged in.");
-       } else if (currentNavBar.textContent === "Events" || currentNavBar.textContent === "Why GT") {
-        currentNavBar.setAttribute("style", "visibility: visible"); 
-        console.log("Not logged in.");
-       } else {
-        currentNavBar.setAttribute("style", "visibility: hidden"); 
-        console.log("Not logged in.");
-       }   
-  } 
+       } else if (!bool) {
+          if (i === 0) {
+          currentNavBar.textContent = "Events"; 
+          currentNavBar.setAttribute("style", "visibility: visible"); 
+          } if (i === 4) {
+          currentNavBar.textContent = "Why GT"; 
+          currentNavBar.setAttribute("style", "visibility: visible");     
+          } else {
+          currentNavBar.setAttribute("style", "visibility: hidden"); 
+          console.log("Not logged in.");
+          }   
+      }
+    } 
 }     
 
 signUpButton.addEventListener('click', () => {

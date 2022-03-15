@@ -4,8 +4,7 @@ const Song = require('../models/Song');
 const Artist = require('../models/Artist');
 //let input = require('./input.json');
 //const maxVal = 800;
-let oauthToken =
-  '';
+let oauthToken = '';
 const trackArray = new Array();
 
 //Sets the oauth Token
@@ -47,7 +46,11 @@ async function parseData(tracks) {
   const resTracks = await tracks;
   resTracks.items.forEach((listing) =>
     //trackArray.push(listing.track.name + ' by ' + listing.track.artists[0].name)
-    writeSongToDatabase(listing.track.artists[0].id, listing.track.artists[0].name, listing.track.id, listing.track.name)
+    writeSongToDatabase(
+      listing.track.artists[0].id,
+      listing.track.artists[0].name,
+      listing.track.id,
+      listing.track.name)
   );
 }
 
@@ -55,9 +58,11 @@ async function parseData(tracks) {
 //TODO: Include playlist/song lookup table in queries
 async function writeSongToDatabase(ArtistID, ArtistName, SongID, SongName){
   const findArtist = await Artist.findOrCreate({
-    where: { id: ArtistID, name: ArtistName }});
+    where: { id: ArtistID, name: ArtistName }
+  });
   const findSong = await Song.findOrCreate({
-    where: { id: SongID, name: SongName, artist_ID: ArtistID }});
+    where: { id: SongID, name: SongName, artist_id: ArtistID }
+  });
 }
 
 exports.retrieveFavorites = retrieveFavorites;
