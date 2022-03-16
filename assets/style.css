@@ -37,11 +37,14 @@ body {
   margin: -20px 0 50px;
 }
 
+<<<<<<< HEAD
 navbar {
   justify-content: center;
   align-content: center;
 }
 
+=======
+>>>>>>> 58900a4 (nav bar updates)
 h1 {
   font-family: 'Baloo 2', cursive;
   font-size: 3em;
@@ -156,6 +159,18 @@ input {
   margin: 8px 0;
   width: 100%;
   box-shadow: 0 0 7px var(--retro-yellow), 0 0 9px var(--headlight-white);
+}
+
+
+.navbar-nav {
+    visibility: hidden;
+    justify-content: center;
+    align-content: center;       
+}
+
+.navbar-logo {
+    justify-content: center;
+    align-content: center;   
 }
 
 .container {
