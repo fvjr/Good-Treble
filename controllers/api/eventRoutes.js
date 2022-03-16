@@ -15,7 +15,7 @@ const withAuth = require('../../utils/auth');
 //   }
 // });
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const eventData = await Event.findAll();
 

@@ -58,14 +58,13 @@ async function parseData(tracks) {
 //Function actually writes songs/artists to database
 //TODO: Include playlist/song lookup table in queries
 async function writeSongToDatabase(ArtistID, ArtistName, SongID, SongName) {
-  const findArtist = await Artist.findOrCreate({
-  });
-  const findSong = await Song.findOrCreate({
-    where: { id: SongID, name: SongName, artist_id: ArtistID }
-  });
+  const findArtist = await Artist.findOrCreate({});
   const findSong = await Song.findOrCreate({
     where: { id: SongID, name: SongName, artist_id: ArtistID },
   });
+  // const findSong = await Song.findOrCreate({
+  //   where: { id: SongID, name: SongName, artist_id: ArtistID },
+  // });
 }
 
 exports.retrieveFavorites = retrieveFavorites;
