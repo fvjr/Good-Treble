@@ -19,3 +19,22 @@
   </div>
 
 {{/each}}
+
+  <h1>{{{user.name}}}</h1>
+
+
+<body>
+  <header class="display-flex justify-space-between align-center p-2">
+    <h1>
+      {{{user.name}}}
+    </h1>
+  </header>
+  <main class="container container-fluid mt-5">
+    <!-- Render the User's Profile Here -->
+    <thead>
+      <tr><!--  -->
+          {{#each songs as |song|}}
+              <th>{{this}}</th>
+          {{/each}}
+      </tr>
+    </thead>
