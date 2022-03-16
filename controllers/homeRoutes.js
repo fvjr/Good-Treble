@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { Playlist, User, Event } = require('../models');
+const { Playlist, User, Event, Artist } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/events', withAuth, async (req, res) => {
   try {
     const eventsData = await Event.findAll({
       include: [
@@ -19,12 +19,37 @@ router.get('/', withAuth, async (req, res) => {
 
     const events = eventsData.map((events) => events.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render('events', {
       events,
       //keeps track of user being logged in
       logged_in: req.session.logged_in,
     });
     // res.status(200).json(eventsData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/events/:id', async (req, res) => {
+  try {
+    const eventData = await Event.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+        {
+          model: Artist,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const event = eventData.get({ plain: true });
+    res.render('event', {
+      ...event,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -61,6 +86,24 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+//go to login screen, default landing page
+router.get('/', async (req, res) => {
+  try {
+    const userData = await User.findAll();
+    res.render('login');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/whyGoodTreble', async (req, res) => {
+  try {
+    res.render('whyGoodTreble');
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
