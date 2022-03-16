@@ -28,6 +28,7 @@
   
 body {
     background: radial-gradient(#271537, #01000a);
+    color: var(--kumbasar-blue);
     display: flex;  
     justify-content: center;
     align-content: center;
@@ -37,7 +38,7 @@ body {
     margin: -20px 0 50px;
 }
 
-navbar {
+.navbar {
     justify-content: center;
     align-content: center;       
 }
