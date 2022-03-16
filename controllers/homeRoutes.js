@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Playlist, User, Event, Artist } = require('../models');
+const { Playlist, User, Event, Artist, Song } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/events', withAuth, async (req, res) => {
@@ -62,7 +62,7 @@ router.get('/homepage', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Event }],
+      include: [{ model: Event, Song }],
     });
 
     const user = userData.get({ plain: true });

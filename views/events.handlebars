@@ -4,7 +4,7 @@
     <div class='col-md-5'>
       <h2>
         <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-        <h1>{{event.id}}:<a>{{event.name}}</a>:{{event.description}}{{event.artist_id}} {{event.user_id}}</h1>
+        <h1>{{event.id}}:<a href ="/events/{{event.id}}">{{event.name}}</a>:{{event.description}}{{event.artist_id}} {{event.user_id}}</h1>
       <p>Created by {{event.user.name}}</p>
     </div>
     <div>
