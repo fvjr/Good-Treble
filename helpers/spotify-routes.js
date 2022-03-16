@@ -54,7 +54,7 @@ app.get('/authorize', async (req, res) => {
   const parsedToken = parsedTokenJSON.access_token;
   spotify.setToken(parsedToken);
   spotify.retrieveFavorites(100);
-  console.log("logged in: " + parsedToken);
+  console.log('logged in: ' + parsedToken);
 });
 
 app.get('/authorize', (req, res) => {

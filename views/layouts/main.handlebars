@@ -79,9 +79,15 @@
             <li class='nav-item'>
               <a class='nav-link' href='#'>Why GT</a>
             </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='#'>Account</a>
+              {{#if logged_in}}
+                          <li class='nav-item'></li>
+              <button class='nav-link' href='' id='btn-logout'>Logout</button>
             </li>
+            {{else}}
+                        <li class='nav-item'></li>
+            <a class="nav-link" href='/login'>Login</a>
+            </li>
+            {{/if}}
             <li class='nav-item'>
               <a class='nav-link' href='#'>▶</a>
             </li>
@@ -92,6 +98,7 @@
     <!-- Page -->
     <main>
       <!-- Login/SignUp -->
+      
  {{{body}}}
 
     <!-- Moment -->
@@ -108,5 +115,6 @@
     <script src='https://unpkg.com/@popperjs/core@^2.0.0'></script>
     <!-- JavaScript -->
     <script src='/js/script.js'></script>
+    <script src='/js/logout.js'></script>
   </body>
 </html>

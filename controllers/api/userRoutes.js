@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-//http://localhost:3001/login
+//http://localhost:3001/api/users/login
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({
