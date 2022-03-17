@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const mailer = require('../../public/js/emailer');
 
 //http://localhost:3001/api/users/
 router.get('/', async (req, res) => {
@@ -65,6 +66,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
+      mailer();
       res.json({ user: userData, message: 'You have succesfully logged in.' });
     });
   } catch (err) {

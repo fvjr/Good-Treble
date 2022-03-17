@@ -34,6 +34,7 @@
     href="https://fonts.googleapis.com/css2?family=Audiowide&family=Baloo+2&family=Oxygen:wght@700&family=Syne+Mono&family=Yesteryear&display=swap"
     rel="stylesheet"
   />
+
 </head>
 
 <body>
@@ -42,24 +43,9 @@
       {{{user.name}}}
     </h1>
   </header>
+  
   <main class="container container-fluid mt-5" id="profile-table">
-    <!-- Render the User's Profile Here -->
-    <thead>
-      <tr><!--  -->
-          {{#each songs as |song|}}
-              <th>{{this}}</th>
-          {{/each}}
-      </tr>
-    </thead>
-    <tbody>
-      {{#each data}}
-          <tr>
-              {{#each ../uniqueKeys}}
-                  <td>{{lookup .. this}}</td>
-              {{/each}}
-          </tr>
-       {{/each}}
-    </tbody>
+
 
     <h1>{{user.name}}'s Playlist</h1>
 {{#each song as |song|}}
@@ -77,6 +63,7 @@
   </div>
 
 {{/each}}
+
   </main>
       
   </footer>

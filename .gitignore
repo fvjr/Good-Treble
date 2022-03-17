@@ -1,3 +1,9 @@
 node_modules
 .env
 .DS_Store
+.eslintignore
+.eslintrc.json
+.gitignore
+.prettierignore
+.prettierrc.json
+package-lock.json

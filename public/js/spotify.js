@@ -35,7 +35,7 @@ async function retrieveFavorites(maxVal, userID) {
 //Beginning at the specified index
 async function getData(index) {
   const res = await fetch(
-    `https://api.spotify.com/v1/me/tracks?offset=${index}&limit=25`,
+    `https://api.spotify.com/v1/me/tracks?offset=${index}&limit=50`,
     {
       method: 'GET',
       headers: {
@@ -74,15 +74,10 @@ async function writeSongToDatabase(
     where: { id: userID, name: 'Liked Songs', user_id: userID },
   });
   const findArtist = await Artist.findOrCreate({
+    where: { id: ArtistID, name: ArtistName },
   });
   const findSong = await Song.findOrCreate({
     where: { id: SongID, name: SongName, artist_id: ArtistID },
-  });
-
-    where: { id: ArtistID, name: ArtistName }
-  });
-  const findSong = await Song.findOrCreate({
-    where: { id: SongID, name: SongName, artist_id: ArtistID }
   });
   const findPlaylistSong = await PlaylistSongs.findOrCreate({
     where: { playlist_id: userID, song_id: SongID },
