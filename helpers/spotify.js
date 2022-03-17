@@ -50,8 +50,12 @@ async function parseData(tracks) {
       listing.track.artists[0].id,
       listing.track.artists[0].name,
       listing.track.id,
+<<<<<<< HEAD
       listing.track.name
     )
+=======
+      listing.track.name)
+>>>>>>> d7ef33f (logout navbar)
   );
 }
 
@@ -59,6 +63,7 @@ async function parseData(tracks) {
 //TODO: Include playlist/song lookup table in queries
 async function writeSongToDatabase(ArtistID, ArtistName, SongID, SongName) {
   const findArtist = await Artist.findOrCreate({
+<<<<<<< HEAD
     where: { id: ArtistID, name: ArtistName },
   });
   const findSong = await Song.findOrCreate({
@@ -68,6 +73,13 @@ async function writeSongToDatabase(ArtistID, ArtistName, SongID, SongName) {
 =======
     where: { id: SongID, name: SongName, artist_ID: ArtistID }});
 >>>>>>> 1e24f2a (log out button)
+=======
+    where: { id: ArtistID, name: ArtistName }
+  });
+  const findSong = await Song.findOrCreate({
+    where: { id: SongID, name: SongName, artist_id: ArtistID }
+  });
+>>>>>>> d7ef33f (logout navbar)
 }
 
 exports.retrieveFavorites = retrieveFavorites;
