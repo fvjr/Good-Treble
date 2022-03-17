@@ -53,8 +53,8 @@ app.get('/authorize', async (req, res) => {
   const parsedTokenJSON = await newToken.json();
   const parsedToken = parsedTokenJSON.access_token;
   spotify.setToken(parsedToken);
-  console.log('TEST: ' + req.session.user_id);
-  spotify.retrieveFavorites(1000, req.session.user_id);
+  console.log("TEST: " + req.session.user_id);
+  spotify.retrieveFavorites(25, req.session.user_id);
   res.redirect('http://localhost:3001/homepage');
 });
 
@@ -62,7 +62,7 @@ app.get('/test', async (req, res) => {
   console.log(await spotify.getAllPlaylistData(req.session.user_id));
   console.log(await spotify.getArtists(req.session.user_id));
   res.sendStatus(200);
-});
+})
 
 app.get('/authorize', (req, res) => {
   res.sendStatus(200);
