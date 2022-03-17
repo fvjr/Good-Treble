@@ -35,7 +35,7 @@ async function retrieveFavorites(maxVal, userID) {
 //Beginning at the specified index
 async function getData(index) {
   const res = await fetch(
-    `https://api.spotify.com/v1/me/tracks?offset=${index}&limit=50`,
+    `https://api.spotify.com/v1/me/tracks?offset=${index}&limit=25`,
     {
       method: 'GET',
       headers: {
