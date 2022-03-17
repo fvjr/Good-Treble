@@ -21,13 +21,12 @@ router.get('/homepage', withAuth, async (req, res) => {
       include: [{ model: Event, Song, PlaylistSongs }],
     });
 
-    const songData = await Song.findAll();
-
-    const user = userData.get({ plain: true });
-
+    const returnedSongs = await songdata.getAllPlaylistData(
+      req.session.user_id
+    );
+    console.log(returnedSongs[0]);
     res.render('homepage', {
-      ...user,
-      ...songData,
+      songs: returnedSongs[0],
       logged_in: true,
     });
   } catch (err) {

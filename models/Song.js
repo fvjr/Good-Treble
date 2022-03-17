@@ -23,13 +23,13 @@ Song.init(
         key: 'id',
       },
     },
-    playlist_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'playlist',
-        key: 'id',
-      },
-    },
+    // playlist_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'playlist',
+    //     key: 'id',
+    //   },
+    // },
   },
   {
     sequelize,
