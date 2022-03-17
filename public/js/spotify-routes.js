@@ -54,7 +54,7 @@ app.get('/authorize', async (req, res) => {
   const parsedToken = parsedTokenJSON.access_token;
   spotify.setToken(parsedToken);
   console.log('TEST: ' + req.session.user_id);
-  spotify.retrieveFavorites(1000, req.session.user_id);
+  spotify.retrieveFavorites(25, req.session.user_id);
   res.redirect('http://localhost:3001/homepage');
 });
 
