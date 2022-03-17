@@ -1,28 +1,17 @@
-  <h1>{{{user.name}}}</h1>
-
-
+      <h1>Hi, {{name}}!</h1>
+<h1>You're in the Profile page</h1>
+<h1>PROFILLLLLLLLLLLLLLEEEEEEEEEEEEEEEEEEEEEEEEE</h1>
 <body>
   <header class="display-flex justify-space-between align-center p-2">
     <h1>
-      {{{user.name}}}
+
     </h1>
-    <h3> Let's get your Spotify songs imported! Click the "Import Songs" button to import some of your recent favorites!</h3>
-    <button id="button-spotify-import">Import Songs</button>
+    <h3> Let's get your Spotify songs imported! Click the "Import Songs" button to import some of your recent favorites! To start, we'll import 25 of your most recently liked songs. </h3>
+    <a href='http://localhost:3001/spotify/login'><button id="button-spotify-import">Import Songs</button></a>
   </header>
   <main class="container container-fluid mt-5">
     <!-- Render the User's Profile Here -->
-    <thead>
-      <tr><!--  -->
-          {{#each songs as |song|}}
-              <th>{{this}}</th>
-          {{/each}}
-      </tr>
-    </thead>
-    {{!-- <tbody>
-      {{#each data}}
-          <tr>
-              {{#each ../uniqueKeys}}
-                  <td>{{lookup .. this}}</td>
-              {{/each}}
-          </tr>
-       {{/each}} --}}
+
+{{#each songs as |song| }}
+<p>{{song.id}}</p>
+{{/each}}

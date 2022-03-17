@@ -11,7 +11,7 @@ PlaylistSongs.init(
         model: 'playlist',
         key: 'id',
       },
-      primaryKey: true
+      primaryKey: true,
     },
     song_id: {
       type: DataTypes.STRING(512),
@@ -19,7 +19,7 @@ PlaylistSongs.init(
         model: 'song',
         key: 'id',
       },
-      primaryKey: true
+      primaryKey: true,
     },
   },
   {
