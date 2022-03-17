@@ -1,4 +1,4 @@
-<h2>Welcome, {{name}}!</h2>
+{{!-- <h2>Welcome, {{name}}!</h2>
 
 {{#each events as |event|}}
   <div class='row mb-4 project'>
@@ -37,4 +37,34 @@
               <th>{{this}}</th>
           {{/each}}
       </tr>
+    </thead> --}}
+
+
+      <h1>Hi, {{{name}}}!</h1>
+
+
+<body>
+  <header class="display-flex justify-space-between align-center p-2">
+    <h1>
+      {{{user.name}}}
+    </h1>
+    <h3> Let's get your Spotify songs imported! Click the "Import Songs" button to import some of your recent favorites!</h3>
+    <button id="button-spotify-import">Import Songs</button>
+  </header>
+  <main class="container container-fluid mt-5">
+    <!-- Render the User's Profile Here -->
+    <thead>
+      <tr><!--  -->
+          {{#each songs as |song|}}
+              <th>{{this}}</th>
+          {{/each}}
+      </tr>
     </thead>
+    {{!-- <tbody>
+      {{#each data}}
+          <tr>
+              {{#each ../uniqueKeys}}
+                  <td>{{lookup .. this}}</td>
+              {{/each}}
+          </tr>
+       {{/each}} --}}
