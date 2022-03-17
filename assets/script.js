@@ -2,7 +2,7 @@ const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
 const navBarElements = document.querySelectorAll('.nav-link');
-let userSignedIn = false;
+let userSignedIn = true;
 
 // if the user is signed in they navbar one 
 // if the user is not signed in they see navbar two
@@ -14,12 +14,15 @@ function signInNavBar (bool) {
       if (bool) {
         currentNavBar.setAttribute("style", "visibility: visible"); 
         console.log("User logged in.");
-       } else if (!bool) {
+       } else {
           if (i === 0) {
           currentNavBar.textContent = "Events"; 
           currentNavBar.setAttribute("style", "visibility: visible"); 
-          } if (i === 4) {
+          } if (i === 1) {
           currentNavBar.textContent = "Why GT"; 
+          currentNavBar.setAttribute("style", "visibility: visible");     
+          } if (i === 2) {
+          currentNavBar.textContent = "Logout"; 
           currentNavBar.setAttribute("style", "visibility: visible");     
           } else {
           currentNavBar.setAttribute("style", "visibility: hidden"); 
