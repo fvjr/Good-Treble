@@ -12,4 +12,15 @@ router.get('/', async (req, res) => {
   }
 });
 
+//get single song
+//http://localhost:3001/api/songs/:id
+router.get('/:id', async (req, res) => {
+  try {
+    const songData = await Song.findByPk(req.params.id);
+    res.status(200).json(songData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

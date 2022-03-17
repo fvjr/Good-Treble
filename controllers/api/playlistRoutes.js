@@ -5,21 +5,22 @@ const querystring = require('querystring');
 const url = require('url');
 const fetch = require('node-fetch');
 require('dotenv').config();
-///
 const router = require('express').Router();
 const { Playlist } = require('../../models');
-// const helpers = require('./utils/helpers');
 
 //http://localhost:3001/api/playlists
-// router.get('/', async (req, res) => {
-//   try {
-//     const playlistData = await Playlist.findAll();
-//     res.status(200).json(playlistData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//     res.status(500).json(err);
-//   }
-// });
+router.get('/:id', async (req, res) => {
+  try {
+    const playlistData = await Playlist.findByPk({
+      where: {
+        id: req.params.user_id,
+      },
+    });
+    res.status(200).json(playlistData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 //http://localhost:3001/api/playlists
 router.get('/', async (req, res) => {
@@ -31,6 +32,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+//log into spotify
 app.post('/login', (req, res, next) => {
   console.log('Attempting to log in');
   var client_id = '0939bba83f154b66900eaa7a37431b3c';

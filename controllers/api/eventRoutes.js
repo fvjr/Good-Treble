@@ -4,21 +4,9 @@ const withAuth = require('../../utils/auth');
 
 //get all events
 //http://localhost:3001/api/events
-// router.get('/', async (req, res) => {
-//   try {
-//     const eventData = await Event.findAll();
-
-//     // res.status(200).json(eventData);
-//     res.render('events');
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
 router.get('/', async (req, res) => {
   try {
     const eventData = await Event.findAll();
-
     res.render('events', eventData);
   } catch (err) {
     res.status(500).json(err);

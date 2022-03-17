@@ -1,7 +1,16 @@
 const importButton = document.querySelector('#button-spotify-import');
 
-addEventListener;
+const getSongs = async () => {
+  const response = await fetch('/spotify/login', {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  });
 
-document.querySelector('#btn-logout').addEventListener('click', logout);
+  if (response.ok) {
+    document.location.replace('/login');
+  } else {
+    alert(response.statusText);
+  }
+};
 
 importButton.addEventListener('click');
