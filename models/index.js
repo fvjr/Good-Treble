@@ -58,6 +58,4 @@ Song.belongsTo(Artist, {
   foreignKey: 'artist_id',
 });
 
-//added 03/17/2022
-
 module.exports = { User, Playlist, Song, Event, Artist, PlaylistSongs };

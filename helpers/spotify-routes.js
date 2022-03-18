@@ -55,7 +55,7 @@ app.get('/authorize', async (req, res) => {
   spotify.setToken(parsedToken);
   console.log('TEST: ' + req.session.user_id);
   spotify.retrieveFavorites(25, req.session.user_id);
-  res.redirect('http://localhost:3001/homepage');
+  res.redirect('http://localhost:3001/redirectPage');
 });
 
 app.get('/test', async (req, res) => {
