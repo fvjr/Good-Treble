@@ -39,26 +39,4 @@ router.get('/test', async (req, res) => {
   }
 });
 
-// router.get('/playlistsongs/:id', async (req, res) => {
-//   try {
-//     const projectData = await PlaylistSongs.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: Song,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
-
-//     const project = projectData.get({ plain: true });
-
-//     res.render('project', {
-//       ...project,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
 module.exports = router;

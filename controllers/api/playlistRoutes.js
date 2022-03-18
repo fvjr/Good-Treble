@@ -6,17 +6,18 @@ const url = require('url');
 const fetch = require('node-fetch');
 require('dotenv').config();
 const router = require('express').Router();
-const { Playlist } = require('../../models');
+const { Playlist, User } = require('../../models');
+const withAuth = require('../../utils/auth');
+const songdata = require('../../helpers/spotify');
 
 //http://localhost:3001/api/playlists
 router.get('/:id', async (req, res) => {
   try {
-    const playlistData = await Playlist.findByPk({
-      where: {
-        id: req.params.user_id,
-      },
+    const playlistData = await songdata.getAllPlaylistData(req.params.id);
+
+    res.render('playlist', {
+      songs: playlistData[0],
     });
-    res.status(200).json(playlistData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -29,6 +30,30 @@ router.get('/', async (req, res) => {
     res.status(200).json(playlistData);
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+//add a playlist to the playlist page
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const playlistData = await Playlist.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+    const playlists = playlistData.map((playlist) =>
+      project.get({ plain: true })
+    );
+
+    res.render('playlists', {
+      playlists,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 
