@@ -47,7 +47,7 @@ router.get('/profile', withAuth, async (req, res) => {
       req.session.user_id
     );
     console.log(returnedSongs[0]);
-    res.render('homepage', {
+    res.render('profile', {
       songs: returnedSongs[0],
       logged_in: true,
     });
@@ -56,37 +56,23 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
-// router.get('/profile', async (req, res) => {
-//   try {
-//     // Get all projects and JOIN with user data
-//     const playlistsongData = await PlaylistSongs.findAll({
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//         {
-//           model: Event,
-//         },
-//       ],
-//     });
+router.get('/redirectPage', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Event, Song, PlaylistSongs }],
+    });
 
-//     // Serialize data so the template can read it
-//     const playlistsongs = playlistsongData.map((playlistsong) =>
-//       playlistsong.get({ plain: true })
-//     );
+    res.render('redirectPage', {
+      userData,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-//     // Pass serialized data and session flag into template
-//     res.render('profile', {
-//       playlistsongs,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-//playlist routes
+//playlist route
 router.get('/playlists', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID

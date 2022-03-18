@@ -1,4 +1,5 @@
-<h2>Playlist</h2>
+{
+  /* <h2>Playlist</h2>
 {{#each song as |song|}}
   <div class='row mb-4 project'>
     <div class='col-md-5'>
@@ -15,4 +16,5 @@
     </div>
   </div>
 
-{{/each}}
+{{/each}} */
+}
