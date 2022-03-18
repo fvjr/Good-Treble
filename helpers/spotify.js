@@ -3,7 +3,7 @@ const express = require('express');
 const Song = require('../models/Song');
 const Artist = require('../models/Artist');
 const req = require('express/lib/request');
-const { Playlist } = require('../models');
+const { Playlist, User } = require('../models');
 const PlaylistSongs = require('../models/PlaylistSongs');
 const { sequelize } = require('../models/PlaylistSongs');
 //let input = require('./input.json');
@@ -69,9 +69,10 @@ async function writeSongToDatabase(
   SongName,
   userID
 ) {
-  console.log(userID);
+  nameHolder = await User.findByPk(userID);
+  nameString = nameHolder.name;
   const findPlaylist = await Playlist.findOrCreate({
-    where: { id: userID, name: 'Liked Songs', user_id: userID },
+    where: { id: userID, name: `${nameString}'s Liked Songs`, user_id: userID },
   });
   const findArtist = await Artist.findOrCreate({
     where: { id: ArtistID, name: ArtistName },
