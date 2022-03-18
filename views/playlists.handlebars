@@ -1,0 +1,7 @@
+<h1> PLAYLIST PAGE</h1>
+
+{{#each playlists as |playlist|}}
+  <a href='http://localhost:3001/api/playlists/{{playlist.user_id}}'><p
+    >{{playlist.name}}</p></a>
+
+{{/each}}
