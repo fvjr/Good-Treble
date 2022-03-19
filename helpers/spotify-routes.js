@@ -16,7 +16,7 @@ app.use('/login', (req, res, next) => {
   var state = '123456';
   var scope = 'user-library-read';
 
-  res.redirect(
+  return res.redirect(
     'https://accounts.spotify.com/authorize?' +
       querystring.stringify({
         response_type: 'code',
