@@ -14,7 +14,7 @@ PlaylistSongs.init(
       primaryKey: true,
     },
     song_id: {
-      type: DataTypes.STRING(512),
+      type: DataTypes.STRING(255),
       references: {
         model: 'song',
         key: 'id',
