@@ -28,6 +28,7 @@ router.get('/homepage', withAuth, async (req, res) => {
     console.log(returnedSongs[0]);
     res.render('homepage', {
       songs: returnedSongs[0],
+      name: userData.name,
       logged_in: true,
     });
   } catch (err) {
