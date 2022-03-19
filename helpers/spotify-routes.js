@@ -11,12 +11,12 @@ const PORT = 3001;
 app.use('/login', (req, res, next) => {
   console.log('Attempting to log in');
   var client_id = '0939bba83f154b66900eaa7a37431b3c';
-  var redirect_uri = 'http://localhost:3001/spotify/authorize';
+  var redirect_uri = 'https://good-treble.herokuapp.com/spotify/authorize';
 
   var state = '123456';
   var scope = 'user-library-read';
 
-  res.redirect(
+  return res.redirect(
     'https://accounts.spotify.com/authorize?' +
       querystring.stringify({
         response_type: 'code',
@@ -35,7 +35,7 @@ app.get('/authorize', async (req, res) => {
 
   const params = new URLSearchParams();
   params.append('code', code);
-  params.append('redirect_uri', 'http://localhost:3001/spotify/authorize');
+  params.append('redirect_uri', 'https://good-treble.herokuapp.com/spotify/authorize');
   params.append('grant_type', 'authorization_code');
 
   const newToken = await fetch('https://accounts.spotify.com/api/token', {
@@ -55,7 +55,7 @@ app.get('/authorize', async (req, res) => {
   spotify.setToken(parsedToken);
   console.log('TEST: ' + req.session.user_id);
   spotify.retrieveFavorites(25, req.session.user_id);
-  res.redirect('http://localhost:3001/redirectPage');
+  res.redirect('https://good-treble.herokuapp.com/redirectPage');
 });
 
 app.get('/test', async (req, res) => {
