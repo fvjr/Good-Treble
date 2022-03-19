@@ -1,4 +1,4 @@
-
+<div class="container my-2 profile-page">
       <h1>Hi, {{name}}!</h1>
 
 
@@ -7,9 +7,10 @@
     <h1>
 
     </h1>
-    <h3> Let's get your Spotify songs imported! Click the "Import Songs" button to import some of your recent favorites! To start, we'll import 25 of your most recently liked songs. </h3>
-    <a href='https://good-treble.herokuapp.com/spotify/login'><button id="button-spotify-import">Import Songs</button></a>
+    <h3 class="container importSongs mt-3"> Let's get your Spotify songs imported! Click the "Import Songs" button to import some of your recent favorites! To start, we'll import 25 of your most recently liked songs. </h3>
+    <a href='http://localhost:3001/spotify/login'><button id="button-spotify-import">Import Songs</button></a>
   </header>
+  </div>
   <main class="container container-fluid mt-5">
     <!-- Render the User's Profile Here -->
 
@@ -17,4 +18,4 @@
 <p>{{song.SongName}} by {{song.ArtistName}}</p>
 {{/each}}
 
-<script src='/js/spotifyImport.js'
+<script src='/js/spotifyImport.js
