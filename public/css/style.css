@@ -101,6 +101,10 @@ a ul li {
     list-style: none;
 }
 
+a h2 {
+    color: var(--sunset-orange);
+}
+
 button {
     border-radius: 50px;
     border: 1px solid var(--good-treble-green); 
