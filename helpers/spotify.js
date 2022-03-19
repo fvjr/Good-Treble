@@ -70,7 +70,7 @@ async function writeSongToDatabase(
   userID
 ) {
   nameHolder = await User.findByPk(userID);
-  nameString = nameHolder.name;
+  nameString = nameHolder.dataValues.name;
   const findPlaylist = await Playlist.findOrCreate({
     where: { id: userID, name: `${nameString}'s Liked Songs`, user_id: userID },
   });
