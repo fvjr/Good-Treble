@@ -69,7 +69,8 @@ p {
     font-family: 'Oxygen', sans-serif;
     font-size: 14px;
     letter-spacing: 0.5px;
-    margin: 20px 0;
+    margin: 2px;
+    line-height: 0;
 }
   
 span {
@@ -167,6 +168,7 @@ input {
     width: 768px;
     max-width: 100%;
     min-height: 480px; 
+    line-height: 0;
 }
 
 .form-container {
