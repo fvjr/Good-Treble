@@ -326,6 +326,12 @@ input {
   align-content: center;
 }
 
+.importSongs {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+}
+
 footer {
   background: var(--sunset-orange);
   color: var(--neon-violet);
