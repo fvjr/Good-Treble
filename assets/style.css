@@ -101,13 +101,17 @@ a ul li {
   list-style: none;
 }
 
-h1.sign-in-header, h1.create-account-header {
-  color: var(--tinted-windows-black);
+.sign-in-header, .create-account-header {
+  color: var(--tinted-windows-black) !important;
 }
 
 .about-page, .playlist, .profile-page, .imported {
-  width: 500px;
-  text-align: center;
+  width: 500px !important;
+  text-align: center !important;
+}
+
+.playlist-container {
+  width: 500px !important;
 }
 
 button {
