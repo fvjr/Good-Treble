@@ -7,7 +7,7 @@ If there's one thing the past few years have taught us, it's that friendships an
 * [Technologies](#technologies)
 * [Mockup](#mockup)
 * [Resources-used](#resources-used)
-* [Possible-improvements](#possible-improvements)
+* [Future-improvements](#future-improvements)
 * [Github-url](#github-url)
 * [Deployed-url](#deployed-url)
 * [License](#license)
@@ -26,7 +26,7 @@ Additionally, the application used Spotify's API with authentication powered by 
 
 -- Video or Still? --
 
-## Resources-used
+## Resources Used
 
 The Spotify documentation helped developers navigate adding the API to the application
 [Spotify Documentation](https://developer.spotify.com/documentation/web-api/)
@@ -37,7 +37,9 @@ Developers consulted Auth0's documentation for connecting users' Spotify account
 For easy emailing functionality, the Node Mailer docs were a wealth of information.
 [Node Mailer Documentation](https://nodemailer.com/usage/)
 
-## Future-Improvements
+The sign-in form was inspired by [this tutorial](https://www.youtube.com/watch?v=mUdo6w87rh4) from Traversy Media  which was inspired from [this tutorial](https://codepen.io/FlorinPop17/pen/vPKWjd) from Florin Pop.
+
+## Future Improvements
 
 In the future, Good Treble would like to add in the TicketMaster API to allow users to meet up a local shows.
 
@@ -45,13 +47,13 @@ Similarly, Good Treble would like to add a way for users to message each other.
 
 ---
 
-## Github-url
+## Github url
 You can find Good Treble's GitHub Repository here:
 [Good Treble's GitHub Repository](https://github.com/fvjr/Good-Treble) 
 
 ## Deployed-url
 Good Treble is deployed using Heroku. Check it out!
-[Good Treble's Deloyed Link](https:good-treble-heroku)
+[Good Treble's Deployed Link](https:good-treble-heroku)
 
 ## License
 Copyright 2022 Fernando Vasquez, David McGinley, & Amy Shafer
