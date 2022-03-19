@@ -167,7 +167,8 @@ input {
     overflow: hidden;
     width: 768px;
     max-width: 100%;
-    min-height: 480px;   
+    min-height: 480px;
+    line-height: 20px;   
 }
 
 .form-container {
