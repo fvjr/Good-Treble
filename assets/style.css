@@ -101,6 +101,15 @@ a ul li {
   list-style: none;
 }
 
+h1.sign-in-header, h1.create-account-header {
+  color: var(--tinted-windows-black);
+}
+
+.about-page, .playlist, .profile-page, .imported {
+  width: 500px;
+  text-align: center;
+}
+
 button {
   border-radius: 50px;
   border: 1px solid var(--good-treble-green);
@@ -172,6 +181,15 @@ input {
 .navbar-logo {
   justify-content: center;
   align-content: center;   
+}
+
+#btn-logout {
+  color: var(--tinted-windows-black);
+  text-shadow: 0 0 7px var(--headlight-white), 0 0 9px var(--retro-yellow);
+}
+
+#button-spotify-import {
+  text-align: center;
 }
 
 .container {
@@ -324,12 +342,6 @@ input {
 .log-out {
   justify-content: center;
   align-content: center;
-}
-
-.importSongs {
-  width: 100%;
-  height: auto;
-  background-color: transparent;
 }
 
 footer {
