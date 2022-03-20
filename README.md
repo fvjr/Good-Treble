@@ -24,7 +24,7 @@ Additionally, the application used Spotify's API with authentication powered by 
 
 ## Mockup
 
--- Video or Still? --
+![Good Treble](/assets/images/goodTreble.png)
 
 ## Resources Used
 
