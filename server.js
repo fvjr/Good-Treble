@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create();
 
 const sess = {
-  secret: process.env.SECRET,
+  secret: process.env.secret,
   cookie: {},
   resave: false,
   saveUninitialized: true,
@@ -37,4 +37,6 @@ app.use(routes);
 //start server and connect to db
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
-});
+}).catch(function(err){
+  console.log(err)
+})

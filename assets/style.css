@@ -112,6 +112,7 @@ a ul li {
 
 .playlist-container {
   width: 500px !important;
+  background-color: transparent;
 }
 
 button {
