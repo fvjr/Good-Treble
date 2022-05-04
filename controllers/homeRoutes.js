@@ -25,9 +25,9 @@ router.get('/homepage', withAuth, async (req, res) => {
     const returnedSongs = await songdata.getAllPlaylistData(
       req.session.user_id
     );
-    console.log(returnedSongs[0]);
+    console.log(returnedSongs);
     res.render('homepage', {
-      songs: returnedSongs[0],
+      songs: returnedSongs,
       name: userData.name,
       logged_in: true,
     });
