@@ -15,7 +15,7 @@ app.use('/login', (req, res, next) => {
   var redirect_uri = 'http://localhost:3001/spotify/authorize';
 
   var state = '123456';
-  var scope = 'user-library-read';
+  var scope = 'user-library-read user-top-read';
 
   return res.redirect(
     'https://accounts.spotify.com/authorize?' +
@@ -58,6 +58,7 @@ app.get('/authorize', async (req, res) => {
   console.log('TEST: ' + parsedToken);
   console.log('TEST: ' + req.session.user_id);
   spotify.retrieveFavorites(25, req.session.user_id);
+  spotify.getTopTrackArt(req.session.user_id);
   //res.redirect('https://good-treble.herokuapp.com/redirectPage');
   res.redirect('http://localhost:3001/');
 });

@@ -96,6 +96,24 @@ async function writeSongToDatabase(
   });
 }
 
+//Retrieves a user's most listened to track on spotify
+async function getTopTrackArt(user_id){
+  const res = await fetch(
+    `	https://api.spotify.com/v1/me/top/tracks?limit=1&time_range=long_term`,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${oauthToken}`,
+      },
+    }
+  );
+  //return res.json();
+  const data = await res.json();
+  const avatar = data.items[0].album.images[1].url;
+  const importedAvatar = await sequelize.query(`UPDATE user SET avatar = "${avatar}" WHERE id = ${user_id}`);
+  console.log("Updated Avatar");
+}
+
 //When given an artistID, returns a link to a 160x160 image of the artist
 async function getArtistImage(artistID) {
   const res = await fetch(
@@ -122,9 +140,9 @@ async function getAllPlaylistData(playlist_id) {
   INNER JOIN song ON playlist_songs.song_id = song.id
   INNER JOIN artist ON song.artist_id = artist.id
   WHERE playlist.id = ${playlist_id}`);
-  console.log("------- Begin JSON DATA -------");
-  console.log(arrayData[0]);
-  console.log("-------- End JSON Data --------");
+  //console.log("------- Begin JSON DATA -------");
+  //console.log(arrayData[0]);
+  //console.log("-------- End JSON Data --------");
   return arrayData[0];
 }
 
@@ -144,3 +162,4 @@ exports.getArtists = getArtists;
 exports.getAllPlaylistData = getAllPlaylistData;
 exports.retrieveFavorites = retrieveFavorites;
 exports.setToken = setToken;
+exports.getTopTrackArt = getTopTrackArt;
