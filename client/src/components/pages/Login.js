@@ -3,11 +3,65 @@ import React, { useState } from 'react';
 import '../../styles/style.css';
 
 function Login() {
-  // const [loginState, setLoginState] = useState({ email: '', password: ''});
+  const [loginState, setLoginState] = useState({ email: '', password: '' });
+  console.log(loginState);
+
+  // update state based on login form input changes
+  const loginChange = (event) => {
+    const { name, value } = event.target;
+
+    setLoginState({
+      ...loginState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(loginState);
+    try {
+      const { data } = await loginChange({
+        variables: { ...loginState },
+      });
+      //auth login here
+    } catch (err) {
+      console.error(err);
+    }
+
+    //clear login form values
+    setLoginState({
+      email: '',
+      password: '',
+    });
+  };
 
   return (
     <div>
-      Login stuff here
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
+        integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE"
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
+        integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7"
+        crossorigin="anonymous"
+      />
+      <link rel="stylesheet" href="/css/style.css" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Audiowide&family=Baloo+2&family=Oxygen:wght@700&family=Syne+Mono&family=Yesteryear&display=swap"
+        rel="stylesheet"
+      />
       <div className="container" id="container">
         <div className="form-container sign-up-container">
           <form className="form signup-form">
@@ -73,7 +127,17 @@ function Login() {
           </div>
         </div>
       </div>
+
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
       <script src="../utils/login.js"></script>
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script src="https://unpkg.com/@popperjs/core@^2.0.0"></script>
     </div>
   );
 }
