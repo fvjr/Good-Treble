@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ArtistList from '../ArtistList';
-
+import FavoriteSongs from '../FavoriteSongs';
 const artists = [
   {
     SongName: 'Wannabe In L.A',
@@ -71,7 +71,7 @@ function Profile() {
           </header>
         </Row>
         <ArtistList artists={artists} />
-        <Row>Favorite Songs</Row>
+        <FavoriteSongs songs ={artists} />
       </Container>
     </div>
   );
