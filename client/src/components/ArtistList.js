@@ -1,21 +1,33 @@
 import React from 'react';
+import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/esm/ListGroupItem';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+
+const styles = {
+  card: {
+    padding: 20,
+    background: 'black',
+  },
+};
 
 function ArtistList(props) {
   return (
-    <ul className="list-group">
-      {props.artists.map((artist) => (
-        <li className="list-group-item" key={artist.id}>
-          {artist.ArtistName}
-          <img
-            src={artist.ArtistImage}
-            width="100"
-            height="50"
-            alt="artist profile picture"
-          />
-        </li>
-      ))}
-    </ul>
+    <div style={styles.card}>
+      <ListGroup horizontal>
+        {props.artists.map((artist) => (
+          <ListGroup.Item key={artist.id}>
+            <Card style={{ width: '18rem' }}>
+              <Card.Img variant="top" src={artist.ArtistImage} />
+              <Card.Body>
+                <Card.Title>{artist.ArtistName}</Card.Title>
+                <Card.Text></Card.Text>
+              </Card.Body>
+            </Card>
+          </ListGroup.Item>
+        ))}
+      </ListGroup>
+    </div>
   );
 }
 
