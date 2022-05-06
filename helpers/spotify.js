@@ -57,6 +57,7 @@ async function parseData(tracks, userID) {
       listing.track.id,
       listing.track.name,
       listing.track.album.images[2].url,
+      listing.track.preview_url,
       userID
     )
   );
@@ -69,6 +70,7 @@ async function writeSongToDatabase(
   SongID,
   SongName,
   AlbumImage,
+  PreviewStream,
   userID
 ) {
   nameHolder = await User.findByPk(userID);
@@ -89,6 +91,7 @@ async function writeSongToDatabase(
       name: SongName,
       artist_id: ArtistID,
       album_image: AlbumImage,
+      preview_stream: PreviewStream,
     },
   });
   const findPlaylistSong = await PlaylistSongs.findOrCreate({
@@ -107,10 +110,14 @@ async function getTopTrackArt(user_id){
       },
     }
   );
+  
   //return res.json();
   const data = await res.json();
   const avatar = data.items[0].album.images[1].url;
+  const currentAvatar = await sequelize.query(`SELECT avatar FROM user WHERE id = ${user_id}`);
+  if(currentAvatar != "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"){
   const importedAvatar = await sequelize.query(`UPDATE user SET avatar = "${avatar}" WHERE id = ${user_id}`);
+  }
   console.log("Updated Avatar");
 }
 
@@ -135,7 +142,7 @@ async function getArtistImage(artistID) {
  */
 async function getAllPlaylistData(playlist_id) {
   const arrayData =
-    await sequelize.query(`SELECT song.name AS SongName, artist.name AS ArtistName, song.album_image AS AlbumImage, artist.image AS ArtistImage FROM playlist
+    await sequelize.query(`SELECT song.id AS SongID, song.name AS SongName, artist.name AS ArtistName, song.album_image AS AlbumImage, song.preview_stream AS PreviewStream, artist.image AS ArtistImage FROM playlist
   INNER JOIN playlist_songs ON playlist.id = playlist_songs.playlist_id
   INNER JOIN song ON playlist_songs.song_id = song.id
   INNER JOIN artist ON song.artist_id = artist.id
