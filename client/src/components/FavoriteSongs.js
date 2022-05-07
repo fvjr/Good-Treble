@@ -1,7 +1,7 @@
 import React from 'react';
 import ListGroupItem from 'react-bootstrap/esm/ListGroupItem';
 import {ListGroup,Col,Button,Row} from 'react-bootstrap'
-
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function FavoriteSongs(props) {
   return (
@@ -31,7 +31,7 @@ function FavoriteSongs(props) {
    
     <Col md = {1}>
      <Button bg="primary" pill>
-       14
+     {/* <FontAwesomeIcon icon="fa-thin fa-play" /> */}
      </Button>
      </Col>
         </Row>
