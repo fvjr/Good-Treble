@@ -16,7 +16,7 @@ function SpotifyImport() {
       <Col>
         <h3>
           Let's get your Spotify songs imported! Click the "Import Songs" button
-          to import some of your recent favorites!
+          to see your favorite songs and artists!
         </h3>
       </Col>
       <Col>
