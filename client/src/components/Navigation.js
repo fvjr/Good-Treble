@@ -6,7 +6,6 @@ import Nav from 'react-bootstrap/Nav';
 function Navigation({ currentPage, handlePageChange }) {
   return (
     <div className="container-fluid mt-1">
-      {' '}
       <nav className="navbar navbar-expand-lg navbar-dark bg-transparent d-flex flex-row">
         <a className="navbar-brand" href="/login">
           <img
@@ -31,7 +30,6 @@ function Navigation({ currentPage, handlePageChange }) {
             />
           </a>
         </div>
-
         <div className="d-flex flex-row-reverse">
           <ul className="navbar-nav">
             <li className="nav-item">
@@ -52,7 +50,6 @@ function Navigation({ currentPage, handlePageChange }) {
                 Profile
               </a>
             </li>
-
             <li className="nav-item">
               <a
                 className="nav-link"
@@ -62,7 +59,6 @@ function Navigation({ currentPage, handlePageChange }) {
                 Login
               </a>
             </li>
-
             <li className="nav-item">
               <a className="nav-link" href="#">
                 ▶
