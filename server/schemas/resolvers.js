@@ -1,12 +1,35 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Song, Playlist, Artist } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find();
+      return await User.findAll();
     },
+    
+    songs: async () => {
+      songs = await Song.findAll(); 
+      songs.forEach((song) => { song.artist_id = Artist.findOne({ where: { id: song.artist_id}})});
+      return await songs;
+    },
+
+    song: async (parent, args) => {
+      const song = await Song.findOne({ where: { id: args.id }})
+      song.artist_id = await Artist.findOne({ where: { id: song.artist_id}});
+      return song;
+    },
+
+    playlists: async () => {
+      return await Playlist.findAll();
+    },
+    artists: async() => {
+      return await Artist.findAll();
+    },
+
+    artist: async(parent, args) => {
+      return await Artist.findOne({ where: { id: args.id }});
+    }
   },
 
   Mutation: {
