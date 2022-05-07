@@ -1,12 +1,49 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Song, Playlist, Artist, PlaylistSongs } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find();
+      return await User.findAll();
     },
+    
+    songs: async () => {
+      songs = await Song.findAll(); 
+      songs.forEach((song) => { song.artist_id = Artist.findOne({ where: { id: song.artist_id}})});
+      return await songs;
+    },
+
+    song: async (parent, args) => {
+      const song = await Song.findOne({ where: { id: args.id }})
+      song.artist_id = await Artist.findOne({ where: { id: song.artist_id}});
+      return song;
+    },
+
+    playlists: async () => {
+      const songList = await Song.findAll();
+
+      let playlistSongs = await Playlist.findAll();
+      for(playlist of playlistSongs){
+        playlist.songs = [];
+        for(const song of songList){
+          const validSong = await PlaylistSongs.findOne({ where: { playlist_id: playlist.id, song_id: song.id }});
+          if(validSong){
+            const addSong = await Song.findOne({ where: { id: song.id }});
+            addSong.artist_id = await Artist.findOne({ where: { id: song.artist_id}});
+            playlist.songs.push(addSong.dataValues);
+          }
+        }  
+      };
+      return playlistSongs;
+    },
+    artists: async() => {
+      return await Artist.findAll();
+    },
+
+    artist: async(parent, args) => {
+      return await Artist.findOne({ where: { id: args.id }});
+    }
   },
 
   Mutation: {
