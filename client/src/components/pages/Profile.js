@@ -6,6 +6,10 @@ import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ArtistList from '../ArtistList';
 import FavoriteSongs from '../FavoriteSongs';
+import Image from 'react-bootstrap/Image';
+import UserAvatar from '../UserAvatar';
+import SpotifyImport from '../SpotifyImport';
+
 const artists = [
   {
     SongName: 'Wannabe In L.A',
@@ -92,27 +96,14 @@ const styles = {
 
 function Profile() {
   return (
-    <div>
-      <Container>
-        <Row>
-          <h1>USERNAME HERE!!!</h1>
-          <h2>YOUR PROFILE</h2>
-          <header className="display-flex justify-space-between align-center p-2">
-            <h1></h1>
-            <h3>
-              Let's get your Spotify songs imported! Click the "Import Songs"
-              button to import some of your recent favorites! To start, we'll
-              import 25 of your most recently liked songs.
-            </h3>
-            <a href="">
-              <button id="button-spotify-import">Import Songs</button>
-            </a>
-          </header>
-        </Row>
+    <Container>
+      <Row>
+        <UserAvatar />
+        <SpotifyImport />
         <ArtistList artists={artists} />
         <FavoriteSongs songs={songs} />
-      </Container>
-    </div>
+      </Row>
+    </Container>
   );
 }
 
