@@ -13,7 +13,7 @@ const styles = {
 
 function ArtistList(props) {
   return (
-    <div style={styles.card}>
+    <div>
       <ListGroup horizontal>
         {props.artists.map((artist) => (
           <ListGroup.Item key={artist.id}>
