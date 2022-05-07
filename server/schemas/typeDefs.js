@@ -2,10 +2,36 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type User {
-    _id: ID
+    id: ID
     name: String
     email: String
     password: String
+  }
+
+  type Song {
+    id: ID
+    name: String
+    artist_id: Artist
+    album_image: String
+    preview_stream: String
+  }
+
+  type Artist {
+    id: ID
+    name: String
+    image: String
+  }
+
+  type Playlist {
+    id: ID
+    songs: [Song]
+    name: String
+    user_id: ID
+  }
+
+  type PlaylistSong {
+    playlist_id: ID
+    song_id: ID
   }
 
   type Auth {
@@ -16,6 +42,12 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(name: String): User
+    songs: [Song]
+    song(id: ID): Song
+    playlists: [Playlist]
+    playlist(_id: String): Playlist
+    artists: [Artist]
+    artist(id: ID): Artist
   }
 
   type Mutation {
