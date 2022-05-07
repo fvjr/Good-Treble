@@ -9,6 +9,7 @@ import FavoriteSongs from '../FavoriteSongs';
 import Image from 'react-bootstrap/Image';
 import UserAvatar from '../UserAvatar';
 import SpotifyImport from '../SpotifyImport';
+import { ListGroupItem } from 'react-bootstrap';
 
 const artists = [
   {
@@ -94,15 +95,38 @@ const styles = {
   },
 };
 
+// function Profile() {
+//   return (
+//     <Container>
+//       <Row>
+//         <Col>
+//           <UserAvatar />
+//         </Col>
+//         <SpotifyImport />
+//         <ArtistList artists={artists} />
+//         <FavoriteSongs songs={songs} />
+//       </Row>
+//     </Container>
+//   );
+// }
+
 function Profile() {
   return (
     <Container>
-      <Row>
-        <UserAvatar />
-        <SpotifyImport />
-        <ArtistList artists={artists} />
-        <FavoriteSongs songs={songs} />
-      </Row>
+      <ListGroup variant="flush">
+        <ListGroup.Item>
+          <UserAvatar />
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <SpotifyImport />
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <ArtistList artists={artists} />
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <FavoriteSongs songs={songs} />
+        </ListGroup.Item>
+      </ListGroup>
     </Container>
   );
 }

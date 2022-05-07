@@ -1,19 +1,30 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+const styles = {
+  importSection: {
+    padding: 20,
+    background: 'black',
+  },
+};
 
 function SpotifyImport() {
   return (
-    <div>
-      <header className="display-flex justify-space-between align-center p-2">
-        <h1>SPOTIFY IMPORT SECTION</h1>
+    <Row style={styles.importSection}>
+      <Col>
         <h3>
           Let's get your Spotify songs imported! Click the "Import Songs" button
           to import some of your recent favorites!
         </h3>
+      </Col>
+      <Col>
         <a href="">
           <button id="button-spotify-import">Import Songs</button>
         </a>
-      </header>
-    </div>
+      </Col>
+    </Row>
   );
 }
 
