@@ -1,8 +1,8 @@
 import React from 'react';
 import ListGroupItem from 'react-bootstrap/esm/ListGroupItem';
 import { ListGroup, Col, Button, Row } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 function FavoriteSongs(props) {
   return (
     // <ul className="list-group">
@@ -33,7 +33,7 @@ function FavoriteSongs(props) {
 
               <Col md={1}>
                 <Button bg="primary" pill>
-                <FontAwesomeIcon icon={faHome} />
+                <FontAwesomeIcon icon={faPlay} />
                 </Button>
               </Col>
             </Row>
