@@ -96,16 +96,14 @@ const styles = {
 
 function Profile() {
   return (
-    <div>
-      <Container>
-        <Row>
-          <UserAvatar />
-          <SpotifyImport />
-        </Row>
+    <Container>
+      <Row>
+        <UserAvatar />
+        <SpotifyImport />
         <ArtistList artists={artists} />
         <FavoriteSongs songs={songs} />
-      </Container>
-    </div>
+      </Row>
+    </Container>
   );
 }
 

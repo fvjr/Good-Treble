@@ -7,8 +7,7 @@ function SpotifyImport() {
         <h1>SPOTIFY IMPORT SECTION</h1>
         <h3>
           Let's get your Spotify songs imported! Click the "Import Songs" button
-          to import some of your recent favorites! To start, we'll import 25 of
-          your most recently liked songs.
+          to import some of your recent favorites!
         </h3>
         <a href="">
           <button id="button-spotify-import">Import Songs</button>
