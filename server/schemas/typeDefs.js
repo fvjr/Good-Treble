@@ -24,8 +24,14 @@ const typeDefs = gql`
 
   type Playlist {
     id: ID
+    songs: [Song]
     name: String
     user_id: ID
+  }
+
+  type PlaylistSong {
+    playlist_id: ID
+    song_id: ID
   }
 
   type Auth {

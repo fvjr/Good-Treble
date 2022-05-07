@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Song, Playlist, Artist } = require('../models');
+const { User, Song, Playlist, Artist, PlaylistSongs } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -21,7 +21,21 @@ const resolvers = {
     },
 
     playlists: async () => {
-      return await Playlist.findAll();
+      const songList = await Song.findAll();
+
+      let playlistSongs = await Playlist.findAll();
+      for(playlist of playlistSongs){
+        playlist.songs = [];
+        for(const song of songList){
+          const validSong = await PlaylistSongs.findOne({ where: { playlist_id: playlist.id, song_id: song.id }});
+          if(validSong){
+            const addSong = await Song.findOne({ where: { id: song.id }});
+            addSong.artist_id = await Artist.findOne({ where: { id: song.artist_id}});
+            playlist.songs.push(addSong.dataValues);
+          }
+        }  
+      };
+      return playlistSongs;
     },
     artists: async() => {
       return await Artist.findAll();
