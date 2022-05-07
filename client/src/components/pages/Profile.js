@@ -93,26 +93,18 @@ const styles = {
   artistDisplay: {
     margin: '5px 5px 5px 5px',
   },
+  container: {
+    background: 'white',
+    borderStyle: 'solid',
+    borderWdith: 15,
+    borderColor: 'black',
+    textAlign: 'left',
+  },
 };
-
-// function Profile() {
-//   return (
-//     <Container>
-//       <Row>
-//         <Col>
-//           <UserAvatar />
-//         </Col>
-//         <SpotifyImport />
-//         <ArtistList artists={artists} />
-//         <FavoriteSongs songs={songs} />
-//       </Row>
-//     </Container>
-//   );
-// }
 
 function Profile() {
   return (
-    <Container>
+    <Container style={styles.container}>
       <ListGroup variant="flush">
         <ListGroup.Item>
           <UserAvatar />
