@@ -12,6 +12,9 @@ const styles = {
   card: {
     padding: 20,
     background: 'black',
+    borderStyle: 'solid',
+    borderWdith: 15,
+    borderColor: 'black',
   },
 };
 
@@ -35,34 +38,34 @@ const styles = {
 //   );
 // }
 
-function ArtistList(props) {
-  return (
-    <div>
-      <h2 styles={styles.card}>Your Favorite Artists</h2>
-      <ListGroup horizontal>
-        {props.artists.map((artist) => (
-          <ListGroup.Item key={artist.id}>
-            <Card style={{ width: '18rem' }}>
-              <Col md={4}>
-                <Card.Img
-                  variant="top"
-                  roundedCircle="true"
-                  src={artist.ArtistImage}
-                />
-              </Col>
-              <Card.Body>
-                <Col md={8}>
-                  <Card.Title>{artist.ArtistName}</Card.Title>
-                </Col>
-                <Card.Text></Card.Text>
-              </Card.Body>
-            </Card>
-          </ListGroup.Item>
-        ))}
-      </ListGroup>
-    </div>
-  );
-}
+// function ArtistList(props) {
+//   return (
+//     <div>
+//       <h2 styles={styles.card}>Your Favorite Artists</h2>
+//       <ListGroup horizontal>
+//         {props.artists.map((artist) => (
+//           <ListGroup.Item key={artist.id}>
+//             <Card style={{ width: '18rem' }}>
+//               <Col md={4}>
+//                 <Card.Img
+//                   variant="top"
+//                   roundedCircle="true"
+//                   src={artist.ArtistImage}
+//                 />
+//               </Col>
+//               <Card.Body>
+//                 <Col md={8}>
+//                   <Card.Title>{artist.ArtistName}</Card.Title>
+//                 </Col>
+//                 <Card.Text></Card.Text>
+//               </Card.Body>
+//             </Card>
+//           </ListGroup.Item>
+//         ))}
+//       </ListGroup>
+//     </div>
+//   );
+// }
 
 // function ArtistList(props) {
 //   return (
@@ -73,7 +76,13 @@ function ArtistList(props) {
 //           {props.artists.map((artist) => (
 //             <Col>
 //               <Card style={{ width: '18rem' }}>
-//                 <Image fluid="true" src={artist.ArtistImage}></Image>
+//                 <img
+//                   fluid="true"
+//                   src={artist.ArtistImage}
+//                   height="200px"
+//                   width="200px"
+//                   alt="artist profile pic"
+//                 />
 //                 <Card.Body>
 //                   <Card.Title>{artist.ArtistName}</Card.Title>
 //                 </Card.Body>
@@ -85,5 +94,31 @@ function ArtistList(props) {
 //     </div>
 //   );
 // }
+
+function ArtistList(props) {
+  return (
+    <div styles={styles.card}>
+      <h2>Your Favorite Artists</h2>
+      <ListGroup horizontal>
+        <Row>
+          {props.artists.map((artist) => (
+            <Col>
+              <Card style={{ width: '18rem' }}>
+                <Card.Img
+                  key={artist.id}
+                  variant="top"
+                  src={artist.ArtistImage}
+                />
+                <Card.Body>
+                  <Card.Title>{artist.ArtistName}</Card.Title>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </ListGroup>
+    </div>
+  );
+}
 
 export default ArtistList;
