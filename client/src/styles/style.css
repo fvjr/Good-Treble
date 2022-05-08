@@ -301,6 +301,10 @@ input {
   transform: translateX(50%);
 }
 
+#image {
+  border-radius: 15%;
+}
+
 .overlay-panel {
   position: absolute;
   display: flex;
@@ -346,6 +350,24 @@ input {
   margin: 0 5px;
   height: 40px;
   width: 40px;
+}
+
+#songsList {
+  overflow-y: scroll;
+  height: 320px;
+  
+
+}
+#songTable {
+  vertical-align: text-bottom;
+  
+
+}
+#songsList {
+  overflow-y: scroll;
+  height: 320px;
+  
+
 }
 
 .log-out {
