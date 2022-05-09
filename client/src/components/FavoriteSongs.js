@@ -7,13 +7,13 @@ import '../styles/style.css';
 function FavoriteSongs(props) {
   return (
     <div id="songsList">
-      <Table hover  id="songTable" >
+      <Table hover id="songTable">
         {props.songs.map((song) => (
           <tbody>
             <tr>
               <td>1</td>
-              <td >
-                <img src={song.AlbumImage} alt="song" id= "image" />
+              <td>
+                <img src={song.AlbumImage} alt="song" id="image" />
               </td>
               <td>
                 <div className="fw-bold" key={song.id}>
@@ -22,7 +22,7 @@ function FavoriteSongs(props) {
               </td>
               <td>{song.ArtistName}</td>
               <td>
-                <Button bg="primary" >
+                <Button bg="primary">
                   <FontAwesomeIcon icon={faPlay} />
                 </Button>
               </td>
