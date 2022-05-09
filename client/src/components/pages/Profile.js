@@ -48,6 +48,43 @@ const artists = [
       'https://i.scdn.co/image/ab6761610000f17884871c3351c73543e3ad9dc5',
     id: 4,
   },
+
+  {
+    SongName: 'Haunted',
+    ArtistName: 'Laura Les',
+    AlbumImage:
+      'https://i.scdn.co/image/ab67616d00004851e189a58c143802bd6c85ed94',
+    ArtistImage:
+      'https://i.scdn.co/image/ab6761610000f178fe09d2d34477616785147fdb',
+    id: 5,
+  },
+  {
+    SongName: 'mos thoser',
+    ArtistName: 'food house',
+    AlbumImage:
+      'https://i.scdn.co/image/ab67616d000048511812ebf4481cd0142857f85b',
+    ArtistImage:
+      'https://i.scdn.co/image/ab67616d000048511812ebf4481cd0142857f85b',
+    id: 6,
+  },
+  {
+    SongName: 'yoga (feat. Rebecca Black)',
+    ArtistName: 'bbno$',
+    AlbumImage:
+      'https://i.scdn.co/image/ab67616d000048518c25aa58d7e0894df7436348',
+    ArtistImage:
+      'https://i.scdn.co/image/ab6761610000f1786bca811e558018074bbc1b05',
+    id: 7,
+  },
+  {
+    SongName: 'Ghost',
+    ArtistName: 'nelward',
+    AlbumImage:
+      'https://i.scdn.co/image/ab67616d000048511cecc7242dcb36298f33b0fd',
+    ArtistImage:
+      'https://i.scdn.co/image/ab6761610000f178bebddf5a847f431a5ffd10f3',
+    id: 8,
+  },
 ];
 
 const songs = [
@@ -140,22 +177,24 @@ const styles = {
 
 function Profile() {
   return (
-    <Container style={styles.container}>
-      <ListGroup variant="flush">
-        <ListGroup.Item>
-          <UserAvatar />
-        </ListGroup.Item>
-        <ListGroup.Item>
-          <SpotifyImport />
-        </ListGroup.Item>
-        <ListGroup.Item>
-          <ArtistList artists={artists} />
-        </ListGroup.Item>
-        <ListGroup.Item>
-          <FavoriteSongs songs={songs} />
-        </ListGroup.Item>
-      </ListGroup>
-    </Container>
+    <div>
+      <Container style={styles.container}>
+        <ListGroup variant="flush">
+          <ListGroup.Item>
+            <UserAvatar />
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <SpotifyImport />
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <ArtistList artists={artists} />
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <FavoriteSongs songs={songs} />
+          </ListGroup.Item>
+        </ListGroup>
+      </Container>
+    </div>
   );
 }
 

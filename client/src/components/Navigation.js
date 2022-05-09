@@ -19,7 +19,7 @@ function Navigation({ currentPage, handlePageChange }) {
         <div className="mx-auto">
           <a
             className="navbar-logo"
-            href="#about"
+            href="/#about"
             onClick={() => handlePageChange('About')}
           >
             <img
@@ -44,6 +44,15 @@ function Navigation({ currentPage, handlePageChange }) {
             <li className="nav-item">
               <a
                 className="nav-link"
+                href="/#eventPage"
+                onClick={() => handlePageChange('EventPage')}
+              >
+                EventPage
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className="nav-link"
                 href="/#profile"
                 onClick={() => handlePageChange('Profile')}
               >
@@ -53,7 +62,7 @@ function Navigation({ currentPage, handlePageChange }) {
             <li className="nav-item">
               <a
                 className="nav-link"
-                href="#login"
+                href="/#login"
                 onClick={() => handlePageChange('Login')}
               >
                 Login
