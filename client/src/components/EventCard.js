@@ -8,10 +8,20 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 
+const styles = {
+  card: {
+    padding: 20,
+    background: 'black',
+    borderStyle: 'solid',
+    borderWdith: 15,
+    borderColor: 'black',
+  },
+};
+
 function EventCard(props) {
   return (
     <div>
-      <h2>Your Favorite Artists</h2>
+      <h2>Here are some upcoming events for your favorite artists!</h2>
       <ListGroup horizontal>
         <Row>
           {props.events.map((event) => (
