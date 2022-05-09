@@ -14,7 +14,7 @@ function SpotifyImport() {
   return (
     <Row style={styles.importSection}>
       <Col>
-        <h3>
+        <h3 id="importDescription">
           Let's get your Spotify songs imported! Click the "Import Songs" button
           to see your favorite songs and artists!
         </h3>

@@ -3,6 +3,8 @@ import About from './pages/About';
 import Navigation from './Navigation';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
+import Footer from './pages/Footer';
+
 
 export default function PageContainer() {
   const [currentPage, setCurrentPage] = useState('Profile');
@@ -29,6 +31,8 @@ export default function PageContainer() {
         handlePageChange={handlePageChange}
       />
       {renderPage()}
+     <Footer />
     </div>
   );
 }
+

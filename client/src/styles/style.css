@@ -1,5 +1,6 @@
 * {
-  box-sizing: border-box;
+  margin: 5px;
+  padding: 5px;
 }
 
 :root {
@@ -18,32 +19,29 @@
 
 /* FONT INFO */
 
-/* Audiowide is an 80's inspired font */
-/* Baloo looks good bold and all caps */
-/* Oxygen is very normal looking font */
-/* Syne Mono has a distressed type look */
-/* Yesteryear is a fancy script */
+/* Koulen is a font that means business. */
+/* Baloo Tamma 2 is a very normal looking font. */
+/* Caveat looks handwritten. */
+/* Goldman is sci-fi inspired.  */
 
 /* FONT INFO */
 
 body {
   background: radial-gradient(#271537, #01000a);
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column;
-  font-family: 'Baloo 2', cursive;
-  height: 100vh;
-  margin: -20px 0 50px;
+  margin: 0;
+  height: auto;
+  font-family: 'Baloo Tamma 2', cursive;
+  text-align: center;
 }
 
 .navbar {
+  font-family: 'Koulen', cursive;
   justify-content: center;
   align-content: center;
 }
 
 h1 {
-  font-family: 'Baloo 2', cursive;
+  font-family: 'Koulen', cursive;
   font-size: 3em;
   font-weight: 900;
   text-transform: uppercase;
@@ -52,20 +50,20 @@ h1 {
 }
 
 h2 {
-  font-family: 'Baloo 2', cursive;
+  font-family: 'Koulen', cursive;
   font-size: 3em;
   font-weight: 800;
   text-align: center;
 }
 
 h3 {
-  font-family: 'Baloo 2', cursive;
+  font-family: 'Goldman', cursive;
   font-size: 2.5em;
   font-weight: 800;
 }
 
 p {
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Baloo Tamma 2', cursive;
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 0.5px;
@@ -78,24 +76,24 @@ span {
 }
 
 a {
-  font-family: 'Syne Mono', monospace;
-  color: var(--neon-violet);
+  font-family: 'Goldman', cursive;
+  color: var(--good-treble-green);
   font-size: 1.5em;
   text-decoration: 0;
   margin: 15px 0;
 }
 
 a:hover {
-  font-family: 'Syne Mono', monospace;
+  font-family: 'Goldman', cursive;
   font-size: 1.7em;
-  color: var(--arcade-pink);
+  color: var(--good-treble-green);
   text-shadow: 0 0 7px var(--retro-yellow), 0 0 9px var(--headlight-white);
 }
 
 a ul li {
-  font-family: 'Syne Mono', monospace;
+  font-family: 'Goldman', cursive;
   font-size: 14px;
-  color: var(--neon-violet);
+  color: var(--good-treble-green);
   font-weight: 500;
   line-height: 1em;
   list-style: none;
@@ -112,6 +110,7 @@ a ul li {
 .imported {
   width: 500px !important;
   text-align: center !important;
+  color: var(--good-treble-green);
 }
 
 .playlist-container {
@@ -124,8 +123,8 @@ button {
   border: 1px solid var(--good-treble-green);
   background-color: var(--good-treble-green);
   color: var(--tinted-windows-black);
-  font-family: 'Audiowide', cursive;
-  font-size: 18px;
+  font-family: 'Koulen', cursive;
+  font-size: 1.5em;
   font-weight: 700;
   padding: 12px 45px;
   letter-spacing: 1px;
@@ -301,6 +300,10 @@ input {
   transform: translateX(50%);
 }
 
+#image {
+  border-radius: 15%;
+}
+
 .overlay-panel {
   position: absolute;
   display: flex;
@@ -348,45 +351,41 @@ input {
   width: 40px;
 }
 
+#importDescription {
+  font-family: 'Caveat', cursive;
+  line-height: 1.2em;
+  color: var(--good-treble-green);
+  text-shadow: 0 0 3px var(--retro-yellow), 0 0 5px var(--headlight-white);
+}
+
+#songsList {
+  overflow-y: scroll;
+  height: 320px;
+}
+
+#songTable {
+  vertical-align: text-bottom;
+}
+
+#songsList {
+  overflow-y: scroll;
+  height: 320px;
+}
+
 .log-out {
   justify-content: center;
   align-content: center;
 }
 
-footer {
-  background: var(--sunset-orange);
-  color: var(--neon-violet);
-  font-size: 14px;
-  bottom: 0;
-  position: fixed;
-  left: 0;
-  right: 0;
-  text-align: center;
-  z-index: 999;
-}
-
-footer p {
-  margin: 10px 0;
-}
-
-footer i {
-  color: var(--retro-yellow);
-}
-
-footer a {
-  color: var(--kumbasar-blue);
-  text-decoration: none;
-}
-
 i {
-  font-family: 'Oxygen', sans-serif;
-  color: var(--arcade-pink);
+  font-family: 'Goldman', cursive;
+  color: var(--good-treble-green);
   transition: all 0.3s ease-in-out;
 }
 
 i:hover {
-  font-family: 'Oxygen', sans-serif;
-  color: var(--sunset-orange);
+  font-family: 'Goldman', cursive;
+  color: var(--retro-yellow);
   transition: all 0.3s ease-in-out;
 }
 
@@ -394,16 +393,26 @@ main {
   background: transparent;
 }
 
-/* Media Queries for Mobile */
-@media screen and (max-width: 600px) {
+/* Media Queries for Small Mobile */
+@media screen and (min-width: 500px) {
   body {
+    display: flex;
     width: 100%;
   }
 }
 
-/* Media Queries for iPads */
-@media screen and (max-width: 768px) {
+/* Media Queries for Large Mobile */
+@media screen and (min-width: 600px) {
   body {
+    display: flex;
+    height: 100%;
+  }
+}
+
+/* Media Queries for iPads */
+@media screen and (min-width: 768px) {
+  body {
+    display: flex;
     width: 100%;
   }
 }
