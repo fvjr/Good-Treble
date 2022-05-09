@@ -1,45 +1,69 @@
 import React from 'react';
 import ListGroupItem from 'react-bootstrap/esm/ListGroupItem';
-import { ListGroup, Col, Button, Row } from 'react-bootstrap';
-
+import { ListGroup, Col, Button, Row, Table } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import '../styles/style.css';
 function FavoriteSongs(props) {
   return (
-    // <ul className="list-group">
-    //   {props.songs.map((song) => (
-    //     <li className="list-group-item" key={song.id}>
-    //       {song.SongName}
-    //       <img src={song.AlbumImage} width="100" height="50" alt="song " />
-    //     </li>
-    //   ))} vuvfu
-    // </ul>
-    <ListGroup as="ol" numbered>
+    <div id="songsList">
+      <Table hover  id="songTable" >
+        {props.songs.map((song) => (
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td >
+                <img src={song.AlbumImage} alt="song" id= "image" />
+              </td>
+              <td>
+                <div className="fw-bold" key={song.id}>
+                  {song.SongName}
+                </div>
+              </td>
+              <td>{song.ArtistName}</td>
+              <td>
+                <Button bg="primary" >
+                  <FontAwesomeIcon icon={faPlay} />
+                </Button>
+              </td>
+            </tr>
+          </tbody>
+        ))}
+      </Table>
+      {/* <ListGroup as="ol" numbered id= "songslist">
       {props.songs.map((song) => (
+        
         <ListGroup.Item
           as="li"
-          className="d-flex justify-content-between align-items-start"
-        >
+          className="d-flex justify-content-center align-items-start">
+        
           <div className="ms-2 me-auto">
-            <Row>
-              <Col md={3}>
+            <Row >
+              
+              <Col md={3} className= "align-items-center">
+                
                 <img src={song.AlbumImage} alt="song" />
+                
               </Col>
-              <Col md={8}>
+              <Col md={5} >
                 <div className="fw-bold" key={song.id}>
                   {song.SongName}
                 </div>
                 {song.ArtistName}
               </Col>
 
-              <Col md={1}>
+              <Col md={4}>
                 <Button bg="primary" pill>
-                  14
+                <FontAwesomeIcon icon={faPlay} />
                 </Button>
               </Col>
+              
             </Row>
           </div>
         </ListGroup.Item>
       ))}
-    </ListGroup>
+    </ListGroup> */}
+    </div>
   );
 }
 
