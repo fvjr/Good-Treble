@@ -16,7 +16,7 @@ function FavoriteSongs(props) {
                 <img src={song.AlbumImage} alt="song" id="image" />
               </td>
               <td>
-                <div className="fw-bold" key={song.id}>
+                <div className="fw-bold" key={song.SongID}>
                   {song.SongName}
                 </div>
               </td>

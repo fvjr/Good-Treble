@@ -76,6 +76,11 @@ app.post('/spotifyAPI/:code', async (req, res) => {
   }
 });
 
+app.get('/spotifyAPI', async (req, res) => {
+  const playlistJSON = await spotify.getAllPlaylistData(1);
+  res.status(200).json(playlistJSON);
+})
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
