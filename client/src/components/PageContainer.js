@@ -5,7 +5,6 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Footer from './pages/Footer';
 
-
 export default function PageContainer() {
   const [currentPage, setCurrentPage] = useState('Profile');
 

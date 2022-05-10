@@ -8,21 +8,14 @@ function Navigation({
   handlePageChange
 }) {
   return ( <
-    div className = "container-fluid mt-1" >
-    <
-    nav className = "navbar navbar-expand-lg navbar-dark bg-transparent d-flex flex-row" >
-    <
-    a className = "navbar-brand"
-    href = "/login" >
-    <
-    img src = "/Assets/clefArt.png"
+    div className = "container-fluid mt-1">
+    <nav className = "navbar navbar-expand-lg navbar-dark bg-transparent d-flex flex-row">
+    <a className = "navbar-brand" href = "/login">
+    <img src = "/Assets/clefArt.png"
     width = "30"
     height = "50"
-    alt = "treble clef" /
-    >
-    <
-    /a> <
-    div className = "navbar-nav"
+    alt = "treble clef" />
+    </a> <div className = "navbar-nav"
     id = "navbarNav" > < /div> <
     div className = "mx-auto" >
     <
@@ -61,9 +54,7 @@ function Navigation({
     onClick = {
       () => handlePageChange('Profile')
     } >
-    Profile <
-    /a> <
-    /li> <
+    Profile </a> </li> <
     li className = "nav-item" >
     <
     a className = "nav-link"

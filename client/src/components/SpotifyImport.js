@@ -2,11 +2,14 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { faAlignCenter } from '@fortawesome/free-solid-svg-icons';
 
 const styles = {
   importSection: {
     padding: 20,
     background: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 };
 
