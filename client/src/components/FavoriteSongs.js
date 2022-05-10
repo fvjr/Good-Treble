@@ -22,9 +22,14 @@ function FavoriteSongs(props) {
               </td>
               <td>{song.ArtistName}</td>
               <td>
+                {/*
                 <Button bg="primary">
                   <FontAwesomeIcon icon={faPlay} />
                 </Button>
+                */}
+                <audio controls>
+                  <source src={song.PreviewStream} type="audio/mpeg"/>
+                </audio>
               </td>
             </tr>
           </tbody>
