@@ -1,16 +1,16 @@
 import React from 'react';
-import '../../styles/style.css';
+import '../styles/style.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
-import ArtistList from '../ArtistList';
-import FavoriteSongs from '../FavoriteSongs';
+import ArtistList from '../components/ArtistList';
+import FavoriteSongs from '../components/FavoriteSongs';
 import Image from 'react-bootstrap/Image';
-import UserAvatar from '../UserAvatar';
-import SpotifyImport from '../SpotifyImport';
+import UserAvatar from '../components/UserAvatar';
+import SpotifyImport from '../components/SpotifyImport';
 import { ListGroupItem } from 'react-bootstrap';
-import Navigation from '../Navigation';
+import Navigation from '../components/Navigation';
 
 const artists = [
   {

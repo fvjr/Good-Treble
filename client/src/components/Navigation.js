@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
+import { Link } from 'react-router-dom';
 
 const styles = {
   title: {
@@ -33,7 +34,7 @@ const styles = {
   },
 };
 
-function Navigation({ currentPage, handlePageChange }) {
+function Navigation() {
   return (
     <div style={styles.image}>
       <div className="container-fluid mt-1">
@@ -51,56 +52,38 @@ function Navigation({ currentPage, handlePageChange }) {
           </a>
           <div className="navbar-nav" id="navbarNav"></div>
           <div className="mx-auto">
-            <a
-              className="navbar-logo"
-              href="/#about"
-              onClick={() => handlePageChange('About')}
-            >
+            <Link className="nav-link navbar-logo" to="/about">
               <img
                 src="/Assets/goodTrebleLogo.png"
                 width="135"
                 height="95"
                 alt="Good Treble Logo"
               />
-            </a>
+            </Link>
           </div>
           <div className="d-flex flex-row-reverse">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a
-                  className="nav-link"
-                  href="/#about"
-                  onClick={() => handlePageChange('About')}
-                >
+                <Link className="nav-link" to="/about">
+                  {' '}
                   Why GOOD TREBLE
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
-                  className="nav-link"
-                  href="/#eventPage"
-                  onClick={() => handlePageChange('EventPage')}
-                >
-                  EventPage
-                </a>
+                <Link className="nav-link" to="/eventsPage">
+                  {' '}
+                  Events Page
+                </Link>
               </li>
               <li className="nav-item">
-                <a
-                  className="nav-link"
-                  href="/#profile"
-                  onClick={() => handlePageChange('Profile')}
-                >
+                <Link className="nav-link" to="/profile">
                   Profile
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
-                  className="nav-link"
-                  href="/#login"
-                  onClick={() => handlePageChange('Login')}
-                >
+                <Link className="nav-link" to="/login">
                   Login
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
