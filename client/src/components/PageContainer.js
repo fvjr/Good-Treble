@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import About from './pages/About';
+import About from '../pages/About';
 import Navigation from './Navigation';
-import Login from './pages/Login';
-import Profile from './pages/Profile';
+import Login from '../pages/Login';
+import Profile from '../pages/Profile';
 import Container from 'react-bootstrap/Container';
-import EventPage from './pages/EventPage';
-import { useSearchParams } from 'react-router-dom';
+import EventPage from '../pages/EventPage';
 
 // export default function PageContainer() {
 //   const [currentPage, setCurrentPage] = useState('Profile');
