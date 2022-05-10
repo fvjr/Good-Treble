@@ -206,7 +206,6 @@ input {
   box-shadow: 0 14px 28px var(--neon-violet), 0 10px 10px var(--outrun-red);
   position: relative;
   overflow: hidden;
-  width: 768px;
   max-width: 100%;
   min-height: 480px;
 }
@@ -390,7 +389,8 @@ i:hover {
 }
 
 main {
-  background: transparent;
+  max-width: 900px;
+  margin: auto;
 }
 
 /* Media Queries for Small Mobile */
@@ -402,7 +402,7 @@ main {
 }
 
 /* Media Queries for Large Mobile */
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 667px) {
   body {
     display: flex;
     height: 100%;
