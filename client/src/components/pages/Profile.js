@@ -11,6 +11,9 @@ import UserAvatar from '../UserAvatar';
 import SpotifyImport from '../SpotifyImport';
 import { ListGroupItem } from 'react-bootstrap';
 import Navigation from '../Navigation';
+import { useSearchParams } from 'react-router-dom';
+
+
 
 const artists = [
   {
@@ -177,7 +180,18 @@ const styles = {
 };
 
 function Profile() {
+  const searchParams = new URLSearchParams(window.location.search);
+  if(searchParams.has('code')){
+    console.log("Running spotifyGet");
+    spotifyGet();
+  } else {
+    console.log('code not detected');
+  }
+
+  
+
   return (
+    
     <div>
       <Container style={styles.container}>
         <ListGroup variant="flush">
@@ -197,6 +211,16 @@ function Profile() {
       </Container>
     </div>
   );
+}
+
+function spotifyGet(){
+  const searchParams = new URLSearchParams(window.location.search);
+  const code = searchParams.get('code');
+  console.log(code);
+  fetch(`http://localhost:3001/spotifyAPI/${code}`, {
+    method: 'POST'
+  });
+  window.location = 'http://localhost:3000/';
 }
 
 export default Profile;

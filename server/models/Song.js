@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
+const Artist = require('./Artist');
 
 class Song extends Model {}
 
@@ -19,7 +20,7 @@ Song.init(
     artist_id: {
       type: DataTypes.STRING(255),
       references: {
-        model: 'artist',
+        model: Artist,
         key: 'id',
       },
     },

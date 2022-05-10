@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Container from 'react-bootstrap/Container';
 import EventPage from './pages/EventPage';
+import { useSearchParams } from 'react-router-dom';
 
 // export default function PageContainer() {
 //   const [currentPage, setCurrentPage] = useState('Profile');
