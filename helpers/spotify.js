@@ -35,7 +35,7 @@ async function retrieveFavorites(maxVal, userID) {
 //Beginning at the specified index
 async function getData(index) {
   const res = await fetch(
-    `https://api.spotify.com/v1/me/tracks?offset=${index}&limit=25`,
+    `https://api.spotify.com/v1/me/tracks?offset=${index}&limit=50`,
     {
       method: 'GET',
       headers: {
@@ -56,6 +56,8 @@ async function parseData(tracks, userID) {
       listing.track.artists[0].name,
       listing.track.id,
       listing.track.name,
+      listing.track.album.images[2].url,
+      listing.track.preview_url,
       userID
     )
   );
@@ -67,6 +69,8 @@ async function writeSongToDatabase(
   ArtistName,
   SongID,
   SongName,
+  AlbumImage,
+  PreviewStream,
   userID
 ) {
   nameHolder = await User.findByPk(userID);
@@ -74,16 +78,62 @@ async function writeSongToDatabase(
   const findPlaylist = await Playlist.findOrCreate({
     where: { id: userID, name: `${nameString}'s Liked Songs`, user_id: userID },
   });
+
+  const ArtistImage = await getArtistImage(ArtistID);
+
   const findArtist = await Artist.findOrCreate({
-    where: { id: ArtistID, name: ArtistName },
+    where: { id: ArtistID, name: ArtistName , image: ArtistImage},
   });
 
   const findSong = await Song.findOrCreate({
-    where: { id: SongID, name: SongName, artist_id: ArtistID },
+    where: {
+      id: SongID,
+      name: SongName,
+      artist_id: ArtistID,
+      album_image: AlbumImage,
+      preview_stream: PreviewStream,
+    },
   });
   const findPlaylistSong = await PlaylistSongs.findOrCreate({
     where: { playlist_id: userID, song_id: SongID },
   });
+}
+
+//Retrieves a user's most listened to track on spotify
+async function getTopTrackArt(user_id){
+  const res = await fetch(
+    `	https://api.spotify.com/v1/me/top/tracks?limit=1&time_range=long_term`,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${oauthToken}`,
+      },
+    }
+  );
+  
+  //return res.json();
+  const data = await res.json();
+  const avatar = data.items[0].album.images[1].url;
+  const currentAvatar = await sequelize.query(`SELECT avatar FROM user WHERE id = ${user_id}`);
+  if(currentAvatar != "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"){
+  const importedAvatar = await sequelize.query(`UPDATE user SET avatar = "${avatar}" WHERE id = ${user_id}`);
+  }
+  console.log("Updated Avatar");
+}
+
+//When given an artistID, returns a link to a 160x160 image of the artist
+async function getArtistImage(artistID) {
+  const res = await fetch(
+    `https://api.spotify.com/v1/artists/${artistID}`,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${oauthToken}`,
+      },
+    }
+  );
+  const artistJSON = await res.json();
+  return artistJSON.images[2].url;
 }
 
 /**
@@ -92,17 +142,20 @@ async function writeSongToDatabase(
  */
 async function getAllPlaylistData(playlist_id) {
   const arrayData =
-    await sequelize.query(`SELECT song.name AS SongName, artist.name AS ArtistName FROM playlist
+    await sequelize.query(`SELECT song.id AS SongID, song.name AS SongName, artist.name AS ArtistName, song.album_image AS AlbumImage, song.preview_stream AS PreviewStream, artist.image AS ArtistImage FROM playlist
   INNER JOIN playlist_songs ON playlist.id = playlist_songs.playlist_id
   INNER JOIN song ON playlist_songs.song_id = song.id
   INNER JOIN artist ON song.artist_id = artist.id
   WHERE playlist.id = ${playlist_id}`);
-  return arrayData;
+  //console.log("------- Begin JSON DATA -------");
+  //console.log(arrayData[0]);
+  //console.log("-------- End JSON Data --------");
+  return arrayData[0];
 }
 
 async function getArtists(playlist_id) {
   const arrayData =
-    await sequelize.query(`SELECT DISTINCT artist.name, COUNT(song.id) AS SONGS FROM artist
+    await sequelize.query(`SELECT DISTINCT artist.name, artist.image AS ArtistImage, COUNT(song.id) AS SONGS FROM artist
   INNER JOIN song ON song.artist_id = artist.id
   INNER JOIN playlist_songs ON playlist_songs.song_id = song.id
   INNER JOIN playlist ON playlist.id = playlist_songs.playlist_id
@@ -116,3 +169,4 @@ exports.getArtists = getArtists;
 exports.getAllPlaylistData = getAllPlaylistData;
 exports.retrieveFavorites = retrieveFavorites;
 exports.setToken = setToken;
+exports.getTopTrackArt = getTopTrackArt;

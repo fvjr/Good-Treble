@@ -8,7 +8,7 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
-
+console.log('wrong server)');
 // Set up Handlebars.js engine
 const hbs = exphbs.create();
 
@@ -33,10 +33,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
-
 //start server and connect to db
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
-}).catch(function(err){
-  console.log(err)
-})
+sequelize
+  .sync({ force: false })
+  .then(() => {
+    app.listen(PORT, () => console.log('Now listening'));
+  })
+  .catch(function (err) {
+    console.log(err);
+  });
