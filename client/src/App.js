@@ -30,6 +30,7 @@ function App() {
               <Route path="/eventsPage" element={<EventPage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path='/spotify' element={<Profile />} />
             </Routes>
           </div>
         </div>
