@@ -21,7 +21,7 @@ const styles = {
 function EventCard(props) {
   return (
     <div>
-      <h2>Here are some upcoming events for your favorite artists!</h2>
+      <h2>Here are the events you're going to!</h2>
       <ListGroup horizontal>
         <Row>
           {props.events.map((event) => (
@@ -38,10 +38,7 @@ function EventCard(props) {
                   <p>Show Time:{event.dates.start.localTime}</p>
                   <p>Show Location:{event._embedded.venues[0].name}</p>
                   <button>
-                    <a href={event.url}>Get tickets</a>
-                  </button>
-                  <button>
-                    <a>Add to my events page</a>
+                    <a href={event.url}>Still need tickets? Get them here</a>
                   </button>
                 </Card.Body>
               </Card>
