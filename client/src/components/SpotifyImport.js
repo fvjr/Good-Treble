@@ -15,6 +15,7 @@ const styles = {
 
 function SpotifyImport() {
   return (
+<<<<<<< HEAD
     <Row style={styles.importSection}>
       <Col>
         <h3 id="importDescription">
@@ -28,6 +29,23 @@ function SpotifyImport() {
         </a>
       </Col>
     </Row>
+=======
+    <div>
+      <Row style={styles.importSection}>
+        <Col md={6}>
+          <h3>
+            Let's get your Spotify songs imported! Click the "Import Songs"
+            button to see your favorite songs and artists!
+          </h3>
+        </Col>
+        <Col md={6}>
+          <a href="">
+            <button id="button-spotify-import">Import Songs</button>
+          </a>
+        </Col>
+      </Row>
+    </div>
+>>>>>>> 6783fd68df577b1fe269e38d83a3c6fcb8bc648a
   );
 }
 
