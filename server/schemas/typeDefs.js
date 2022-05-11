@@ -20,6 +20,7 @@ const typeDefs = gql`
     id: ID
     name: String
     image: String
+    songs: [Song]
   }
 
   type Playlist {
