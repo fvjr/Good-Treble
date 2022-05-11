@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/style.css';
-import EventCard from '../components/EventCard';
-// import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import MyEventCard from '../components/MyEventCard';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const events = [
   {
@@ -291,23 +291,12 @@ const events = [
   },
 ];
 
-const styles = {
-  events: {
-    padding: 20,
-    background: 'red',
-    borderStyle: 'solid',
-    borderWdith: 15,
-    borderColor: 'black',
-    color: 'white',
-  },
-};
-
-function EventPage() {
+function MyEventPage() {
   return (
     <div>
-      <EventCard events={events} />
+      <MyEventCard events={events} />
     </div>
   );
 }
 
-export default EventPage;
+export default MyEventPage;

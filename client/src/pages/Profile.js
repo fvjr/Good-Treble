@@ -142,6 +142,7 @@ const styles = {
 
 function Profile() {
   const [songState, setSongState] = useState(songs);
+  const [artistState, setArtistState] = useState(artists)
 
   const searchParams = new URLSearchParams(window.location.search);
   if(searchParams.has('code')){
@@ -153,6 +154,9 @@ function Profile() {
 
   if(songState[0].SongID === 1){
   loadSongs(setSongState);
+  }
+  if(artistState[0].id === 1){
+    loadArtists(setArtistState);
   }
 
   return (
@@ -167,7 +171,7 @@ function Profile() {
             <SpotifyImport />
           </ListGroup.Item>
           <ListGroup.Item>
-            <ArtistList artists={artists} />
+            <ArtistList artists={artistState} />
           </ListGroup.Item>
           <ListGroup.Item>
             <FavoriteSongs songs={songState} />
@@ -179,19 +183,27 @@ function Profile() {
 }
 
 async function loadSongs(stateUpdate){
-  const newSongs = fetch('http://localhost:3001/spotifyAPI', {
+  const newSongs = fetch('http://localhost:3001/spotifyTracks', {
     method: 'GET'
   }).then((response) => response.json())
   .then((data) => {
     console.log(data);
-    if (
-      data.length > 0
-
-    )
-     {stateUpdate(data)}
-    ;
+    if(data.length > 0){
+    stateUpdate(data);
+    }
   })
+}
 
+async function loadArtists(stateUpdate){
+  const newArtists = fetch('http://localhost:3001/spotifyArtists', {
+    method: 'GET'
+  }).then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    if(data.length > 0){
+    stateUpdate(data);
+    }
+  })
 }
 
 function spotifyGet(){
