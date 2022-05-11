@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import '../../styles/style.css';
 import EventCard from '../components/EventCard';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+// import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const events = [
   {

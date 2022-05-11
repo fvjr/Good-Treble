@@ -10,7 +10,7 @@ import Image from 'react-bootstrap/Image';
 import UserAvatar from '../components/UserAvatar';
 import SpotifyImport from '../components/SpotifyImport';
 import { ListGroupItem } from 'react-bootstrap';
-import Navigation from '../components/Navigation';
+// import Navigation from '../components/Navigation';
 
 const artists = [
   {
