@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { Link } from 'react-router-dom';
 
 const styles = {
   profileHeader: {
@@ -52,7 +53,9 @@ function UserAvatar(props) {
         <h2>USER NAME HERE</h2>
       </Col>
       <Col>
-        <h2>My Events</h2>
+        <Link to="/myEvents">
+          <h2>My Events</h2>
+        </Link>
       </Col>
       <Col>
         <h2>Events</h2>
@@ -60,33 +63,5 @@ function UserAvatar(props) {
     </Row>
   );
 }
-
-// function UserAvatar(props) {
-//   return (
-//     <div style={styles.card}>
-//       <ListGroup horizontal>
-//         <ListGroup.Item>
-//           <Image
-//             fluid="true"
-//             roundedCircle="true"
-//             src="https://i.scdn.co/image/ab67616d000048518f4944a3d77dd680bde9fd10"
-//           ></Image>
-//         </ListGroup.Item>
-//         <ListGroup.Item>
-//           <h2>USER NAME HERE</h2>
-//         </ListGroup.Item>
-//         <ListGroup.Item>
-//           <h2>My Events</h2>
-//         </ListGroup.Item>
-//         <ListGroup.Item>
-//           <h2>Community</h2>
-//         </ListGroup.Item>
-//         <ListGroup.Item>
-//           <h2>Community Events</h2>
-//         </ListGroup.Item>
-//       </ListGroup>
-//     </div>
-//   );
-// }
 
 export default UserAvatar;
