@@ -200,7 +200,8 @@ async function loadArtists(stateUpdate){
   }).then((response) => response.json())
   .then((data) => {
     console.log(data);
-    if(data.length > 0 && !data[0] === null){
+    if(data.length > 0 && !(data[0] === null)){
+      console.log("Update Artists");
     stateUpdate(data);
     }
   })
