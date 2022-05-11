@@ -70,15 +70,28 @@ app.post('/spotifyAPI/:code', async (req, res) => {
     console.log(parsedToken);
     spotify.setToken(parsedToken);
     spotify.retrieveFavorites(25, 1);
+    spotify.getTopArtists(1);
     spotify.getTopTrackArt(1);
     //res.redirect('https://good-treble.herokuapp.com/redirectPage');
     res.redirect('http://localhost:3000/');
   }
 });
 
-app.get('/spotifyAPI', async (req, res) => {
+app.get('/spotifyTracks', async (req, res) => {
   const playlistJSON = await spotify.getAllPlaylistData(1);
   res.status(200).json(playlistJSON);
+});
+
+app.get('/spotifyArtists', async (req, res) => {
+  let artistJSON = [];
+  for(let i = 1; i < 9; i++){
+    const topArtist = await sequelize.query(`
+    SELECT Artist.id, Artist.name AS ArtistName, Artist.image AS ArtistImage FROM ARTIST
+    INNER JOIN user ON Artist.id = user.fav${i}
+    WHERE user.id = 1`);
+    artistJSON.push(topArtist[0][0]);
+  }
+  res.json(artistJSON);
 })
 
 app.get('/', (req, res) => {
