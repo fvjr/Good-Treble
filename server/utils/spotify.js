@@ -1,15 +1,14 @@
 const fetch = require('node-fetch');
 const express = require('express');
-const Song = require('../models/Song');
-const Artist = require('../models/Artist');
 const req = require('express/lib/request');
-const { Playlist, User } = require('../models');
-const PlaylistSongs = require('../models/PlaylistSongs');
-const { sequelize } = require('../models/PlaylistSongs');
+const { Playlist, User, PlaylistSongs, Song, Artist } = require('../../models');
+//const PlaylistSongs = require('../../models/PlaylistSongs');
+//const { sequelize } = require('../../models/PlaylistSongs');
+const sequelize = require('../config/connection');
 //let input = require('./input.json');
 //const maxVal = 800;
 let oauthToken = '';
-const trackArray = new Array();
+const trackArray = [];
 
 //Sets the oauth Token
 function setToken(token) {
@@ -23,7 +22,7 @@ function setToken(token) {
  * @returns Array:String of favorite songs in format "{nameOfSong} by {nameOfFirstArtist}""
  */
 async function retrieveFavorites(maxVal, userID) {
-  for (i = 0; i < maxVal; i += 50) {
+  for (let i = 0; i < maxVal; i += 50) {
     const formattedData = await getData(i);
     parseData(formattedData, userID);
   }
@@ -73,8 +72,8 @@ async function writeSongToDatabase(
   PreviewStream,
   userID
 ) {
-  nameHolder = await User.findByPk(userID);
-  nameString = nameHolder.dataValues.name;
+  let nameHolder = await User.findByPk(userID);
+  let nameString = nameHolder.dataValues.name;
   const findPlaylist = await Playlist.findOrCreate({
     where: { id: userID, name: `${nameString}'s Liked Songs`, user_id: userID },
   });

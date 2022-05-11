@@ -16,16 +16,14 @@
     "concurrently": "^5.3.0"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.0",
+    "mysql2": "^2.3.3",
+    "node-fetch": "^3.2.4",
+    "@apollo/client": "^3.6.2",
     "npm-watch": "^0.11.0",
-    "react-router-dom": "^6.3.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AmyShafer/Looking-For-Treble.git"
-  },
-  "keywords": [],
-  "bugs": {
-    "url": "https://github.com/AmyShafer/Looking-For-Treble/issues"
-  },
-  "homepage": "https://github.com/AmyShafer/Looking-For-Treble#readme"
+    "react-app-polyfill": "^3.0.0",
+    "react-router-dom": "^6.3.0",
+    "sequelize": "^6.19.0"
+  }
 }

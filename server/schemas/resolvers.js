@@ -9,8 +9,13 @@ const resolvers = {
     },
     
     songs: async () => {
-      songs = await Song.findAll(); 
-      songs.forEach((song) => { song.artist_id = Artist.findOne({ where: { id: song.artist_id}})});
+      const songs = await Song.findAll({
+        include: [{
+          model: Artist,
+          required: false,
+        }],
+      }); 
+      console.log(songs);
       return await songs;
     },
 
