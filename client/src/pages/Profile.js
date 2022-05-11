@@ -184,7 +184,12 @@ async function loadSongs(stateUpdate){
   }).then((response) => response.json())
   .then((data) => {
     console.log(data);
-    stateUpdate(data);
+    if (
+      data.length > 0
+
+    )
+     {stateUpdate(data)}
+    ;
   })
 
 }
