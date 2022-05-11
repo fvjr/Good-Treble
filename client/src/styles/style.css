@@ -352,20 +352,20 @@ input {
   width: 40px;
 }
 
-#songsList {
-  overflow-y: scroll;
-  height: 320px;
+#audio {
+  
+  vertical-align: middle;
   
 
 }
 #songTable {
-  vertical-align: text-bottom;
+  vertical-align:text-bottom;
   
 
 }
 #songsList {
   overflow-y: scroll;
-  height: 320px;
+  height: 20rem;
   
 
 }

@@ -10,7 +10,7 @@ import Image from 'react-bootstrap/Image';
 import UserAvatar from '../components/UserAvatar';
 import SpotifyImport from '../components/SpotifyImport';
 import { ListGroupItem } from 'react-bootstrap';
-// import Navigation from '../components/Navigation';
+import Navigation from '../components/Navigation';
 
 const artists = [
   {
@@ -200,7 +200,7 @@ async function loadArtists(stateUpdate){
   }).then((response) => response.json())
   .then((data) => {
     console.log(data);
-    if(data.length > 0 && !data[0] === null){
+    if(data.length > 0 && !(data[0] === null)){
     stateUpdate(data);
     }
   })
