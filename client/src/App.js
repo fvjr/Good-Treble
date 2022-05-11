@@ -5,15 +5,6 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import './styles/style.css';
-<<<<<<< HEAD
-=======
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Profile from './pages/Profile';
-import Login from './pages/Login';
-import About from './pages/About';
-import EventPage from './pages/EventPage';
-import Navigation from './components/Navigation';
->>>>>>> 6783fd68df577b1fe269e38d83a3c6fcb8bc648a
 
 const client = new ApolloClient({
   uri: '/graphql',
