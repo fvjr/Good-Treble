@@ -26,6 +26,10 @@ Song.init(
     album_image: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    preview_stream: {
+      type: DataTypes.STRING,
+      allowNull: true,
     }
     // playlist_id: {
     //   type: DataTypes.INTEGER,
