@@ -135,6 +135,26 @@ async function getArtistImage(artistID) {
   return artistJSON.images[2].url;
 }
 
+async function getTopArtists(userID){
+  const res = await fetch(
+    `https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=8`,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${oauthToken}`,
+      },
+    }
+  );
+  let index = 1;
+  const artistJSON = await res.json();
+  console.log(artistJSON);
+  for(artist of artistJSON.items){
+    const artistHolder = await Artist.findOrCreate({ where: {id: artist.id, name: artist.name, image: artist.images[2].url}});
+    sequelize.query(`UPDATE user SET fav${index} = "${artist.id}" WHERE id = ${userID}`);
+    index++;
+  };
+}
+
 /**
  * Exported function to retrieve JSON of database information
  * @param {int} playlist_id: id of playlist to get data from. Should be identical to req.session.user_id
@@ -169,3 +189,4 @@ exports.getAllPlaylistData = getAllPlaylistData;
 exports.retrieveFavorites = retrieveFavorites;
 exports.setToken = setToken;
 exports.getTopTrackArt = getTopTrackArt;
+exports.getTopArtists = getTopArtists;
