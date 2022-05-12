@@ -8,10 +8,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 
-function Jumbotron() {
+function Jumbotron(props) {
   return (
     <Jumbotron>
-      <Image src="../../public/assets/heroTreble.jpg" circle />
+      <Image src={props.src} circle />
     </Jumbotron>
   );
 }
