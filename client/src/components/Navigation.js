@@ -34,13 +34,13 @@ const styles = {
   },
   navText: {
     color: 'white',
-    textShadow: '1px 3px 1px #9E9E9E',
+    textShadow: '4px 3px 4px #9E9E9E',
   },
   navBackground: {
-    backgroundImage:
-      'url(https://get.wallhere.com/photo/synthwave-neon-Retrowave-1910641.jpg)',
-    borderRadius: '.5%',
+    backgroundImage: 'url(https://wallpaperaccess.com/full/5154287.jpg)',
+    borderRadius: '1%',
   },
+  container: { boxShadow: '6px 1px 9px 1px #00E5FF' },
 };
 
 function Navigation() {

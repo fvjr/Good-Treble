@@ -12,6 +12,12 @@ const styles = {
     alignItems: 'center',
     margin: 'auto',
     width: '100%',
+    boxShadow: '6px 1px 9px 1px #00E5FF',
+    borderRadius: '1%',
+    // backgroundColor: '#00E5FF',
+    textShadow: '1px 3px 1px #9E9E9E',
+  },
+  importBox: {
     boxShadow: '6px 1px 9px 1px #CD33FF',
   },
 };
@@ -27,7 +33,11 @@ function SpotifyImport() {
           </h3>
         </Col>
         <Col md={6}>
-          <button id="button-spotify-import" onClick={beginImport}>
+          <button
+            style={styles.importBox}
+            id="button-spotify-import"
+            onClick={beginImport}
+          >
             Import Songs
           </button>
         </Col>

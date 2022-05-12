@@ -43,66 +43,10 @@ const styles = {
     position: 'absolute',
     left: '50%',
   },
+  container: {
+    boxShadow: '6px 1px 9px 1px #00E5FF',
+  },
 };
-
-// function ArtistList(props) {
-//   const [index, setIndex] = useState(0);
-
-//   const handleSelect = (selectedIndex, e) => {
-//     setIndex(selectedIndex);
-//   };
-
-//   return (
-//     <div>
-//       <h2>Your Most Listened to Artists</h2>
-//       <Carousel
-//         style={styles.carousel}
-//         variant="dark"
-//         activeIndex={index}
-//         onSelect={handleSelect}
-//       >
-//         <Carousel.Item>
-//           <ListGroup horizontal>
-//             <Row>
-//               {props.artists.slice(0, 4).map((artist, id) => (
-//                 <Col>
-//                   <Image
-//                     style={styles.image}
-//                     key={artist.id}
-//                     src={artist.ArtistImage}
-//                     height="215"
-//                     width="215"
-//                     roundedCircle="true"
-//                   />
-//                   <p style={styles.artistName}>{artist.ArtistName}</p>
-//                 </Col>
-//               ))}
-//             </Row>
-//           </ListGroup>
-//         </Carousel.Item>
-//         <Carousel.Item>
-//           <ListGroup horizontal>
-//             <Row>
-//               {props.artists.slice(4, 8).map((artist, id) => (
-//                 <Col>
-//                   <Image
-//                     style={styles.image}
-//                     key={artist.id}
-//                     src={artist.ArtistImage}
-//                     height="215"
-//                     width="215"
-//                     roundedCircle="true"
-//                   />
-//                   <p style={styles.artistName}>{artist.ArtistName}</p>
-//                 </Col>
-//               ))}
-//             </Row>
-//           </ListGroup>
-//         </Carousel.Item>
-//       </Carousel>
-//     </div>
-//   );
-// }
 
 function ArtistList(props) {
   const [index, setIndex] = useState(0);
@@ -112,7 +56,7 @@ function ArtistList(props) {
   };
 
   return (
-    <div>
+    <div style={styles.container}>
       <h2>Your Most Listened to Artists</h2>
       <Carousel variant="dark" activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item>
