@@ -352,6 +352,10 @@ input {
   width: 40px;
 }
 
+#audio {
+  vertical-align: middle;
+}
+
 #songsList {
   overflow-y: scroll;
   height: 320px;
