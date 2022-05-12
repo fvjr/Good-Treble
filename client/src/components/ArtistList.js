@@ -273,12 +273,7 @@ function ArtistList(props) {
         } <
         /Col>
       ))
-    } <
-    /Row> <
-    /ListGroup> <
-    Carousel.Caption > < /Carousel.Caption> <
-    /Carousel.Item> <
-    /Carousel>
+    } </Row> </ListGroup> <Carousel.Caption> < /Carousel.Caption> <Carousel.Item> </Carousel>
   );
 }
 
