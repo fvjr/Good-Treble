@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&family=Caveat&family=Goldman&family=Koulen&display=swap');
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Koulen', cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osz-font-smoothing: grayscale;
+}
+
+code {
+  font-family: 'Caveat', cursive;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
