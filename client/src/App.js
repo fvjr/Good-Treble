@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import './styles/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from "styled-components";
+import { AccountBox } from "./components/accountBox";
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import About from './pages/About';
