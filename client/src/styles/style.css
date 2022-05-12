@@ -108,13 +108,13 @@ a ul li {
 .playlist,
 .profile-page,
 .imported {
-  width: 500px !important;
+  width: 31.25rem !important;
   text-align: center !important;
   color: var(--good-treble-green);
 }
 
 .playlist-container {
-  width: 500px !important;
+  width: 31.25rem !important;
   background-color: transparent;
 }
 
@@ -364,18 +364,10 @@ input {
   vertical-align: middle;
 }
 
-#songsList {
-  overflow-y: scroll;
-  height: 320px;
-}
-
-#songTable {
-  vertical-align: text-bottom;
-}
 
 #songsList {
   overflow-y: scroll;
-  height: 320px;
+  height: 540px;
 }
 
 .log-out {
@@ -383,23 +375,8 @@ input {
   align-content: center;
 }
 
-#songsList {
-  overflow-y: scroll;
-  height: 320px;
-}
-
 #songTable {
   vertical-align: text-bottom;
-}
-
-#songsList {
-  overflow-y: scroll;
-  height: 320px;
-}
-
-.log-out {
-  justify-content: center;
-  align-content: center;
 }
 
 i {

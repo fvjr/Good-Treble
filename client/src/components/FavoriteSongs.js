@@ -1,6 +1,5 @@
 import React from 'react';
 import ListGroupItem from 'react-bootstrap/esm/ListGroupItem';
-
 import { ListGroup, Col, Button, Row, Table } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -12,7 +11,6 @@ function FavoriteSongs(props) {
         {props.songs.map((song) => (
           <tbody>
             <tr>
-              <td>1</td>
               <td>
                 <img src={song.AlbumImage} alt="song" id="image" />
               </td>
@@ -70,7 +68,6 @@ function FavoriteSongs(props) {
       ))}
     </ListGroup> */}
     </div>
-
   );
 }
 

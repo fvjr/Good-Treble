@@ -42,7 +42,9 @@ async function getData(index) {
       },
     }
   );
+  
   return res.json();
+
 }
 
 //Function to parse the incoming json into SQL database
