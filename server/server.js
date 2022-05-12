@@ -84,7 +84,7 @@ app.get('/spotifyTracks', async (req, res) => {
 
 app.get('/spotifyArtists', async (req, res) => {
   let artistJSON = [];
-  for(let i = 1; i < 9; i++){
+  for (let i = 1; i < 9; i++) {
     const topArtist = await sequelize.query(`
     SELECT Artist.id, Artist.name AS ArtistName, Artist.image AS ArtistImage FROM ARTIST
     INNER JOIN user ON Artist.id = user.fav${i}
@@ -92,7 +92,7 @@ app.get('/spotifyArtists', async (req, res) => {
     artistJSON.push(topArtist[0][0]);
   }
   res.json(artistJSON);
-})
+});
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));

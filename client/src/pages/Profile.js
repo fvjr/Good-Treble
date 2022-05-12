@@ -11,6 +11,7 @@ import UserAvatar from '../components/UserAvatar';
 import SpotifyImport from '../components/SpotifyImport';
 import { ListGroupItem } from 'react-bootstrap';
 import Navigation from '../components/Navigation';
+import Jumbotron from '../components/Jumbotron';
 
 const artists = [
   {
@@ -105,7 +106,7 @@ let songs = [
       'https://i.scdn.co/image/ab67616d000048513c893f419757910dca22bb74',
     ArtistImage:
       'https://i.scdn.co/image/2311c347d3afc41e4b1feece205908b16af31e24',
-      SongID: 2,
+    SongID: 2,
   },
   {
     SongName: 'Benzi Box',
@@ -114,7 +115,7 @@ let songs = [
       'https://i.scdn.co/image/ab67616d000048518f4944a3d77dd680bde9fd10',
     ArtistImage:
       'https://i.scdn.co/image/0fe2fa0d70f965b2389cf6f658ee29950a9fbf17',
-      SongID: 3,
+    SongID: 3,
   },
   {
     SongName: "Da' Dip",
@@ -123,8 +124,8 @@ let songs = [
       'https://i.scdn.co/image/ab67616d000048514831c1c2246ca4fd88f39f43',
     ArtistImage:
       'https://i.scdn.co/image/ab6761610000f17884871c3351c73543e3ad9dc5',
-      SongID: 4,
-  }
+    SongID: 4,
+  },
 ];
 
 const styles = {
@@ -136,31 +137,41 @@ const styles = {
     borderStyle: 'solid',
     borderWdith: 15,
     borderColor: 'black',
-    textAlign: 'left',
+    textAlign: 'center',
+    backgroundImage:
+      'url(https://cdnb.artstation.com/p/assets/images/images/020/065/699/large/bhavin-solanki-vlcsnap-2019-08-10-11h24m19s192.jpg?1566228322)',
+  },
+  aligned: {
+    textAlign: 'center',
+    display: 'block',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 'auto',
+    width: '100%',
+    boxShadow: '6px 1px 9px 1px #CD33FF',
   },
 };
 
 function Profile() {
   const [songState, setSongState] = useState(songs);
-  const [artistState, setArtistState] = useState(artists)
+  const [artistState, setArtistState] = useState(artists);
 
   const searchParams = new URLSearchParams(window.location.search);
-  if(searchParams.has('code')){
-    console.log("Running spotifyGet");
+  if (searchParams.has('code')) {
+    console.log('Running spotifyGet');
     spotifyGet();
   } else {
     console.log('code not detected');
   }
 
-  if(songState[0].SongID === 1){
-  loadSongs(setSongState);
+  if (songState[0].SongID === 1) {
+    loadSongs(setSongState);
   }
-  if(artistState[0].id === 1){
+  if (artistState[0].id === 1) {
     loadArtists(setArtistState);
   }
 
   return (
-    
     <div>
       <Container style={styles.container}>
         <ListGroup variant="flush">
@@ -182,37 +193,39 @@ function Profile() {
   );
 }
 
-async function loadSongs(stateUpdate){
+async function loadSongs(stateUpdate) {
   const newSongs = fetch('http://localhost:3001/spotifyTracks', {
-    method: 'GET'
-  }).then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-    if(data.length > 0){
-    stateUpdate(data);
-    }
+    method: 'GET',
   })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      if (data.length > 0) {
+        stateUpdate(data);
+      }
+    });
 }
 
-async function loadArtists(stateUpdate){
+async function loadArtists(stateUpdate) {
   const newArtists = fetch('http://localhost:3001/spotifyArtists', {
-    method: 'GET'
-  }).then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-    if(data.length > 0 && !(data[0] === null)){
-      console.log("Update Artists");
-    stateUpdate(data);
-    }
+    method: 'GET',
   })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      if (data.length > 0 && !(data[0] === null)) {
+        console.log('Update Artists');
+        stateUpdate(data);
+      }
+    });
 }
 
-function spotifyGet(){
+function spotifyGet() {
   const searchParams = new URLSearchParams(window.location.search);
   const code = searchParams.get('code');
   console.log(code);
   fetch(`http://localhost:3001/spotifyAPI/${code}`, {
-    method: 'POST'
+    method: 'POST',
   });
   window.location = 'http://localhost:3000/';
 }

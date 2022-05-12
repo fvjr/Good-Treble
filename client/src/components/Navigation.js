@@ -32,17 +32,26 @@ const styles = {
     textAlign: 'center',
     fontWeight: 'bold',
   },
+  navText: {
+    color: 'white',
+    textShadow: '1px 3px 1px #9E9E9E',
+  },
+  navBackground: {
+    backgroundImage:
+      'url(https://get.wallhere.com/photo/synthwave-neon-Retrowave-1910641.jpg)',
+    borderRadius: '.5%',
+  },
 };
 
 function Navigation() {
   return (
-    <div style={styles.image}>
-      <div className="container-fluid mt-1">
+    <div style={styles.navBackground}>
+      <div>
         <nav
           style={styles.image}
           className="navbar navbar-expand-lg navbar-dark bg-transparent d-flex flex-row"
         >
-          <a className="navbar-brand" href="/login">
+          <a href="/login">
             <img
               src="/Assets/clefArt.png"
               width="30"
@@ -50,8 +59,8 @@ function Navigation() {
               alt="treble clef"
             />
           </a>
-          <div className="navbar-nav" id="navbarNav"></div>
-          <div className="mx-auto">
+          <div id="navbarNav"></div>
+          <div>
             <Link className="nav-link navbar-logo" to="/about">
               <img
                 src="/Assets/goodTrebleLogo.png"
@@ -61,27 +70,31 @@ function Navigation() {
               />
             </Link>
           </div>
-          <div className="d-flex flex-row-reverse">
+          <div>
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link" to="/about">
+                <Link className="nav-link" to="/about" style={styles.navText}>
                   {' '}
                   Why GOOD TREBLE
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/eventsPage">
+                <Link
+                  className="nav-link"
+                  to="/eventsPage"
+                  style={styles.navText}
+                >
                   {' '}
                   Events Page
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/profile">
+                <Link className="nav-link" to="/profile" style={styles.navText}>
                   Profile
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/login">
+                <Link className="nav-link" to="/login" style={styles.navText}>
                   Login
                 </Link>
               </li>
@@ -89,6 +102,7 @@ function Navigation() {
                 <a
                   className="nav-link"
                   href="https://open.spotify.com/playlist/36mXEhFFU2cPrqcKmfoK0M?si=13590d54ca614540"
+                  style={styles.navText}
                 >
                   ▶
                 </a>

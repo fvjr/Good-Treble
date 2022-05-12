@@ -11,7 +11,6 @@ function FavoriteSongs(props) {
         {props.songs.map((song) => (
           <tbody>
             <tr>
-              <td>1</td>
               <td>
                 <img src={song.AlbumImage} alt="song" id="image" />
               </td>
@@ -28,7 +27,7 @@ function FavoriteSongs(props) {
                 </Button>
                 */}
                 <audio id="audio" controls>
-                  <source src={song.PreviewStream} type="audio/mpeg"/>
+                  <source src={song.PreviewStream} type="audio/mpeg" />
                 </audio>
               </td>
             </tr>
