@@ -108,13 +108,13 @@ a ul li {
 .playlist,
 .profile-page,
 .imported {
-  width: 500px !important;
+  width: 31.25rem !important;
   text-align: center !important;
   color: var(--good-treble-green);
 }
 
 .playlist-container {
-  width: 500px !important;
+  width: 31.25rem !important;
   background-color: transparent;
 }
 
