@@ -115,15 +115,20 @@ function FavoriteSongs(props) {
                 <img src={song.AlbumImage} alt="song" id="image" />
               </td>
               <td>
-                <div className="fw-bold" key={song.id}>
+                <div className="fw-bold" key={song.SongID}>
                   {song.SongName}
                 </div>
               </td>
               <td>{song.ArtistName}</td>
               <td>
+                {/*
                 <Button bg="primary">
                   <FontAwesomeIcon icon={faPlay} />
                 </Button>
+                */}
+                <audio id="audio" controls>
+                  <source src={song.PreviewStream} type="audio/mpeg"/>
+                </audio>
               </td>
             </tr>
           </tbody>

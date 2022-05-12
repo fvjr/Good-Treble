@@ -5,6 +5,13 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import './styles/style.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Profile from './pages/Profile';
+import Login from './pages/Login';
+import About from './pages/About';
+import EventPage from './pages/EventPage';
+import Navigation from './components/Navigation';
+import MyEventsPage from './pages/MyEventsPage';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -24,6 +31,7 @@ function App() {
               <Route path="/eventsPage" element={<EventPage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/spotify" element={<Profile />} />
             </Routes>
           </div>
         </div>

@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, {
+  useState
+} from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/esm/ListGroupItem';
 import Card from 'react-bootstrap/Card';
@@ -152,88 +154,132 @@ const styles = {
 //   );
 // }
 
-function ArtistList(props) {
-  return (
-    <div>
-      <h2 style={styles.title}>Your Favorite Artists</h2>
-      <ListGroup horizontal>
-        <Row>
-          {props.artists.map((artist) => (
-            <Col>
-              <Card style={{ width: '18rem' }}>
-                <Image
-                  style={styles.image}
-                  key={artist.id}
-                  variant="top"
-                  src={artist.ArtistImage}
-                  height="215"
-                  width="215"
-                  borderRadius="33%"
-                  roundedCircle="true"
-                />
-                <Card.Body>
-                  <Card.Title style={styles.artistName}>
-                    {artist.ArtistName}
-                  </Card.Title>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </ListGroup>
-    </div>
-  );
-}
-
-//developing carousel
-// function ArtistList() {
-//   const [index, setIndex] = useState(0);
-
-//   const handleSelect = (selectedIndex, e) => {
-//     setIndex(selectedIndex);
-//   };
-
+// function ArtistList(props) {
 //   return (
-//     <Carousel variant="dark" activeIndex={index} onSelect={handleSelect}>
-//       <Carousel.Item>
-//         <img
-//           className="d-block w-100"
-//           src="holder.js/800x400?text=First slide&bg=373940"
-//           alt="First slide"
-//         />
-//         <Carousel.Caption>
-//           <h3>Your favorite artists</h3>
-//           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-//         </Carousel.Caption>
-//       </Carousel.Item>
-//       <Carousel.Item>
-//         <img
-//           className="d-block w-100"
-//           src="holder.js/800x400?text=Second slide&bg=282c34"
-//           alt="Second slide"
-//         />
-
-//         <Carousel.Caption>
-//           <h3>Second slide label</h3>
-//           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-//         </Carousel.Caption>
-//       </Carousel.Item>
-//       <Carousel.Item>
-//         <img
-//           className="d-block w-100"
-//           src="holder.js/800x400?text=Third slide&bg=20232a"
-//           alt="Third slide"
-//         />
-
-//         <Carousel.Caption>
-//           <h3>Third slide label</h3>
-//           <p>
-//             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-//           </p>
-//         </Carousel.Caption>
-//       </Carousel.Item>
-//     </Carousel>
+//     <div>
+//       <h2 style={styles.title}>Your Favorite Artists</h2>
+//       <ListGroup horizontal>
+//         <Row>
+//           {props.artists.map((artist) => (
+//             <Col>
+//               <Card style={{ width: '18rem' }}>
+//                 <Image
+//                   style={styles.image}
+//                   key={artist.id}
+//                   variant="top"
+//                   src={artist.ArtistImage}
+//                   height="215"
+//                   width="215"
+//                   borderRadius="33%"
+//                   roundedCircle="true"
+//                 />
+//                 <Card.Body>
+//                   <Card.Title style={styles.artistName}>
+//                     {artist.ArtistName}
+//                   </Card.Title>
+//                 </Card.Body>
+//               </Card>
+//             </Col>
+//           ))}
+//         </Row>
+//       </ListGroup>
+//     </div>
 //   );
 // }
+
+//developing carousel
+function ArtistList(props) {
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
+
+  return ( <
+    Carousel variant = "dark"
+    activeIndex = {
+      index
+    }
+    onSelect = {
+      handleSelect
+    } >
+    <
+    Carousel.Item >
+    <
+    ListGroup horizontal >
+    <
+    Row > {
+      props.artists.slice(0, 4).map((artist, id) => ( <
+        Col > {
+          /* <Card key={id} style={{ width: '18rem' }}> */ } <
+        Image style = {
+          styles.image
+        }
+        key = {
+          artist.id
+        }
+        src = {
+          artist.ArtistImage
+        }
+        height = "215"
+        width = "215"
+        roundedCircle = "true" /
+        > {
+          /* <Card.Body> */ } <
+        p style = {
+          styles.artistName
+        } > {
+          artist.ArtistName
+        } < /p> {
+          /* </Card.Body>
+                          </Card> */
+        } <
+        /Col>
+      ))
+    } <
+    /Row> <
+    /ListGroup> <
+    Carousel.Caption > < /Carousel.Caption> <
+    /Carousel.Item> <
+    Carousel.Item >
+    <
+    ListGroup horizontal >
+    <
+    Row > {
+      props.artists.slice(4, 8).map((artist) => ( <
+        Col > {
+          /* <Card key={id} style={{ width: '18rem' }}> */ } <
+        Image style = {
+          styles.image
+        }
+        key = {
+          artist
+        }
+        src = {
+          artist.ArtistImage
+        }
+        height = "215"
+        width = "215"
+        roundedCircle = "true" /
+        > {
+          /* <Card.Body> */ } <
+        p style = {
+          styles.artistName
+        } > {
+          artist.ArtistName
+        } < /p> {
+          /* </Card.Body>
+                          </Card> */
+        } <
+        /Col>
+      ))
+    } <
+    /Row> <
+    /ListGroup> <
+    Carousel.Caption > < /Carousel.Caption> <
+    /Carousel.Item> <
+    /Carousel>
+  );
+}
 
 export default ArtistList;
