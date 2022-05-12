@@ -12,6 +12,7 @@ import About from './pages/About';
 import EventPage from './pages/EventPage';
 import Navigation from './components/Navigation';
 import MyEventsPage from './pages/MyEventsPage';
+import CommunityProfilePage from './pages/CommunityProfilePage';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -51,6 +52,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/spotify" element={<Profile />} />
+              <Route path="/communityPage" element={<CommunityProfilePage />} />
             </Routes>
           </div>
         </div>

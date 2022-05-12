@@ -46,7 +46,7 @@ const styles = {
     textAlign: 'center',
     fontWeight: 'bold',
     textShadow: '1px 3px 1px #9E9E9E',
-    fontSize: 22,
+    fontSize: 16,
   },
   carousel: {
     position: 'absolute',
