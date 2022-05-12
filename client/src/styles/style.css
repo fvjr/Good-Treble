@@ -353,8 +353,12 @@ input {
 }
 
 #audio {
-  
   vertical-align: middle;
+}
+
+#songsList {
+  overflow-y: scroll;
+  height: 320px;
   
 
 }
