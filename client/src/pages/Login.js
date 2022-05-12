@@ -361,7 +361,6 @@ function Login() {
     script src = "https://unpkg.com/@popperjs/core@^2.0.0" > < /script> <
     /div>
   );
-} >>>
->>> > 8 f6cb58178f3acecfe984e618027c99e12bfd38c
+} 
 
 export default Login;
