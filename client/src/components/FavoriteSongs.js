@@ -11,7 +11,6 @@ function FavoriteSongs(props) {
         {props.songs.map((song) => (
           <tbody>
             <tr>
-              <td>1</td>
               <td>
                 <img src={song.AlbumImage} alt="song" id="image" />
               </td>
