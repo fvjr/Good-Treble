@@ -20,6 +20,9 @@ const styles = {
     color: 'white',
     textShadow: '4px 3px 4px #9E9E9E',
     backgroundColor: 'black',
+    textAlign: 'center',
+    backgroundImage:
+      'url(https://cdnb.artstation.com/p/assets/images/images/020/065/699/large/bhavin-solanki-vlcsnap-2019-08-10-11h24m19s192.jpg?1566228322)',
   },
   eventsContainer: {
     backgroundImage:
