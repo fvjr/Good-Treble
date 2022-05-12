@@ -153,20 +153,6 @@ function Login() {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-
-      {/* <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-      ></script>
-      <script src="../utils/login.js"></script>
-      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-      <script src="https://unpkg.com/@popperjs/core@^2.0.0"></script> */}
-=======
->>>>>>> 9c20b51c2fe92f1b2af9e42ad5e916a7d3737b02
     </div>
 
     <script
