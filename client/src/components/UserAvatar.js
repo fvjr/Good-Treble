@@ -40,46 +40,51 @@ const styles = {
   profileHeader: {
     padding: 5,
     background: 'white',
-    borderStyle: 'solid',
-    borderWigth: 15,
-    borderColor: 'black',
+    // borderStyle: 'solid',
+    // borderWeight: 15,
+    // borderColor: 'black',
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
     margin: 'auto',
     width: '100%',
   },
+  container: {
+    boxShadow: '6px 1px 9px 1px #00E5FF',
+  },
 };
 
 function UserAvatar(props) {
   return (
-    <Row style={styles.profileHeader}>
-      <Col lg={true}>
-        <div>
-          <Image
-            fluid="true"
-            roundedCircle="true"
-            src="https://i.scdn.co/image/ab67616d000048518f4944a3d77dd680bde9fd10"
-          ></Image>
-          <Col>
-            <h2>USER NAME HERE</h2>
-          </Col>
-        </div>
-      </Col>{' '}
-      <Col>
-        <h2>Community Page</h2>
-      </Col>
-      <Col>
-        <Link to="/myEvents">
-          <h2>My Events</h2>
-        </Link>
-      </Col>
-      <Col>
-        <a href="https://www.savethemusic.org/">
-          <h2>SaveTheMusic Foundation</h2>
-        </a>
-      </Col>
-    </Row>
+    <div style={styles.container}>
+      <Row style={styles.profileHeader}>
+        <Col lg={true}>
+          <div>
+            <Image
+              fluid="true"
+              roundedCircle="true"
+              src="https://i.scdn.co/image/ab67616d000048518f4944a3d77dd680bde9fd10"
+            ></Image>
+            <Col>
+              <h2>USER NAME HERE</h2>
+            </Col>
+          </div>
+        </Col>{' '}
+        <Col>
+          <h2>Community Page</h2>
+        </Col>
+        <Col>
+          <Link to="/myEvents">
+            <h2>My Events</h2>
+          </Link>
+        </Col>
+        <Col>
+          <a href="https://www.savethemusic.org/">
+            <h2>SaveTheMusic Foundation</h2>
+          </a>
+        </Col>
+      </Row>
+    </div>
   );
 }
 

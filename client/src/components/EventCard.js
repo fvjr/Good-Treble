@@ -16,13 +16,26 @@ const styles = {
     borderWdith: 15,
     borderColor: 'black',
   },
+  eventsTitle: {
+    color: 'white',
+    textShadow: '4px 3px 4px #9E9E9E',
+    backgroundColor: 'black',
+  },
+  eventsContainer: {
+    backgroundImage:
+      'url(https://cdnb.artstation.com/p/assets/images/images/020/065/699/large/bhavin-solanki-vlcsnap-2019-08-10-11h24m19s192.jpg?1566228322)',
+  },
 };
 
 function EventCard(props) {
   return (
     <div>
-      <h2>Here are some upcoming events for your favorite artists!</h2>
-      <ListGroup horizontal>
+      <div>
+        <h2 style={styles.eventsTitle}>
+          Here are some upcoming events for your favorite artists!
+        </h2>
+      </div>
+      <ListGroup horizontal style={styles.eventsContainer}>
         <Row>
           {props.events.map((event) => (
             <Col>

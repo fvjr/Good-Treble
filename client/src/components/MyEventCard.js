@@ -16,12 +16,19 @@ const styles = {
     borderWdith: 15,
     borderColor: 'black',
   },
+  eventsTitle: {
+    color: 'white',
+    textShadow: '1px 3px 1px #9E9E9E',
+    backgroundColor: 'black',
+  },
 };
 
 function EventCard(props) {
   return (
     <div>
-      <h2>Here are the events you're going to!</h2>
+      <div style={styles.eventsTitle}>
+        <p id="eventCard">Here are the events you're going to!</p>
+      </div>
       <ListGroup horizontal>
         <Row>
           {props.events.map((event) => (
