@@ -420,30 +420,30 @@ main {
 }
 
 /* Media Queries for Small Mobile */
-@media screen and (min-width: 500px) {
+/* @media screen and (min-width: 500px) {
   body {
     display: flex;
     width: 100%;
   }
-}
+} */
 
 /* Media Queries for Large Mobile */
-@media screen and (min-width: 667px) {
+/* @media screen and (min-width: 667px) {
   body {
     height: 100%;
   }
-}
+} */
 
 /* Media Queries for iPads */
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   body {
     height: 100vh;
   }
-}
+} */
 
 /* Media Queries for larger screens*/
-@media screen and (min-width: 992px) {
+/* @media screen and (min-width: 992px) {
   body {
     width: 100%;
   }
-}
+} */

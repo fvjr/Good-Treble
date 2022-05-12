@@ -34,7 +34,10 @@ function EventCard(props) {
                 />
                 <Card.Body>
                   <Card.Title>{event.name}</Card.Title>
-                  <p>Show Date:{event.dates.start.dateTime}</p>
+                  <p>
+                    Show Date:
+                    {event.dates.start.dateTime}
+                  </p>
                   <p>Show Time:{event.dates.start.localTime}</p>
                   <p>Show Location:{event._embedded.venues[0].name}</p>
                   <button>

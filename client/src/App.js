@@ -22,6 +22,19 @@ const styles = {
   navbar: {
     background: 'red',
   },
+  app: {
+    backgroundImage:
+      'url(https://cdnb.artstation.com/p/assets/images/images/020/065/699/large/bhavin-solanki-vlcsnap-2019-08-10-11h24m19s192.jpg?1566228322)',
+  },
+  aligned: {
+    textAlign: 'center',
+    display: 'block',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 'auto',
+    width: '100%',
+    boxShadow: '6px 1px 9px 1px #CD33FF',
+  },
 };
 
 function App() {
