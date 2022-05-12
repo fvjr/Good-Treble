@@ -1,16 +1,8 @@
-<<<<<<< HEAD:client/src/components/pages/Login.js
-import React, {
-  useState
-} from 'react';
-// import { Link } from 'react-router-dom';
-import '../../styles/style.css';
-=======
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 // import { LOGIN_USER } from '../utils/mutations';
 import '../styles/style.css';
->>>>>>> 6783fd68df577b1fe269e38d83a3c6fcb8bc648a:client/src/pages/Login.js
 
 function Login() {
   const [loginState, setLoginState] = useState({
