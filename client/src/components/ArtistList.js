@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, {
+  useState
+} from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/esm/ListGroupItem';
 import Card from 'react-bootstrap/Card';
@@ -193,57 +195,90 @@ function ArtistList(props) {
     setIndex(selectedIndex);
   };
 
-  return (
-    <Carousel variant="dark" activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
-        <ListGroup horizontal>
-          <Row>
-            {props.artists.slice(0, 4).map((artist, id) => (
-              <Col>
-                {/* <Card key={id} style={{ width: '18rem' }}> */}
-                <Image
-                  style={styles.image}
-                  key={artist.id}
-                  src={artist.ArtistImage}
-                  height="215"
-                  width="215"
-                  roundedCircle="true"
-                />
-                {/* <Card.Body> */}
-                <p style={styles.artistName}>{artist.ArtistName}</p>
-                {/* </Card.Body>
-                </Card> */}
-              </Col>
-            ))}
-          </Row>
-        </ListGroup>
-        <Carousel.Caption></Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <ListGroup horizontal>
-          <Row>
-            {props.artists.slice(4, 8).map((artist, id) => (
-              <Col>
-                {/* <Card key={id} style={{ width: '18rem' }}> */}
-                <Image
-                  style={styles.image}
-                  key={artist.id}
-                  src={artist.ArtistImage}
-                  height="215"
-                  width="215"
-                  roundedCircle="true"
-                />
-                {/* <Card.Body> */}
-                <p style={styles.artistName}>{artist.ArtistName}</p>
-                {/* </Card.Body>
-                </Card> */}
-              </Col>
-            ))}
-          </Row>
-        </ListGroup>
-        <Carousel.Caption></Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+  return ( <
+    Carousel variant = "dark"
+    activeIndex = {
+      index
+    }
+    onSelect = {
+      handleSelect
+    } >
+    <
+    Carousel.Item >
+    <
+    ListGroup horizontal >
+    <
+    Row > {
+      props.artists.slice(0, 4).map((artist, id) => ( <
+        Col > {
+          /* <Card key={id} style={{ width: '18rem' }}> */ } <
+        Image style = {
+          styles.image
+        }
+        key = {
+          artist.id
+        }
+        src = {
+          artist.ArtistImage
+        }
+        height = "215"
+        width = "215"
+        roundedCircle = "true" /
+        > {
+          /* <Card.Body> */ } <
+        p style = {
+          styles.artistName
+        } > {
+          artist.ArtistName
+        } < /p> {
+          /* </Card.Body>
+                          </Card> */
+        } <
+        /Col>
+      ))
+    } <
+    /Row> <
+    /ListGroup> <
+    Carousel.Caption > < /Carousel.Caption> <
+    /Carousel.Item> <
+    Carousel.Item >
+    <
+    ListGroup horizontal >
+    <
+    Row > {
+      props.artists.slice(4, 8).map((artist) => ( <
+        Col > {
+          /* <Card key={id} style={{ width: '18rem' }}> */ } <
+        Image style = {
+          styles.image
+        }
+        key = {
+          artist
+        }
+        src = {
+          artist.ArtistImage
+        }
+        height = "215"
+        width = "215"
+        roundedCircle = "true" /
+        > {
+          /* <Card.Body> */ } <
+        p style = {
+          styles.artistName
+        } > {
+          artist.ArtistName
+        } < /p> {
+          /* </Card.Body>
+                          </Card> */
+        } <
+        /Col>
+      ))
+    } <
+    /Row> <
+    /ListGroup> <
+    Carousel.Caption > < /Carousel.Caption> <
+    /Carousel.Item> <
+    /Carousel>
   );
 }
 
