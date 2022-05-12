@@ -6,8 +6,13 @@ import querystring from 'querystring';
 
 const styles = {
   importSection: {
-    padding: 20,
-    background: 'black',
+    padding: 5,
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 'auto',
+    width: '100%',
+    boxShadow: '6px 1px 9px 1px #CD33FF',
   },
 };
 
@@ -22,7 +27,9 @@ function SpotifyImport() {
           </h3>
         </Col>
         <Col md={6}>
-            <button id="button-spotify-import" onClick={beginImport}>Import Songs</button>
+          <button id="button-spotify-import" onClick={beginImport}>
+            Import Songs
+          </button>
         </Col>
       </Row>
     </div>
@@ -38,14 +45,15 @@ function beginImport() {
   var state = '123456';
   var scope = 'user-library-read user-top-read';
 
-  const spotifyURL = 'https://accounts.spotify.com/authorize?' +
-      querystring.stringify({
-        response_type: 'code',
-        client_id: client_id,
-        scope: scope,
-        redirect_uri: redirect_uri,
-        state: state,
-      });
+  const spotifyURL =
+    'https://accounts.spotify.com/authorize?' +
+    querystring.stringify({
+      response_type: 'code',
+      client_id: client_id,
+      scope: scope,
+      redirect_uri: redirect_uri,
+      state: state,
+    });
 
   window.location = spotifyURL;
 }

@@ -9,67 +9,48 @@ import {
 } from 'react-bootstrap';
 import {
   FontAwesomeIcon
-} from '@fontawesome/react-fontawesome';
+} from '@fortawesome/react-fontawesome';
 import {
   faPlay
-} from '@fontawesome/free-solid-svg-icons';
+} from '@fortawesome/free-solid-svg-icons';
 import '../styles/style.css';
 
 function FavoriteSongs(props) {
-  return ( <
-    div id = "songsList" >
-    <
-    Table hover id = "songTable" > {
-      props.songs.map((song) => ( <
-        tbody >
-        <
-        tr >
-        <
-        td > 1 < /td> <
-        td >
-        <
-        img src = {
-          song.AlbumImage
-        }
-        alt = "song"
-        id = "image" / >
-        <
-        /td> <
-        td >
-        <
-        div className = "fw-bold"
-        key = {
-          song.SongID
-        } > {
-          song.SongName
-        } <
-        /div> <
-        /td> <
-        td > {
-          song.ArtistName
-        } < /td> <
-        td > {
-          /*
-                          <Button bg="primary">
-                            <FontAwesomeIcon icon={faPlay} />
-                          </Button>
-                          */
-        } <
-        audio id = "audio"
-        controls >
-        <
-        source src = {
-          song.PreviewStream
-        }
-        type = "audio/mpeg" / >
-        <
-        /audio> <
-        /td> <
-        /tr> <
-        /tbody>
-      ))
-    } <
-    /Table> {
+  return ( 
+    <div id = "songsList" >
+      <Table hover id = "songTable" > {
+        props.songs.map((song) => (
+          <tbody>
+          <tr>
+          <td> 1 </td>
+          <td>
+          <img src = {
+            song.AlbumImage
+          }
+          alt = "song"
+          id = "image"/>
+          </td>
+          <td>
+          <div className = "fw-bold"
+          key = {
+            song.id
+          }> {
+            song.SongName
+          } </div>
+          </td>
+          <td></td> {
+            song.ArtistName
+          } </td> <
+          td></td>
+          <Button bg = "primary">
+          <FontAwesomeIcon icon = {
+            faPlay
+          }
+          /> </Button>
+          </td> </tr> <
+          /tbody>
+        ))
+      } </Table> {
       /* <ListGroup as="ol" numbered id= "songslist">
             {props.songs.map((song) => (
               
@@ -91,7 +72,6 @@ function FavoriteSongs(props) {
                       </div>
                       {song.ArtistName}
                     </Col>
-
                     <Col md={4}>
                       <Button bg="primary" pill>
                       <FontAwesomeIcon icon={faPlay} />
@@ -103,8 +83,7 @@ function FavoriteSongs(props) {
               </ListGroup.Item>
             ))}
           </ListGroup> */
-    } <
-    /div>
+    } </div> 
   );
 }
 

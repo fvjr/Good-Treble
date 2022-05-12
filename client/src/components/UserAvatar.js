@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, {
+  useState
+} from 'react';
 import Image from 'react-bootstrap/Image';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -8,10 +10,10 @@ import { Link } from 'react-router-dom';
 
 const styles = {
   profileHeader: {
-    padding: 20,
+    padding: 5,
     background: 'white',
     borderStyle: 'solid',
-    borderWdith: 15,
+    borderWigth: 15,
     borderColor: 'black',
     textAlign: 'left',
   },
