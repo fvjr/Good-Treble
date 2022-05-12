@@ -18,6 +18,12 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const styles = {
+  navbar: {
+    background: 'red',
+  },
+};
+
 function App() {
   return (
     <ApolloProvider client={client}>
