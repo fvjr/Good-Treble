@@ -8,6 +8,8 @@ const styles = {
   importSection: {
     padding: 20,
     background: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 };
 

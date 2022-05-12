@@ -27,8 +27,22 @@
     "nodemailer": "^6.7.2",
     "nodemon": "^2.0.15",
     "querystring": "^0.2.1",
+<<<<<<< HEAD
     "sequelize": "^6.3.5"
   },
+=======
+    "sequelize": "^6.3.5",
+    "graphql": "^16.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.8",
+    "json-server": "^0.17.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-icons": "^4.3.1",
+      "react-scripts": "^2.1.3",
+      "web-vitals": "^2.1.4"
+    },
+>>>>>>> 9c20b51c2fe92f1b2af9e42ad5e916a7d3737b02
   "devDependencies": {
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",

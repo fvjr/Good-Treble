@@ -198,9 +198,11 @@ function ArtistList(props) {
       <Carousel.Item>
         <ListGroup horizontal>
           <Row>
+            {' '}
             {props.artists.slice(0, 4).map((artist, id) => (
               <Col>
-                {/* <Card key={id} style={{ width: '18rem' }}> */}
+                {' '}
+                {/* <Card key={id} style={{ width: '18rem' }}> */}{' '}
                 <Image
                   style={styles.image}
                   key={artist.id}
@@ -208,41 +210,43 @@ function ArtistList(props) {
                   height="215"
                   width="215"
                   roundedCircle="true"
-                />
-                {/* <Card.Body> */}
-                <p style={styles.artistName}>{artist.ArtistName}</p>
+                />{' '}
+                {/* <Card.Body> */}{' '}
+                <p style={styles.artistName}> {artist.ArtistName} </p>{' '}
                 {/* </Card.Body>
-                </Card> */}
+                          </Card> */}{' '}
               </Col>
-            ))}
-          </Row>
-        </ListGroup>
-        <Carousel.Caption></Carousel.Caption>
-      </Carousel.Item>
+            ))}{' '}
+          </Row>{' '}
+        </ListGroup>{' '}
+        <Carousel.Caption> </Carousel.Caption>{' '}
+      </Carousel.Item>{' '}
       <Carousel.Item>
         <ListGroup horizontal>
           <Row>
-            {props.artists.slice(4, 8).map((artist, id) => (
+            {' '}
+            {props.artists.slice(4, 8).map((artist) => (
               <Col>
-                {/* <Card key={id} style={{ width: '18rem' }}> */}
+                {' '}
+                {/* <Card key={id} style={{ width: '18rem' }}> */}{' '}
                 <Image
                   style={styles.image}
-                  key={artist.id}
+                  key={artist}
                   src={artist.ArtistImage}
                   height="215"
                   width="215"
                   roundedCircle="true"
-                />
-                {/* <Card.Body> */}
-                <p style={styles.artistName}>{artist.ArtistName}</p>
+                />{' '}
+                {/* <Card.Body> */}{' '}
+                <p style={styles.artistName}> {artist.ArtistName} </p>{' '}
                 {/* </Card.Body>
-                </Card> */}
+                          </Card> */}{' '}
               </Col>
-            ))}
-          </Row>
-        </ListGroup>
-        <Carousel.Caption></Carousel.Caption>
-      </Carousel.Item>
+            ))}{' '}
+          </Row>{' '}
+        </ListGroup>{' '}
+        <Carousel.Caption> </Carousel.Caption>{' '}
+      </Carousel.Item>{' '}
     </Carousel>
   );
 }
