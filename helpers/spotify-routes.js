@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const spotify = require('./spotify');
+const spotify = require('../server/utils/spotify');
 const querystring = require('querystring');
 const url = require('url');
 const fetch = require('node-fetch');

@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
+const Artist = require('./Artist');
 
 class User extends Model {
   checkPassword(loginPw) {
@@ -39,7 +40,71 @@ User.init(
       type: DataTypes.STRING,
       defaultValue: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
       allowNull: false,
-    }
+    },
+    fav1: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      references: {
+        model: Artist,
+        key: Artist.id,
+      },
+    },
+    fav2: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      references: {
+        model: Artist,
+        key: Artist.id,
+      },
+    },
+    fav3: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      references: {
+        model: Artist,
+        key: Artist.id,
+      },
+    },
+    fav4: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      references: {
+        model: Artist,
+        key: Artist.id,
+      },
+    },
+    fav5: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      references: {
+        model: Artist,
+        key: Artist.id,
+      },
+    },
+    fav6: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      references: {
+        model: Artist,
+        key: Artist.id,
+      },
+    },
+    fav7: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      references: {
+        model: Artist,
+        key: Artist.id,
+      },
+    },
+    fav8: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      references: {
+        model: Artist,
+        key: Artist.id,
+      },
+    },
   },
   {
     hooks: {

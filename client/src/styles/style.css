@@ -352,13 +352,35 @@ input {
   height: 40px;
   width: 40px;
 }
-
 #importDescription {
   font-family: 'Caveat', cursive;
   line-height: 1.2em;
   color: var(--good-treble-green);
   text-shadow: 0 0 3px var(--retro-yellow), 0 0 5px var(--headlight-white);
   text-align: center;
+}
+
+#audio {
+  vertical-align: middle;
+}
+
+#songsList {
+  overflow-y: scroll;
+  height: 320px;
+}
+
+#songTable {
+  vertical-align: text-bottom;
+}
+
+#songsList {
+  overflow-y: scroll;
+  height: 320px;
+}
+
+.log-out {
+  justify-content: center;
+  align-content: center;
 }
 
 #songsList {
