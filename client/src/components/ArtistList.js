@@ -112,62 +112,6 @@ function ArtistList(props) {
   };
 
   return (
-<<<<<<< HEAD
-    <Carousel variant="dark" activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
-        <ListGroup horizontal>
-          <Row>
-            {' '}
-            {props.artists.slice(0, 4).map((artist, id) => (
-              <Col>
-                {' '}
-                {/* <Card key={id} style={{ width: '18rem' }}> */}{' '}
-                <Image
-                  style={styles.image}
-                  key={artist.id}
-                  src={artist.ArtistImage}
-                  height="215"
-                  width="215"
-                  roundedCircle="true"
-                />{' '}
-                {/* <Card.Body> */}{' '}
-                <p style={styles.artistName}> {artist.ArtistName} </p>{' '}
-                {/* </Card.Body>
-                          </Card> */}{' '}
-              </Col>
-            ))}{' '}
-          </Row>{' '}
-        </ListGroup>{' '}
-        <Carousel.Caption> </Carousel.Caption>{' '}
-      </Carousel.Item>{' '}
-      <Carousel.Item>
-        <ListGroup horizontal>
-          <Row>
-            {' '}
-            {props.artists.slice(4, 8).map((artist) => (
-              <Col>
-                {' '}
-                {/* <Card key={id} style={{ width: '18rem' }}> */}{' '}
-                <Image
-                  style={styles.image}
-                  key={artist}
-                  src={artist.ArtistImage}
-                  height="215"
-                  width="215"
-                  roundedCircle="true"
-                />{' '}
-                {/* <Card.Body> */}{' '}
-                <p style={styles.artistName}> {artist.ArtistName} </p>{' '}
-                {/* </Card.Body>
-                          </Card> */}{' '}
-              </Col>
-            ))}{' '}
-          </Row>{' '}
-        </ListGroup>{' '}
-        <Carousel.Caption> </Carousel.Caption>{' '}
-      </Carousel.Item>{' '}
-    </Carousel>
-=======
     <div>
       <h2>Your Most Listened to Artists</h2>
       <Carousel variant="dark" activeIndex={index} onSelect={handleSelect}>
@@ -217,7 +161,6 @@ function ArtistList(props) {
         </Carousel.Item>
       </Carousel>
     </div>
->>>>>>> ac3db51de5c1af233b47830a2b6c43413c00011b
   );
 }
 
