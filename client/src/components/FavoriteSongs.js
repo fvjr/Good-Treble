@@ -28,7 +28,7 @@ function FavoriteSongs(props) {
                 </Button>
                 */}
                 <audio id="audio" controls>
-                  <source src={song.PreviewStream} type="audio/mpeg"/>
+                  <source src={song.PreviewStream} type="audio/mpeg" />
                 </audio>
               </td>
             </tr>
