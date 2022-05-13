@@ -33,11 +33,20 @@ const styles = {
     width: '100%',
     boxShadow: '6px 1px 9px 1px #CD33FF',
   },
+  header: {
+    textAlign: 'center',
+    display: 'block',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 'auto',
+    width: '100%',
+  },
   artistName: {
     padding: 20,
     textAlign: 'center',
     fontWeight: 'bold',
     textShadow: '1px 3px 1px #9E9E9E',
+    fontSize: 16,
   },
   carousel: {
     position: 'absolute',
@@ -57,7 +66,7 @@ function ArtistList(props) {
 
   return (
     <div style={styles.container}>
-      <h2>Your Most Listened to Artists</h2>
+      <h2 style={styles.header}>Your Most Listened to Artists</h2>
       <Carousel variant="dark" activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item>
           <ListGroup
