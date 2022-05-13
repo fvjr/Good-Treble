@@ -26,8 +26,9 @@ function FavoriteSongs(props) {
                   <FontAwesomeIcon icon={faPlay} />
                 </Button>
                 */}
-                <audio id="audio" controls>
+                <audio id="audio" controls key={song.SongID}>
                   <source src={song.PreviewStream} type="audio/mpeg" />
+                    Audio Not Supported
                 </audio>
               </td>
             </tr>
