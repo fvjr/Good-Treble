@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const BoxContainer = styled.div`
   width: 100%;
@@ -47,7 +47,7 @@ export const Input = styled.input`
   }
 
   &:not(:last-of-type) {
-    border-bottom: 1.5px solid rgba(200, 200, 200, 0.4)
+    border-bottom: 1.5px solid rgba(200, 200, 200, 0.4);
   }
 
   &:focus {
@@ -68,13 +68,9 @@ export const SubmitButton = styled.button`
   cursor: pointer;
   transition: all, 240ms ease-in-out;
   background: #cb00ee;
-  background: linear-gradient(
-      58deg,
-      #e4fe72 20%,
-      #e4fe72, 100%
-  );
+  background: linear-gradient(58deg, #e4fe72 20%, #e4fe72, 100%);
 
   &:hover {
-      filter: brightness(1.03);
+    filter: brightness(1.03);
   }
 `;
