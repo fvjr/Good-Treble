@@ -1872,16 +1872,21 @@ async function getEvents(updateState) {
       method: 'GET',
       mode: 'cors',
     });
-    const event = await eventRes.json();
+    let event;
+    if(eventRes){
+    event = await eventRes.json();
+    } else {
+      break;
+    }
     console.log(event);
-    if (event && (event != null)){
+    if (event._embedded && (event != null)){
       eventArray.push(event._embedded.events[0]);
       if(eventArray.length > 0){
       updateState(eventArray);
       console.log(eventArray);
       }
     }
-    await setTimeout(() => {return Promise}, 500);
+    const timeoutHolder = await new Promise((resolve, reject) => {setTimeout(() => {resolve('foo')}, 500)});
   }
 }
 export default EventPage;
