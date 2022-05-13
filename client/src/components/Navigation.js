@@ -37,7 +37,8 @@ const styles = {
     textShadow: '4px 3px 4px #9E9E9E',
   },
   navBackground: {
-    backgroundImage: 'url(https://wallpaperaccess.com/full/5154287.jpg)',
+    backgroundImage:
+      'url(https://singularityhub.com/wp-content/uploads/2019/05/retro-synthwave-computer-landscape-palm-trees-shutterstock-1022092345.jpg)',
     borderRadius: '1%',
   },
   container: { boxShadow: '6px 1px 9px 1px #00E5FF' },
