@@ -15,7 +15,7 @@ import { LOGIN_USER } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
 
-export function LoginForm(props) {
+const LoginForm = (props) => {
   const { switchToSignup } = useContext(AccountContext);
 
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -56,26 +56,33 @@ export function LoginForm(props) {
     <div>
       <BoxContainer>
         <FormContainer>
-          <form onSubmit={handleFormSubmit}>
-            <Input
-              type="email"
-              placeholder="email"
-              name="email"
-              value={formState.email}
-              onChange={handleChange}
-            />
-            <Input
-              type="password"
-              placeholder="******"
-              name="password"
-              value={formState.password}
-              onChange={handleChange}
-            />
-            <Marginer direction="vertical" margin={10} />
-            <MutedLink href="#">Forget your password?</MutedLink>
-            <Marginer direction="vertical" margin="1em" />
-            <SubmitButton type="submit">Signin</SubmitButton>{' '}
-          </form>
+          {data ? (
+            <p>
+              Success! You may now head{' '}
+              <Link to="/">back to the homepage.</Link>
+            </p>
+          ) : (
+            <form onSubmit={handleFormSubmit}>
+              <Input
+                type="email"
+                placeholder="email"
+                name="email"
+                value={formState.email}
+                onChange={handleChange}
+              />
+              <Input
+                type="password"
+                placeholder="******"
+                name="password"
+                value={formState.password}
+                onChange={handleChange}
+              />
+              <Marginer direction="vertical" margin={10} />
+              <MutedLink href="#">Forget your password?</MutedLink>
+              <Marginer direction="vertical" margin="1em" />
+              <SubmitButton type="submit">Signin</SubmitButton>{' '}
+            </form>
+          )}
         </FormContainer>
         <Marginer direction="vertical" margin="1em" />
         <MutedLink href="#">
@@ -87,4 +94,6 @@ export function LoginForm(props) {
       </BoxContainer>
     </div>
   );
-}
+};
+
+export default LoginForm;

@@ -140,6 +140,16 @@ const styles = {
     textAlign: 'center',
     backgroundImage:
       'url(https://cdnb.artstation.com/p/assets/images/images/020/065/699/large/bhavin-solanki-vlcsnap-2019-08-10-11h24m19s192.jpg?1566228322)',
+    boxShadow: '6px 1px 9px 1px black',
+  },
+  profileDiv: {
+    background: 'white',
+    borderStyle: 'solid',
+    borderWdith: 15,
+    borderColor: 'black',
+    textAlign: 'center',
+    boxShadow: '6px 1px 9px 1px black',
+    borderRadius: '1%',
   },
   aligned: {
     textAlign: 'center',
@@ -175,16 +185,16 @@ function Profile() {
     <div>
       <Container style={styles.container}>
         <ListGroup variant="flush">
-          <ListGroup.Item>
+          <ListGroup.Item style={styles.profileDiv}>
             <UserAvatar />
           </ListGroup.Item>
-          <ListGroup.Item>
+          <ListGroup.Item style={styles.profileDiv}>
             <SpotifyImport />
           </ListGroup.Item>
-          <ListGroup.Item>
+          <ListGroup.Item style={styles.profileDiv}>
             <ArtistList artists={artistState} />
           </ListGroup.Item>
-          <ListGroup.Item>
+          <ListGroup.Item style={styles.profileDiv}>
             <FavoriteSongs songs={songState} />
           </ListGroup.Item>
         </ListGroup>
