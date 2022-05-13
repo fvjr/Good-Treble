@@ -1,15 +1,8 @@
 const express = require('express');
-const {
-  ApolloServer
-} = require('apollo-server-express');
+const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
-const {
-  authMiddleware
-} = require('./utils/auth');
-const {
-  typeDefs,
-  resolvers
-} = require('./schemas');
+const { authMiddleware } = require('./utils/auth');
+const { typeDefs, resolvers } = require('./schemas');
 const session = require('express-session');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -20,14 +13,14 @@ const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  // context: authMiddleware,
+  context: authMiddleware,
 });
-console.log('right server)');
-//original set-up was "true"
-// app.use(express.urlencoded({ extended: true }));
-app.use(express.urlencoded({
-  extended: true
-}));
+
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 app.use(express.json());
 
 if (process.env.NODE_ENV === 'production') {
@@ -61,7 +54,8 @@ app.post('/spotifyAPI/:code', async (req, res) => {
     const newToken = await fetch('https://accounts.spotify.com/api/token', {
       method: 'POST',
       headers: {
-        Authorization: 'Basic ' +
+        Authorization:
+          'Basic ' +
           new Buffer(
             process.env.CLIENT_ID + ':' + process.env.CLIENT_SECRET
           ).toString('base64'),
@@ -118,7 +112,6 @@ const sess = {
 
 app.use(session(sess));
 
-//temp disabled
 app.use(express.static(path.join(__dirname, 'public')));
 
 // start server and connect to db
@@ -149,19 +142,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   server.applyMiddleware({
-    app
+    app,
   });
 
-  sequelize.sync({
-    force: false
-  }).then(() => {
-    app.listen(PORT, () => {
-      console.log(`API server running on port ${PORT}!`);
-      console.log(
-        `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
-      );
+  sequelize
+    .sync({
+      force: false,
+    })
+    .then(() => {
+      app.listen(PORT, () => {
+        console.log(`API server running on port ${PORT}!`);
+        console.log(
+          `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
+        );
+      });
     });
-  });
 };
 
 // Call the async function to start the server

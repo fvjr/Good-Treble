@@ -2,16 +2,7 @@
   {
     "name": "Leon Hart",
     "email": "lhart@gmail.com",
-    "password": "password12345"
-  },
-  {
-    "name": "Cloud Rinona",
-    "email": "cloudr232@hotmail.com",
-    "password": "password12345"
-  },
-  {
-    "name": "Donald Goose",
-    "email": "dgoose@aol.com",
-    "password": "password12345"
+    "password": "password12345",
+    "avatar": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
   }
 ]
