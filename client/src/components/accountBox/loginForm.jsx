@@ -59,7 +59,8 @@ export function LoginForm(props) {
           <form onSubmit={handleFormSubmit}>
             <Input
               type="email"
-              placeolder="Email"
+              placeholder="Email"
+              name="email"
               value={formState.email}
               onChange={handleChange}
             />
