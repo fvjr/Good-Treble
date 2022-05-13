@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/style.css';
 import EventCard from '../components/EventCard';
-// import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const events = [
   {
     name: 'King Gizzard and the Lizard Wizard',
     type: 'event',
-    id: 'G5vYZ4UxciPeK',
+    id: '0',
     test: false,
     url: 'https://www.ticketmaster.com/king-gizzard-and-the-lizard-wizard-berkeley-california-10-02-2022/event/1C005768ADB25093',
     locale: 'en-us',
@@ -1847,11 +1847,46 @@ let songs = [
 ];
 
 function EventPage() {
+  const [eventState, setEventState] = useState(events);
+  useEffect(() => {
+    if(eventState[0].id === '0'){
+      getEvents(setEventState);
+    }
+  }, []);
   return (
     <div>
-      <EventCard events={events} />
+      <EventCard events={eventState} />
     </div>
   );
 }
 
+async function getEvents(updateState) {
+  const artistsRes = await fetch('http://localhost:3001/spotifyArtists', {
+    method: 'GET',
+  });
+  let eventArray = [];
+  const artists = await artistsRes.json();
+  //console.log(artists);
+  for(const artist of artists){
+    const eventRes = await fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=n2kIxLsKUZnCoQkdXkYLp8tcyVCwLFFv&keyword=${artist.ArtistName}`, {
+      method: 'GET',
+      mode: 'cors',
+    });
+    let event;
+    if(eventRes){
+    event = await eventRes.json();
+    } else {
+      break;
+    }
+    console.log(event);
+    if (event._embedded && (event != null)){
+      eventArray.push(event._embedded.events[0]);
+      if(eventArray.length > 0){
+      updateState(eventArray);
+      console.log(eventArray);
+      }
+    }
+    const timeoutHolder = await new Promise((resolve, reject) => {setTimeout(() => {resolve('foo')}, 500)});
+  }
+}
 export default EventPage;
