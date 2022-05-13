@@ -206,19 +206,23 @@ function Profile() {
 async function loadSongs(stateUpdate) {
   const newSongs = await fetch('http://localhost:3001/spotifyTracks', {
     method: 'GET',
-  })
+  });
   let stateArray = [];
-    let songsArray = await newSongs.json();
-    const finalArray = songsArray;
-    //songsArray = songsArray.reverse();
-    if(songsArray.length > 0){
-      for(const song of songsArray){
-        stateArray.unshift(song);
-        stateUpdate(stateArray);
-        const timeoutHolder = await new Promise((resolve, reject) => {setTimeout(() => {resolve('foo')}, 100)});
-      }
-      stateUpdate(finalArray);
+  let songsArray = await newSongs.json();
+  const finalArray = songsArray;
+  //songsArray = songsArray.reverse();
+  if (songsArray.length > 0) {
+    for (const song of songsArray) {
+      stateArray.unshift(song);
+      stateUpdate(stateArray);
+      const timeoutHolder = await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('foo');
+        }, 100);
+      });
     }
+    stateUpdate(finalArray);
+  }
 }
 
 async function loadArtists(stateUpdate) {
