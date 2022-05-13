@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
+import Auth from '../utils/auth';
 
 const styles = {
   title: {
@@ -40,11 +41,16 @@ const styles = {
     backgroundImage:
       'url(https://singularityhub.com/wp-content/uploads/2019/05/retro-synthwave-computer-landscape-palm-trees-shutterstock-1022092345.jpg)',
     borderRadius: '1%',
+    boxShadow: '6px 1px 9px 1px black',
   },
   container: { boxShadow: '6px 1px 9px 1px #00E5FF' },
 };
 
 function Navigation() {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
     <div style={styles.navBackground}>
       <div>
@@ -118,6 +124,25 @@ function Navigation() {
                 </a>
               </li>
             </ul>
+            <div>
+              {Auth.loggedIn() ? (
+                <>
+                  <span>Hey there, {Auth.getProfile().data.name}!</span>
+                  <button className="btn btn-lg btn-light m-2" onClick={logout}>
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link className="btn btn-lg btn-info m-2" to="/login">
+                    Login
+                  </Link>
+                  <Link className="btn btn-lg btn-light m-2" to="/signup">
+                    Signup
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
         </nav>
       </div>
