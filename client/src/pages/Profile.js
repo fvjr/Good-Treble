@@ -161,7 +161,7 @@ function Profile() {
     console.log('Running spotifyGet');
     spotifyGet();
   } else {
-    console.log('code not detected');
+    //console.log('code not detected');
   }
 
   if (songState[0].SongID === 1) {
@@ -194,16 +194,21 @@ function Profile() {
 }
 
 async function loadSongs(stateUpdate) {
-  const newSongs = fetch('http://localhost:3001/spotifyTracks', {
+  const newSongs = await fetch('http://localhost:3001/spotifyTracks', {
     method: 'GET',
   })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      if (data.length > 0) {
-        stateUpdate(data);
+  let stateArray = [];
+    let songsArray = await newSongs.json();
+    const finalArray = songsArray;
+    //songsArray = songsArray.reverse();
+    if(songsArray.length > 0){
+      for(const song of songsArray){
+        stateArray.unshift(song);
+        stateUpdate(stateArray);
+        const timeoutHolder = await new Promise((resolve, reject) => {setTimeout(() => {resolve('foo')}, 100)});
       }
-    });
+      stateUpdate(finalArray);
+    }
 }
 
 async function loadArtists(stateUpdate) {
