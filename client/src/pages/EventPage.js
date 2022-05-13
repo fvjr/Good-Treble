@@ -1886,7 +1886,7 @@ async function getEvents(updateState) {
       console.log(eventArray);
       }
     }
-    const timeoutHolder = await new Promise((resolve, reject) => {setTimeout(() => {resolve('foo')}, 200)});
+    const timeoutHolder = await new Promise((resolve, reject) => {setTimeout(() => {resolve('foo')}, 500)});
   }
 }
 export default EventPage;
