@@ -53,7 +53,8 @@ const LoginForm = (props) => {
     const password = formState.password;
 
     if (email && password) {
-      const response = await fetch('/api/users/login', {
+      // const response = await fetch('/api/users/login', {
+      const response = await fetch('/graphql', {
         method: 'POST',
         body: JSON.stringify({
           email,
