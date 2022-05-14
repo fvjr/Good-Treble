@@ -34,12 +34,11 @@ const LoginForm = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
     try {
       const { data } = await login({
         variables: { ...formState },
       });
-
+      console.log('Log in successful');
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
@@ -50,40 +49,63 @@ const LoginForm = (props) => {
       email: '',
       password: '',
     });
+    const email = formState.email;
+    const password = formState.password;
+
+    if (email && password) {
+      // const response = await fetch('/api/users/login', {
+      const response = await fetch('/graphql', {
+        method: 'POST',
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      console.log('Username found');
+      console.log(formState.email);
+      console.log(formState.password);
+
+      if (response.ok) {
+        // If successful, redirect the browser to the profile page
+        document.location.replace('/profile');
+      } else {
+        alert('that was it');
+      }
+    }
   };
 
   return (
     <div>
       <BoxContainer>
-        <FormContainer>
-          {data ? (
-            <p>
-              Success! You may now head{' '}
-              <Link to="/">back to the homepage.</Link>
-            </p>
-          ) : (
-            <form onSubmit={handleFormSubmit}>
-              <Input
-                type="email"
-                placeholder="email"
-                name="email"
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <Input
-                type="password"
-                placeholder="******"
-                name="password"
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <Marginer direction="vertical" margin={10} />
-              <MutedLink href="#">Forget your password?</MutedLink>
-              <Marginer direction="vertical" margin="1em" />
-              <SubmitButton type="submit">Signin</SubmitButton>{' '}
-            </form>
-          )}
-        </FormContainer>
+        {data ? (
+          <p>
+            Success! You may now head <Link to="/">back to the homepage.</Link>
+          </p>
+        ) : (
+          <form onSubmit={handleFormSubmit}>
+            <Input
+              type="email"
+              placeholder="email"
+              name="email"
+              value={formState.email}
+              onChange={handleChange}
+            />
+            <Input
+              type="password"
+              placeholder="******"
+              name="password"
+              value={formState.password}
+              onChange={handleChange}
+            />
+            <Marginer direction="vertical" margin={10} />
+            <MutedLink href="#">Forget your password?</MutedLink>
+            <Marginer direction="vertical" margin="1em" />
+            <SubmitButton type="submit">Signin</SubmitButton>{' '}
+          </form>
+        )}
         <Marginer direction="vertical" margin="1em" />
         <MutedLink href="#">
           Don't have an account?{' '}

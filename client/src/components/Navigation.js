@@ -173,6 +173,7 @@ function Navigation() {
         /button> < / >
       ) : ( <
         >
+
         <
         Link className = "btn btn-lg btn-info m-2"
         to = "/login" >
@@ -189,6 +190,77 @@ function Navigation() {
     /nav> < /
     div > <
     /div>
+          <a href="/login">
+            <img
+              src="/Assets/clefArt.png"
+              width="30"
+              height="50"
+              alt="treble clef"
+            />
+          </a>
+          <div id="navbarNav"></div>
+          <div>
+            <Link className="nav-link navbar-logo" to="/about">
+              <img
+                src="/Assets/goodTrebleLogo.png"
+                width="135"
+                height="95"
+                alt="Good Treble Logo"
+              />
+            </Link>
+          </div>
+          <div>
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link className="nav-link" to="/about" style={styles.navText}>
+                  {' '}
+                  Why GOOD TREBLE
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link"
+                  to="/eventsPage"
+                  style={styles.navText}
+                >
+                  {' '}
+                  Events Page
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/profile" style={styles.navText}>
+                  Profile
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/login" style={styles.navText}>
+                  Login
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link"
+                  to="/communityPage"
+                  style={styles.navText}
+                >
+                  Community
+                </Link>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  href="https://open.spotify.com/playlist/36mXEhFFU2cPrqcKmfoK0M?si=13590d54ca614540"
+                  style={styles.navText}
+                >
+                  ▶
+                </a>
+              </li>
+            </ul>
+            <div></div>
+          </div>
+        </nav>
+      </div>
+    </div>
   );
 }
 export default Navigation;
