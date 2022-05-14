@@ -12,7 +12,7 @@ If there's one thing the past few years have taught us, it's that friendships an
 * [Deployed-url](#deployed-url)
 * [License](#license)
 * [![Made for Penn LPS](https://img.shields.io/static/v1?label=Made+for&message=Penn+LPS&color=%23005bbc)](https://bootcamp.sas.upenn.edu/)
-* [![MIT](https://img.shields.io/static/v1?label=MIT&message=License&color=%23FFd600)](https://www.javascript.com)
+* [![--MIT--](https://img.shields.io/static/v1?label=MIT&message=License&color=%23FFd600)](https://www.javascript.com)
 
 ## Technologies
 
@@ -24,15 +24,13 @@ Additionally, the application used Spotify's API, TicketMaster's API, and the au
 
 ## Mockup
 
-![Looking for Treble](/assets/images/goodTreble.png)
+![Looking for Treble](/assets/images/trebleMockup.png)
 
 ## Resources Used
 
-The Spotify documentation helped developers navigate adding the API to the application
-[Spotify Documentation](https://developer.spotify.com/documentation/web-api/)
-
-Developers consulted Auth0's documentation for connecting users' Spotify account to Good Treble's back-end.  
-[Auth0 Documentation](https://auth0.com/docs/api)
+Hooks are essential for DRY code creation and [this article](https://blog.bitsrc.io/10-react-custom-hooks-you-should-have-in-your-toolbox-aa27d3f5564d) was insightful in this aspect.
+ 
+[Audio Controls Property](https://www.w3schools.com/jsref/prop_audio_controls.asp) were a new feature for Looking for Treble so this page provided some guidance.
 
 [Boostrap documentation](https://getbootstrap.com/docs/4.0/components/carousel/) helped this project slap!
 
