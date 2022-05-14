@@ -65,14 +65,12 @@ function UserAvatar(props) {
               roundedCircle="true"
               src="https://i.scdn.co/image/ab67616d000048518f4944a3d77dd680bde9fd10"
             ></Image>
-            <Col>
-              <h2>USER NAME HERE</h2>
-            </Col>
+            <Col>{/* <h2>USER NAME HERE</h2> */}</Col>
           </div>
         </Col>{' '}
-        <Col>
+        {/* <Col>
           <h2>Community Page</h2>
-        </Col>
+        </Col> */}
         <Col>
           <Link to="/myEvents">
             <h2>My Events</h2>

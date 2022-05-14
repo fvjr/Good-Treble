@@ -84,7 +84,7 @@ function Navigation() {
               <li className="nav-item">
                 <Link className="nav-link" to="/about" style={styles.navText}>
                   {' '}
-                  Why GOOD TREBLE{' '}
+                  Mission Statement{' '}
                 </Link>{' '}
               </li>{' '}
               <li className="nav-item">
