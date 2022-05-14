@@ -1,7 +1,7 @@
 
-# Good Treble
+# Looking for Treble
 
-If there's one thing the past few years have taught us, it's that friendships and live shows matter to us. Good Treble aims to connect local fans through their shared music passions. By just signing up and addding their Spotify account, this modern application lets users start their own Good Treble.
+If there's one thing the past few years have taught us, it's that friendships and live shows matter to us. Looking for Treble aims to connect local fans through their shared music passions. By just signing up and adding their Spotify account, this modern application lets users find their own Good Treble.
 
 ## Table of contents
 * [Technologies](#technologies)
@@ -16,15 +16,15 @@ If there's one thing the past few years have taught us, it's that friendships an
 
 ## Technologies
 
-The front-end of this application were built using HTML, CSS, Bootstrap, and Handlebars.
+The front-end of this application was built using HTML, CSS, Bootstrap, and React.
 
-Good Treble's back-end was created using Node.js, MySql, Express, NPM, and JavaScript.
+Looking for Treble's back-end was created using Node.js, MySql, Express, NPM, and JavaScript.
 
-Additionally, the application used Spotify's API with authentication powered by OAuth2.
+Additionally, the application used Spotify's API, TicketMaster's API, and the authentication was powered by OAuth2.
 
 ## Mockup
 
-![Good Treble](/assets/images/goodTreble.png)
+![Looking for Treble](/assets/images/goodTreble.png)
 
 ## Resources Used
 
@@ -34,29 +34,26 @@ The Spotify documentation helped developers navigate adding the API to the appli
 Developers consulted Auth0's documentation for connecting users' Spotify account to Good Treble's back-end.  
 [Auth0 Documentation](https://auth0.com/docs/api)
 
-For easy emailing functionality, the Node Mailer docs were a wealth of information.
-[Node Mailer Documentation](https://nodemailer.com/usage/)
+[Boostrap documentation](https://getbootstrap.com/docs/4.0/components/carousel/) helped this project slap!
 
-The sign-in form was inspired by [this tutorial](https://www.youtube.com/watch?v=mUdo6w87rh4) from Traversy Media  which was inspired from [this tutorial](https://codepen.io/FlorinPop17/pen/vPKWjd) from Florin Pop.
+[This page](https://nodejs.org/api/errors.html#common-system-errors) was used when the group faced with Node.JS errors within the sign-up/log-in form.
 
 ## Future Improvements
 
-In the future, Good Treble would like to add in the TicketMaster API to allow users to meet up a local shows.
-
-Similarly, Good Treble would like to add a way for users to message each other.
+In the future, Looking for Treble would like to add a way for users to message each other. This hope is this would help users meet up at live shows IRL and get the word out about smaller musical acts that are not yet on Spotify. 
 
 ---
 
 ## Github url
-You can find Good Treble's GitHub Repository here:
-[Good Treble's GitHub Repository](https://github.com/fvjr/Good-Treble) 
+You can find Looking for Treble's GitHub Repository here:
+[Looking for Treble's GitHub Repository](https://github.com/fvjr/Looking-for-Treble) 
 
 ## Deployed-url
-Good Treble is deployed using Heroku. Check it out!
-[Good Treble's Deployed Link](https:good-treble-heroku)
+Looking for Treble is deployed using Heroku. Check it out!
+[Looking for Treble's Deployed Link](https:looking-for-treble-heroku)
 
 ## License
-Copyright 2022 Fernando Vasquez, David McGinley, & Amy Shafer
+Copyright 2022 Fernando Vasquez, David McGinley, Jerome McClarin, & Amy Shafer
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

@@ -35,7 +35,7 @@ export default function About() {
   return (
     <div className="container-fluid about-page my-2" style={styles.aboutMe}>
       <p style={styles.text}>
-        Good Treble has one goal. We want to help users find events for artists
+        Looking for Treble has one goal. We want to help users find events for artists
         that they love, and make friends with other people who love those same
         artists and events. As music lovers, we know how rewarding it can be to
         see your favorite artist live. We want to simplify the process of
