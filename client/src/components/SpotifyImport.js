@@ -47,7 +47,6 @@ function SpotifyImport() {
 }
 
 function beginImport() {
-  console.log('Attempting to log in');
   var client_id = '0939bba83f154b66900eaa7a37431b3c';
   //var redirect_uri = 'https://good-treble.herokuapp.com/spotify/authorize';
   var redirect_uri = 'http://localhost:3000/spotify';

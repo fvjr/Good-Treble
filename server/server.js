@@ -145,13 +145,21 @@ const startApolloServer = async (typeDefs, resolvers) => {
     app,
   });
 
+  sequelize.sync({
+    force: false
+  }).then(() => {
+    app.listen(PORT, () => {
+      console.log(`Turn up the jams! PORT ${PORT}!`);
+      console.log(
+        `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
+      );
   sequelize
     .sync({
       force: false,
     })
     .then(() => {
       app.listen(PORT, () => {
-        console.log(`API server running on port ${PORT}!`);
+        console.log(`Turn up the jams! PORT ${PORT}!`);
         console.log(
           `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
         );

@@ -6,7 +6,10 @@ const url = require('url');
 const fetch = require('node-fetch');
 require('dotenv').config();
 const router = require('express').Router();
-const { Playlist, User } = require('../../models');
+const {
+  Playlist,
+  User
+} = require('../../models');
 const withAuth = require('../../utils/auth');
 const songdata = require('../../helpers/spotify');
 
@@ -37,15 +40,15 @@ router.get('/', async (req, res) => {
 router.get('/', withAuth, async (req, res) => {
   try {
     const playlistData = await Playlist.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+      include: [{
+        model: User,
+        attributes: ['name'],
+      }, ],
     });
     const playlists = playlistData.map((playlist) =>
-      project.get({ plain: true })
+      project.get({
+        plain: true
+      })
     );
 
     res.render('playlists', {
@@ -59,7 +62,7 @@ router.get('/', withAuth, async (req, res) => {
 
 //log into spotify
 app.post('/login', (req, res, next) => {
-  console.log('Attempting to log in');
+
   var client_id = '0939bba83f154b66900eaa7a37431b3c';
   var redirect_uri = 'http://localhost:3001/authorize';
 
@@ -68,13 +71,13 @@ app.post('/login', (req, res, next) => {
 
   res.redirect(
     'https://accounts.spotify.com/authorize?' +
-      querystring.stringify({
-        response_type: 'code',
-        client_id: client_id,
-        scope: scope,
-        redirect_uri: redirect_uri,
-        state: state,
-      })
+    querystring.stringify({
+      response_type: 'code',
+      client_id: client_id,
+      scope: scope,
+      redirect_uri: redirect_uri,
+      state: state,
+    })
   );
   next();
 });
