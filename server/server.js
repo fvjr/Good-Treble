@@ -143,34 +143,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
-  server.applyMiddleware({
-    app,
-  });
+  server.applyMiddleware({ app });
 
-  sequelize
-    .sync({
-      force: false,
-    })
-    .then(() => {
-      app.listen(PORT, () => {
-        console.log(`Turn up the jams! PORT ${PORT}!`);
-        console.log(
-          `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
-        );
-        sequelize
-          .sync({
-            force: false,
-          })
-          .then(() => {
-            app.listen(PORT, () => {
-              console.log(`Turn up the jams! PORT ${PORT}!`);
-              console.log(
-                `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
-              );
-            });
-          });
-      });
+  sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => {
+      console.log(`API server running on port ${PORT}!`);
+      console.log(
+        `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
+      );
     });
+  });
 };
 
 // Call the async function to start the server
