@@ -7,21 +7,23 @@ const resolvers = {
     users: async () => {
       return await User.findAll();
     },
-    
+
     songs: async () => {
       const songs = await Song.findAll({
-        include: [{
-          model: Artist,
-          required: false,
-        }],
-      }); 
+        include: [
+          {
+            model: Artist,
+            required: false,
+          },
+        ],
+      });
       console.log(songs);
       return await songs;
     },
 
     song: async (parent, args) => {
-      const song = await Song.findOne({ where: { id: args.id }})
-      song.artist_id = await Artist.findOne({ where: { id: song.artist_id}});
+      const song = await Song.findOne({ where: { id: args.id } });
+      song.artist_id = await Artist.findOne({ where: { id: song.artist_id } });
       return song;
     },
 
@@ -29,26 +31,30 @@ const resolvers = {
       const songList = await Song.findAll();
 
       let playlistSongs = await Playlist.findAll();
-      for(playlist of playlistSongs){
+      for (playlist of playlistSongs) {
         playlist.songs = [];
-        for(const song of songList){
-          const validSong = await PlaylistSongs.findOne({ where: { playlist_id: playlist.id, song_id: song.id }});
-          if(validSong){
-            const addSong = await Song.findOne({ where: { id: song.id }});
-            addSong.artist_id = await Artist.findOne({ where: { id: song.artist_id}});
+        for (const song of songList) {
+          const validSong = await PlaylistSongs.findOne({
+            where: { playlist_id: playlist.id, song_id: song.id },
+          });
+          if (validSong) {
+            const addSong = await Song.findOne({ where: { id: song.id } });
+            addSong.artist_id = await Artist.findOne({
+              where: { id: song.artist_id },
+            });
             playlist.songs.push(addSong.dataValues);
           }
-        }  
-      };
+        }
+      }
       return playlistSongs;
     },
-    artists: async() => {
+    artists: async () => {
       return await Artist.findAll();
     },
 
-    artist: async(parent, args) => {
-      return await Artist.findOne({ where: { id: args.id }});
-    }
+    artist: async (parent, args) => {
+      return await Artist.findOne({ where: { id: args.id } });
+    },
   },
 
   Mutation: {
@@ -71,7 +77,7 @@ const resolvers = {
       }
       const validPw = await user.isCorrectPassword(password);
 
-      if (!correctPw) {
+      if (!validPw) {
         throw new AuthenticationError(
           'Incorrect username or password - please try again.'
         );
