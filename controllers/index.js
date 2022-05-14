@@ -5,7 +5,6 @@ const apiRoutes = require('./api');
 const spotify = require('../helpers/spotify-routes');
 
 router.use('/api', apiRoutes);
-router.use('/spotify', spotify);
 router.use('/', homeRoutes);
 
 module.exports = router;
