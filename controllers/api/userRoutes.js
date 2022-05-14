@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User } = require('../../server/models');
 
 //get all users
 //http://localhost:3001/api/users/
